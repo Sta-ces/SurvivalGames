@@ -6,5 +6,7 @@ public class Bullets : MonoBehaviour {
     {
         if (other.gameObject.GetComponent<Enemy>())
             Destroy(other.gameObject);
+
+        Destroy(gameObject);
     }
 }

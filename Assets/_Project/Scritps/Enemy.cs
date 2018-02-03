@@ -5,6 +5,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
 
     public Transform m_Target;
+    [Range(1f, 10f)]
+    public float m_SpeedEnemy = 3.5f;
 
 
     private void Awake()
@@ -13,6 +15,7 @@ public class Enemy : MonoBehaviour {
             m_Target = FindObjectOfType<CharacterControlerGames>().transform;
 
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = m_SpeedEnemy;
     }
 
     private void FixedUpdate()
