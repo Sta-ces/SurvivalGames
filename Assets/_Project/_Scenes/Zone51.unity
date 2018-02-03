@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 162208034}
   - component: {fileID: 162208033}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.557, y: 0, z: 0.57}
   m_LocalScale: {x: 0.18913272, y: 0.15989125, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1663332138}
   m_Father: {fileID: 1804751297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -808,6 +809,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1663332137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1663332138}
+  m_Layer: 0
+  m_Name: SpawnBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1663332138
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1663332137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 162208032}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804751292
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +850,7 @@ GameObject:
   - component: {fileID: 1804751294}
   - component: {fileID: 1804751298}
   - component: {fileID: 1804751293}
+  - component: {fileID: 1804751299}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -923,3 +953,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IDPlayerController: 0
   m_SpeedCharacter: 7
+--- !u!114 &1804751299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804751292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3e1bdf4e581c942bd7128e02de51e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PrefabsBullet: {fileID: 1314644170093374, guid: 7eb4c4201731b0a43a8753995679024a,
+    type: 2}
+  m_LocationSpawnBullet: {fileID: 1663332138}
