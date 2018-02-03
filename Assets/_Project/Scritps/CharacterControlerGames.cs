@@ -7,8 +7,7 @@ public class CharacterControlerGames : MonoBehaviour {
     public int m_IDPlayerController = 0;
     [Range(1f, 10f)]
     public float m_SpeedCharacter = 5f;
-
-
+    
     public static Player PlayerInput;
 
 

@@ -6,7 +6,7 @@ public class Shoots : MonoBehaviour {
     public Transform m_LocationSpawnBullet;
     [Range(1f, 10f)]
     public float m_TimeBulletDestroy = 3f;
-    [Range(5f, 15f)]
+    [Range(5f, 50f)]
     public float m_SpeedBullet = 6f;
 
 
