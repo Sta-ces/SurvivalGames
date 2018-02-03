@@ -1071,7 +1071,7 @@ MonoBehaviour:
     type: 2}
   m_LocationSpawnBullet: {fileID: 1663332138}
   m_TimeBulletDestroy: 3
-  m_SpeedBullet: 15
+  m_SpeedBullet: 30
 --- !u!1001 &2056443381
 Prefab:
   m_ObjectHideFlags: 0
