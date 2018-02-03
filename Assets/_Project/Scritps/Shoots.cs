@@ -9,8 +9,8 @@ public class Shoots : MonoBehaviour {
     [Range(5f, 50f)]
     public float m_SpeedBullet = 6f;
 
-
-    void Update () {
+    
+    private void Update () {
         Shoot();
 	}
 
@@ -19,9 +19,9 @@ public class Shoots : MonoBehaviour {
     {
         if (CharacterControlerGames.PlayerInput.GetButtonDown("Shoot"))
         {
-            GameObject bullet = Instantiate(m_PrefabsBullet,m_LocationSpawnBullet.position,m_LocationSpawnBullet.rotation);
+            GameObject bullet = Instantiate(m_PrefabsBullet, m_LocationSpawnBullet.position, m_LocationSpawnBullet.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * m_SpeedBullet;
-            Destroy(bullet,m_TimeBulletDestroy);
+            Destroy(bullet, m_TimeBulletDestroy);
         }
     }
 }
