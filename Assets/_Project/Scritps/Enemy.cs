@@ -7,11 +7,13 @@ public class Enemy : MonoBehaviour {
     public Transform m_Target;
     [Range(1f, 10f)]
     public float m_SpeedEnemy = 3.5f;
+    
+    public static NavMeshAgent agent;
 
 
     private void Awake()
     {
-        if (m_Target == null)
+        if (m_Target == null && FindObjectOfType<CharacterControlerGames>() != null)
             m_Target = FindObjectOfType<CharacterControlerGames>().transform;
 
         agent = GetComponent<NavMeshAgent>();
@@ -20,7 +22,10 @@ public class Enemy : MonoBehaviour {
 
     private void LateUpdate()
     {
-        MovementToTarget();
+        if(m_Target != null)
+        {
+            MovementToTarget();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,7 +40,4 @@ public class Enemy : MonoBehaviour {
         if(m_Target.gameObject.activeSelf)
             agent.destination = m_Target.position;
     }
-
-
-    private NavMeshAgent agent;
 }

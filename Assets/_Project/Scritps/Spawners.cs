@@ -6,19 +6,21 @@ public class Spawners : MonoBehaviour {
 
     public GameObject m_PrefabsEnemy;
     public float m_SecondsToSpawning = 3;
-    [Range(.1f,.5f)]
-    public float m_DifficultyProgression = .5f;
     public List<Transform> m_Spawners;
 
+    public static float SecondsToSpawn;
+
+
+    private void Awake()
+    {
+        SecondsToSpawn = m_SecondsToSpawning;
+    }
 
     private IEnumerator Start()
     {
-        while (CharacterControlerGames.PlayerCharacter.activeSelf)
+        while (FindObjectOfType<CharacterControlerGames>().gameObject.activeSelf)
         {
-            if (Scoring.Score > 0 && Scoring.Score % 10 == 0 && m_SecondsToSpawning > 1)
-                m_SecondsToSpawning -= m_DifficultyProgression;
-
-            yield return new WaitForSeconds(m_SecondsToSpawning);
+            yield return new WaitForSeconds(SecondsToSpawn);
             int random = Random.Range(0, m_Spawners.Count);
             Instantiate(m_PrefabsEnemy, m_Spawners[random].position, m_Spawners[random].rotation);
         }
