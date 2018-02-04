@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour {
         agent.speed = m_SpeedEnemy;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if(m_Target != null)
         {

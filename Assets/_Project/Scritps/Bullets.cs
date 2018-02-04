@@ -8,6 +8,7 @@ public class Bullets : MonoBehaviour {
         {
             Destroy(other.gameObject);
             Scoring.AddScore(1);
+            GameDifficulty.DifficultyProgression();
         }
 
         Destroy(gameObject);
