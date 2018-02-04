@@ -9,6 +9,7 @@ public class CharacterControlerGames : MonoBehaviour {
     public float m_SpeedCharacter = 5f;
     
     public static Player PlayerInput;
+    public static GameObject PlayerCharacter;
 
 
     private void Awake()
@@ -16,6 +17,7 @@ public class CharacterControlerGames : MonoBehaviour {
         m_rigidbody = GetComponent<Rigidbody>();
         m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         PlayerInput = ReInput.players.GetPlayer(m_IDPlayerController);
+        PlayerCharacter = this.gameObject;
     }
 
     private void FixedUpdate()

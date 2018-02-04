@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
         agent.speed = m_SpeedEnemy;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         MovementToTarget();
     }
@@ -26,13 +26,14 @@ public class Enemy : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == m_Target.gameObject)
-            print("NOM NOM NOM");
+            collision.gameObject.SetActive(false);
     }
 
 
     private void MovementToTarget()
     {
-        agent.destination = m_Target.position;
+        if(m_Target.gameObject.activeSelf)
+            agent.destination = m_Target.position;
     }
 
 
