@@ -11,16 +11,16 @@ public class Enemy : MonoBehaviour {
     public static NavMeshAgent agent;
 
 
-    private void Awake()
+    private void Start()
     {
-        if (m_Target == null && FindObjectOfType<CharacterControlerGames>() != null)
-            m_Target = FindObjectOfType<CharacterControlerGames>().transform;
+        if(FindObjectOfType<CharacterControlerGames>() != null)
+            m_Target = FindObjectOfType<CharacterControlerGames>().transform;    
 
         agent = GetComponent<NavMeshAgent>();
         agent.speed = m_SpeedEnemy;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(m_Target != null)
         {
@@ -38,6 +38,6 @@ public class Enemy : MonoBehaviour {
     private void MovementToTarget()
     {
         if(m_Target.gameObject.activeSelf)
-            agent.destination = m_Target.position;
+            GetComponent<NavMeshAgent>().SetDestination(m_Target.position);
     }
 }

@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DifficultyProgression: 0.5
+  m_MinSecondsSpawn: 2
+  m_MaxSpeedEnemy: 4
 --- !u!4 &485136726
 Transform:
   m_ObjectHideFlags: 0
@@ -911,7 +913,6 @@ GameObject:
   - component: {fileID: 1261307691}
   - component: {fileID: 1261307690}
   - component: {fileID: 1261307689}
-  - component: {fileID: 1261307693}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -975,27 +976,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1261307688}
-  m_LocalRotation: {x: 0.31622782, y: 0, z: 0, w: 0.9486833}
-  m_LocalPosition: {x: 0, y: 6.5, z: -8}
+  m_LocalRotation: {x: 0.35172665, y: 0, z: 0, w: 0.93610275}
+  m_LocalPosition: {x: 0, y: 7.5, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1261307693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1261307688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f58900f37da0e49a5b6aefcf7879c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 1804751297}
-  m_Higher: 6
-  m_Distance: 8
 --- !u!1 &1412900830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,7 +1323,7 @@ GameObject:
   - component: {fileID: 1804751293}
   m_Layer: 9
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
