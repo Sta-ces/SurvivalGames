@@ -10,7 +10,7 @@ public class Bullets : MonoBehaviour {
             Scoring.AddScore(1);
             GameDifficulty.DifficultyProgression();
         }
-
+        
         Destroy(gameObject);
     }
 }
