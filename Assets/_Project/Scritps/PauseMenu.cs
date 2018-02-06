@@ -5,6 +5,8 @@ public class PauseMenu : MonoBehaviour {
 
     public Canvas m_MenuInGame;
 
+    public static bool IsPaused = false;
+
 
     private void Update()
     {
@@ -13,6 +15,8 @@ public class PauseMenu : MonoBehaviour {
             Paused();
         if ( input.GetButtonDown("Cancel") && m_MenuInGame.gameObject.activeSelf )
             Paused();
+
+        IsPaused = m_MenuInGame.gameObject.activeSelf;
     }
 
     private void Paused()

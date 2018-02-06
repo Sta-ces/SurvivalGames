@@ -17,7 +17,7 @@ public class Shoots : MonoBehaviour {
 
     private void Shoot()
     {
-        if (CharacterControlerGames.PlayerInput.GetButtonDown("Shoot"))
+        if (!PauseMenu.IsPaused && CharacterControlerGames.PlayerInput.GetButtonDown("Shoot"))
         {
             GameObject bullet = Instantiate(m_PrefabsBullet, m_LocationSpawnBullet.position, m_LocationSpawnBullet.rotation);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * m_SpeedBullet;
