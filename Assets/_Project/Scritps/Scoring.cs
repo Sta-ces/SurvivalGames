@@ -12,6 +12,11 @@ public class Scoring : MonoBehaviour {
         Score += _addScore;
     }
 
+    public void ResetScore()
+    {
+        Score = 0;
+    }
+
 
     private void LateUpdate()
     {

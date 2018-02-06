@@ -3,6 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class LoadingLevels : MonoBehaviour {
 
+    public void Restart()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        PausedGame();
+    }
+
     public void LoadLevel(string _nameLevel)
     {
         LoadLevel(SceneManager.GetSceneByName(_nameLevel).buildIndex);
