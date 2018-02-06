@@ -29,6 +29,9 @@ public class GameDifficulty : MonoBehaviour {
                     Enemy.agent.speed += DifficultyProgress;
             }
         }
+
+        if (Scoring.Score > 0 && Scoring.Score % 200 == 0)
+            Spawners.MaxNumberEnemyPerSpawn++;
     }
 
 

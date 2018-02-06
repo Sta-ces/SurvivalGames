@@ -1,3 +1,1 @@
 - reload
-- Highscore
-- if(score % 200) Spawn Count = Enemy Spawn
