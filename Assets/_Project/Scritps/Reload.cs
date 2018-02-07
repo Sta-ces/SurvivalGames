@@ -7,6 +7,7 @@ public class Reload : MonoBehaviour {
     [Header("Text Locations")]
     public Text m_TextAmmo;
     public Text m_TextMaxAmmo;
+    public Slider m_SlideTimeReload;
 
     [Header("Informations")]
     [Range(5, 50)]
@@ -15,11 +16,13 @@ public class Reload : MonoBehaviour {
     public float m_TimeReload = 2;
 
     public static int Shoots;
+    public static int MaxAmmo;
     public static bool isShoot = true;
 
     private void Awake()
     {
         Shoots = m_MaxAmmo;
+        MaxAmmo = m_MaxAmmo;
     }
 
     private void Update()

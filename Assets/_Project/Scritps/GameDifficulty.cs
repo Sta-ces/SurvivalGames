@@ -9,6 +9,10 @@ public class GameDifficulty : MonoBehaviour {
     [Range(1, 5)]
     public int m_MaxSpeedEnemy = 5;
 
+    public static int BaseMaxNumberEnemy;
+    public static float BaseSecondToSpawn;
+    public static float BaseSpeedEnemy;
+
     private static float DifficultyProgress;
     private static int MinSecondsSpawn;
     private static int MaxSpeedEnemy;
@@ -40,6 +44,11 @@ public class GameDifficulty : MonoBehaviour {
         DifficultyProgress = m_DifficultyProgression;
         MinSecondsSpawn = m_MinSecondsSpawn;
         MaxSpeedEnemy = m_MaxSpeedEnemy;
+
+        BaseMaxNumberEnemy = Spawners.MaxNumberEnemyPerSpawn;
+        BaseSecondToSpawn = Spawners.SecondsToSpawn;
+        BaseSpeedEnemy = Enemy.SpeedEnemy;
+
         DifficultyProgression();
     }
 }

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     public float m_SpeedEnemy = 3.5f;
     
     public static NavMeshAgent agent;
+    public static float SpeedEnemy;
 
 
     private void Start()
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour {
 
         agent = GetComponent<NavMeshAgent>();
         agent.speed = m_SpeedEnemy;
+        SpeedEnemy = m_SpeedEnemy;
     }
 
     private void Update()

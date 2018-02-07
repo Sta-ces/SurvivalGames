@@ -14,7 +14,7 @@ public class Scoring : MonoBehaviour {
         Score += _addScore;
     }
 
-    public void ResetScore()
+    public static void ResetScore()
     {
         Score = 0;
     }

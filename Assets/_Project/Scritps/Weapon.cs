@@ -25,6 +25,7 @@ public class Weapon : MonoBehaviour {
         laserLineRenderer.endWidth = m_laserWidthEnd;
         laserLineRenderer.SetPosition(1, new Vector3(0f, 0f, m_laserLength));
         laserLineRenderer.material = m_Material;
+        laserLineRenderer.alignment = LineAlignment.View;
     }
 
 
