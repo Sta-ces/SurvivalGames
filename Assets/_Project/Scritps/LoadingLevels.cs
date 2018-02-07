@@ -11,7 +11,7 @@ public class LoadingLevels : MonoBehaviour {
         Spawners.MaxNumberEnemyPerSpawn = GameDifficulty.BaseMaxNumberEnemy;
         Spawners.SecondsToSpawn = GameDifficulty.BaseSecondToSpawn;
         Enemy.agent.speed = GameDifficulty.BaseSpeedEnemy;
-        Reload.Shoots = Reload.MaxAmmo;
+        Reload.Shooting = Reload.MaxAmmo;
         Reload.isShoot = true;
     }
     
