@@ -24,7 +24,7 @@ public class Reload : MonoBehaviour {
 
     private void Update()
     {
-        if (Shoots <= 0)
+        if ( Shoots <= 0 || CharacterControlerGames.PlayerInput.GetButtonDown("Reload") )
             StartCoroutine("Reloading");
 
         DisplayAmmo();

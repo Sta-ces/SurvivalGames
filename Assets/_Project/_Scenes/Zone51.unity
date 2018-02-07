@@ -1354,6 +1354,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 18
+      _name: Reload
+      _type: 1
+      _descriptiveName: Reload
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -1370,7 +1379,7 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 
       - categoryId: 1
-        actionIds: 000000000100000002000000030000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000011000000
+        actionIds: 000000000100000002000000030000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f0000001100000012000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -1573,12 +1582,23 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 18
+        _elementType: 1
+        _elementIdentifierId: 8
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps: []
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 2
-    actionIdCounter: 18
+    actionIdCounter: 19
     actionCategoryIdCounter: 3
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 4
