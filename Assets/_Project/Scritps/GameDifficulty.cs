@@ -30,7 +30,7 @@ public class GameDifficulty : MonoBehaviour {
             }
         }
 
-        if (Scoring.Score > 0 && Scoring.Score % 200 == 0)
+        if (Scoring.Score > 0 && Scoring.Score % 100 == 0)
             Spawners.MaxNumberEnemyPerSpawn++;
     }
 
