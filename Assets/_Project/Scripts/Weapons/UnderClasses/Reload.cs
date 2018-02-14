@@ -2,18 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Reload : MonoBehaviour {
-
-    [Header("Text Locations")]
-    public Text m_TextAmmo;
-    public Text m_TextMaxAmmo;
-    public Slider m_SlideTimeReload;
-
-    [Header("Informations")]
-    [Range(5, 50)]
-    public int m_MaxAmmo = 10;
-    [Range(1, 5)]
-    public float m_TimeReload = 2;
+public class Reload : Weapons {
 
     public static int Shooting;
     public static int MaxAmmo;

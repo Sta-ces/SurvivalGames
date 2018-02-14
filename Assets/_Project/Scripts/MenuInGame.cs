@@ -1,31 +1,24 @@
 ﻿using UnityEngine;
-using Rewired;
 
-public class PauseMenu : MonoBehaviour {
+public class MenuInGame : MonoBehaviour {
 
     public Canvas m_MenuInGame;
     public Canvas m_MenuDeath;
 
-    public static bool IsPaused = false;
-
 
     private void Update()
     {
-        CharacterControlerGames character = FindObjectOfType<CharacterControlerGames>();
-        if ( character != null )
+        if ( CharacterControlerGames.Character != null )
         {
-            Player input = CharacterControlerGames.PlayerInput;
-            if (input.GetButtonDown("Pause"))
+            if (CharacterControlerGames.PlayerInput.GetButtonDown("Pause"))
                 Paused();
-            if (input.GetButtonDown("Cancel") && m_MenuInGame.gameObject.activeSelf)
+            if (CharacterControlerGames.PlayerInput.GetButtonDown("Cancel") && m_MenuInGame.gameObject.activeSelf)
                 Paused();
         }
         else
         {
             DeathMenu();
         }
-
-        IsPaused = m_MenuInGame.gameObject.activeSelf;
     }
 
 
