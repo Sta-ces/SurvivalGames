@@ -193,6 +193,16 @@ Prefab:
       propertyPath: m_Character
       value: 
       objectReference: {fileID: 1804751292}
+    - target: {fileID: 114370527203970204, guid: 7f3c765ecf3eb2b40ad4b67acc09f310,
+        type: 2}
+      propertyPath: m_SpeedBullet
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114370527203970204, guid: 7f3c765ecf3eb2b40ad4b67acc09f310,
+        type: 2}
+      propertyPath: m_TimeLifeBullet
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114009052487094594, guid: 7f3c765ecf3eb2b40ad4b67acc09f310, type: 2}
     - {fileID: 120014836116814594, guid: 7f3c765ecf3eb2b40ad4b67acc09f310, type: 2}
