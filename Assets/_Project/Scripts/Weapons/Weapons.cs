@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
 
@@ -35,11 +36,51 @@ public class Weapons : MonoBehaviour {
     public Material m_Material;
 
 
+    public static int Ammo;
+    public static bool isShoot = true;
+
+
+    public void DisplayAmmo()
+    {
+        m_TextAmmo.text = Ammo.ToString();
+        m_TextMaxAmmo.text = m_MaxAmmo.ToString();
+        m_SlideTimeReload.value = Calcul.PercentageToValue(Ammo,m_MaxAmmo);
+    }
+
+
+    private void Awake(){
+    	Ammo = m_MaxAmmo;
+    }
+
     private void Update(){
     	Player input = CharacterControlerGames.PlayerInput;
 
-    	if( input.GetButtonDown("Shoot") ){
-    		Shoots.Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
-    	}
+    	if( isShoot ){
+	    	if( input.GetButtonDown("Shoot") ){
+	    		Shoot();
+	    		Ammo--;
+	    	}
+
+	    	if( Ammo <= 0 || input.GetButtonDown("Reload") ){
+	    		StartCoroutine("Reloading");
+	    	}
+	    }
+
+    	DisplayAmmo();
+    }
+
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(m_PrefabsBullet, m_LocationSpawnBullet.position, m_LocationSpawnBullet.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * m_SpeedBullet;
+        Destroy(bullet, m_TimeLifeBullet);
+    }
+
+    private IEnumerator Reloading(){
+        isShoot = false;
+        yield return new WaitForSeconds(m_TimeReload);
+        Ammo = m_MaxAmmo;
+        isShoot = true;
     }
 }
