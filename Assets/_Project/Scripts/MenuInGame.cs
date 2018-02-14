@@ -8,7 +8,8 @@ public class MenuInGame : MonoBehaviour {
 
     private void Update()
     {
-        if ( CharacterControlerGames.Character != null )
+        CharacterControlerGames character = FindObjectOfType<CharacterControlerGames>();
+        if ( character != null )
         {
             if (CharacterControlerGames.PlayerInput.GetButtonDown("Pause"))
                 Paused();

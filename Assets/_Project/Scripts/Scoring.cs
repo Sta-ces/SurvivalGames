@@ -19,6 +19,10 @@ public class Scoring : MonoBehaviour {
         Score = 0;
     }
 
+    public void SetScoreReset(){
+        ResetScore();
+    }
+
 
     private void Awake()
     {
@@ -29,21 +33,23 @@ public class Scoring : MonoBehaviour {
 
     private void LateUpdate()
     {
-        DisplayScore();
         if ( Score > Highscore )
             SetHighscore();
+            
+        DisplayScore();
     }
 
 
-    private void DisplayScore()
-    {
-        m_ScoreText.text = Score.ToString();
-    }
 
     private void SetHighscore()
     {
         Highscore = Score;
         PlayerPrefs.SetInt("HighScore", Highscore);
         m_HighScoreText.text = Highscore.ToString();
+    }
+    
+    private void DisplayScore()
+    {
+        m_ScoreText.text = Score.ToString();
     }
 }

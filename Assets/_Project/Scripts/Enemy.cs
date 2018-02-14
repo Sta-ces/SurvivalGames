@@ -8,6 +8,27 @@ public class Enemy : MonoBehaviour {
     public float m_SpeedEnemy = 3.5f;
 
 
+    public void ResetSpeedEnemy(){
+        m_SpeedEnemy = m_baseSpeedEnemy;
+    }
+
+    public float GetSpeedEnemy(){
+        return m_SpeedEnemy;
+    }
+
+    public void SetSpeedEnemy(float _addSpeed){
+        m_SpeedEnemy += _addSpeed;
+    }
+
+    public void GetSpeedEnemy(int _addSpeed){
+        m_SpeedEnemy += _addSpeed;
+    }
+
+
+    private void Awake(){
+        m_baseSpeedEnemy = m_SpeedEnemy;
+    }
+
     private void Start()
     {
         if(m_target == null)
@@ -16,8 +37,6 @@ public class Enemy : MonoBehaviour {
                 m_target = GameObject.FindGameObjectWithTag("Player").transform;
                 if(m_target == null)
                     Debug.LogError("The Target Enemy is not specify");
-
-        GetComponent<NavMeshAgent>().speed = m_SpeedEnemy;
     }
 
     private void Update()
@@ -26,6 +45,8 @@ public class Enemy : MonoBehaviour {
         {
             MovementToTarget();
         }
+
+        GetComponent<NavMeshAgent>().speed = m_SpeedEnemy;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -43,4 +64,5 @@ public class Enemy : MonoBehaviour {
 
 
     private Transform m_target;
+    private float m_baseSpeedEnemy;
 }

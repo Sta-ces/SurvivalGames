@@ -39,6 +39,23 @@ public class Weapons : MonoBehaviour {
     public static int Ammo;
 
 
+    public void ResetAmmo(){
+        Ammo = m_MaxAmmo;
+    }
+
+    public int GetAmmo(){
+        return Ammo;
+    }
+
+    public int GetMaxAmmo(){
+        return m_MaxAmmo;
+    }
+
+    public void SetIsShoot(bool _shoot){
+        isShoot = _shoot;
+    }
+
+
     private void Awake(){
 	    if( isLaser )
 	    	LaserWeapon();
@@ -76,7 +93,7 @@ public class Weapons : MonoBehaviour {
     private IEnumerator Reloading(){
         isShoot = false;
         yield return new WaitForSeconds(m_TimeReload);
-        Ammo = m_MaxAmmo;
+        ResetAmmo();
         isShoot = true;
     }
 
