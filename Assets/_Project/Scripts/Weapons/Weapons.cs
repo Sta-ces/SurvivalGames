@@ -26,7 +26,7 @@ public class Weapons : MonoBehaviour {
     public float m_TimeReload = 2;
 
     [Header("Laser Weapon")]
-    public Transform m_PositionStart;
+    public bool isLaser = true;
     [Range(0f, 10f)]
     public float m_laserWidthStart = 0.01f;
     [Range(0f, 10f)]
@@ -37,18 +37,14 @@ public class Weapons : MonoBehaviour {
 
 
     public static int Ammo;
-    public static bool isShoot = true;
-
-
-    public void DisplayAmmo()
-    {
-        m_TextAmmo.text = Ammo.ToString();
-        m_TextMaxAmmo.text = m_MaxAmmo.ToString();
-        m_SlideTimeReload.value = Calcul.PercentageToValue(Ammo,m_MaxAmmo);
-    }
 
 
     private void Awake(){
+	    if( isLaser )
+	    	LaserWeapon();
+	    else
+	    	GetComponent<LineRenderer>().enabled = false;
+
     	Ammo = m_MaxAmmo;
     }
 
@@ -83,4 +79,27 @@ public class Weapons : MonoBehaviour {
         Ammo = m_MaxAmmo;
         isShoot = true;
     }
+
+    private void LaserWeapon()
+    {
+        laserLineRenderer = GetComponent<LineRenderer>();
+        laserLineRenderer.startWidth = m_laserWidthStart;
+        laserLineRenderer.endWidth = m_laserWidthEnd;
+        Vector3 positionLaser = new Vector3(0, 0, m_laserLength);
+        laserLineRenderer.SetPosition(1, positionLaser);
+        laserLineRenderer.material = m_Material;
+        laserLineRenderer.useWorldSpace = false;
+        laserLineRenderer.alignment = LineAlignment.View;
+    }
+
+    private void DisplayAmmo()
+    {
+        m_TextAmmo.text = Ammo.ToString();
+        m_TextMaxAmmo.text = m_MaxAmmo.ToString();
+        m_SlideTimeReload.value = Calcul.PercentageToValue(Ammo,m_MaxAmmo);
+    }
+
+
+    private LineRenderer laserLineRenderer;
+    private bool isShoot = true;
 }
