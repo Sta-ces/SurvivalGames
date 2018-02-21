@@ -8,6 +8,7 @@ public class Scoring : MonoBehaviour {
 
     public static int Score = 0;
     public static int Highscore = 0;
+    
 
     public static void AddScore(int _addScore)
     {
@@ -17,6 +18,10 @@ public class Scoring : MonoBehaviour {
     public static void ResetScore()
     {
         Score = 0;
+    }
+
+    public void SetScoreReset(){
+        ResetScore();
     }
 
 
@@ -29,21 +34,23 @@ public class Scoring : MonoBehaviour {
 
     private void LateUpdate()
     {
-        DisplayScore();
         if ( Score > Highscore )
             SetHighscore();
+            
+        DisplayScore();
     }
 
 
-    private void DisplayScore()
-    {
-        m_ScoreText.text = Score.ToString();
-    }
 
     private void SetHighscore()
     {
         Highscore = Score;
         PlayerPrefs.SetInt("HighScore", Highscore);
         m_HighScoreText.text = Highscore.ToString();
+    }
+    
+    private void DisplayScore()
+    {
+        m_ScoreText.text = Score.ToString();
     }
 }

@@ -6,13 +6,6 @@ public class LoadingLevels : MonoBehaviour {
     public void Restart()
     {
         LoadLevel(SceneManager.GetActiveScene().buildIndex);
-        PausedGame();
-        Scoring.ResetScore();
-        Spawners.MaxNumberEnemyPerSpawn = GameDifficulty.BaseMaxNumberEnemy;
-        Spawners.SecondsToSpawn = GameDifficulty.BaseSecondToSpawn;
-        Enemy.agent.speed = GameDifficulty.BaseSpeedEnemy;
-        Reload.Shooting = Reload.MaxAmmo;
-        Reload.isShoot = true;
     }
     
     public void LoadLevel(string _nameLevel)
