@@ -8,6 +8,7 @@ public class Scoring : MonoBehaviour {
 
     public static int Score = 0;
     public static int Highscore = 0;
+    
 
     public static void AddScore(int _addScore)
     {

@@ -19,7 +19,8 @@ public class Weapons : MonoBehaviour {
     public Text m_TextMaxAmmo;
     public Slider m_SlideTimeReload;
 
-    [Header("Informations")]
+    [Header("Ammos")]
+    public bool isAmmo = true;
     [Range(5, 50)]
     public int m_MaxAmmo = 10;
     [Range(1, 5)]
@@ -71,10 +72,11 @@ public class Weapons : MonoBehaviour {
     	if( isShoot ){
 	    	if( input.GetButtonDown("Shoot") ){
 	    		Shoot();
-	    		Ammo--;
+                if( isAmmo )
+	    		    Ammo--;
 	    	}
 
-	    	if( Ammo <= 0 || input.GetButtonDown("Reload") ){
+	    	if( isAmmo && ( Ammo <= 0 || input.GetButtonDown("Reload") ) && Ammo < m_MaxAmmo ){
 	    		StartCoroutine("Reloading");
 	    	}
 	    }

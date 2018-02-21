@@ -5,7 +5,7 @@ public class Bullets : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Enemy>())
+        if (other.gameObject.GetComponent<Enemies>())
         {
             Destroy(other.gameObject);
 

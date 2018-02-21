@@ -2,51 +2,38 @@
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : MonoBehaviour {
+public class Enemies : MonoBehaviour {
 
+    [Header("Speed Enemies")]
     [Range(1f, 10f)]
     public float m_SpeedEnemy = 3.5f;
+    
 
-
-    public void ResetSpeedEnemy(){
-        m_SpeedEnemy = m_baseSpeedEnemy;
-    }
-
-    public float GetSpeedEnemy(){
-        return m_SpeedEnemy;
-    }
-
-    public void SetSpeedEnemy(float _addSpeed){
-        m_SpeedEnemy += _addSpeed;
-    }
-
-    public void GetSpeedEnemy(int _addSpeed){
-        m_SpeedEnemy += _addSpeed;
-    }
+    public static Enemy EnemyClass;
 
 
     private void Awake(){
-        m_baseSpeedEnemy = m_SpeedEnemy;
-    }
-
-    private void Start()
-    {
         if(m_target == null)
             m_target = FindObjectOfType<CharacterControlerGames>().transform;
             if(m_target == null)
                 m_target = GameObject.FindGameObjectWithTag("Player").transform;
                 if(m_target == null)
                     Debug.LogError("The Target Enemy is not specify");
+
+        EnemyClass = new Enemy();
+    }
+
+    private void Start()
+    {
+        EnemyClass.SetBaseSpeedEnemy(m_SpeedEnemy);
     }
 
     private void Update()
     {
         if(m_target != null)
-        {
             MovementToTarget();
-        }
 
-        GetComponent<NavMeshAgent>().speed = m_SpeedEnemy;
+        GetComponent<NavMeshAgent>().speed = EnemyClass.GetSpeedEnemy();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -64,5 +51,4 @@ public class Enemy : MonoBehaviour {
 
 
     private Transform m_target;
-    private float m_baseSpeedEnemy;
 }
