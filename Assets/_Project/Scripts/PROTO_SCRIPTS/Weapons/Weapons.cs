@@ -81,7 +81,8 @@ public class Weapons : MonoBehaviour {
 	    	}
 	    }
 
-    	DisplayAmmo();
+	    if( isAmmo )
+    		DisplayAmmo();
     }
 
 

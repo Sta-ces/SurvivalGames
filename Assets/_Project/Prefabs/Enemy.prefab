@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7ca4e8b22f86084468c9a32a069ed8c5, type: 2}
+  - {fileID: 2100000, guid: 91bcbf22a35dab14cafe6e21be41360c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,9 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fb7ef48daec424fb20b09e4f69840d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_scriptCharacterRef: {fileID: 114307399387383370, guid: 7f3c765ecf3eb2b40ad4b67acc09f310,
-    type: 2}
-  m_SpeedEnemy: 3.5
+  m_SpeedEnemy: 4
 --- !u!195 &195234341834613904
 NavMeshAgent:
   m_ObjectHideFlags: 1

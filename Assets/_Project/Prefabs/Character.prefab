@@ -55,9 +55,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4431423949862614}
   - component: {fileID: 33402032843424082}
-  - component: {fileID: 136881668903460548}
+  - component: {fileID: 65849665931809588}
   - component: {fileID: 23347783036651346}
-  - component: {fileID: 114307399387383370}
+  - component: {fileID: 114009269391929554}
   - component: {fileID: 54517954022835882}
   m_Layer: 9
   m_Name: Character
@@ -121,7 +121,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 91bcbf22a35dab14cafe6e21be41360c, type: 2}
+  - {fileID: 2100000, guid: 7aae39c46c3e6ba4fb317218d5ffd574, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 91bcbf22a35dab14cafe6e21be41360c, type: 2}
+  - {fileID: 2100000, guid: 7aae39c46c3e6ba4fb317218d5ffd574, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +216,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114307399387383370
+--- !u!65 &65849665931809588
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728034313561208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114009269391929554
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -224,11 +236,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728034313561208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b32a54b8df676648bca35f0d55612c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 121302c825e10c04f9c24305989f2dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IDPlayerController: 0
-  m_SpeedCharacter: 7
 --- !u!114 &114370527203970204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,7 +258,7 @@ MonoBehaviour:
   m_TextAmmo: {fileID: 0}
   m_TextMaxAmmo: {fileID: 0}
   m_SlideTimeReload: {fileID: 0}
-  isAmmo: 1
+  isAmmo: 0
   m_MaxAmmo: 10
   m_TimeReload: 2
   isLaser: 1
@@ -344,16 +354,3 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!136 &136881668903460548
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1728034313561208}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

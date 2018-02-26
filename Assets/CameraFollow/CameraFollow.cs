@@ -4,6 +4,9 @@ public class CameraFollow : MonoBehaviour {
     
     public Transform m_Target;
 
+    [Header("Is Follow Target ?")]
+    public bool isFollow = true;
+
     [Header("Zoom")]
     [Range(5f, 20f)]
     public float m_Higher = 10f;
@@ -18,7 +21,8 @@ public class CameraFollow : MonoBehaviour {
     public void PositionCamera()
     {
         Vector3 position = new Vector3();
-        position.x = m_Target.position.x;
+        if( isFollow )
+            position.x = m_Target.position.x;
         position.y = m_Target.position.y + m_Higher;
         position.z = m_Target.position.z - m_Distance;
 

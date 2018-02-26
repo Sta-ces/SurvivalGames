@@ -21,6 +21,20 @@ public class SpawnEnemy : MonoBehaviour {
     public static Spawners SpawnersClass;
 
 
+    public IEnumerator StartSpawn(){
+        while (m_CharacterControler.gameObject.activeSelf)
+        {
+            yield return new WaitForSeconds(SpawnersClass.GetSecondsSpawning());
+            int randomNumberEnemy = Random.Range(1, SpawnersClass.GetNumberEnemySpawner() + 1);
+            for(int s = 0; s < randomNumberEnemy; s++)
+            {
+                int random = Random.Range(0, SpawnersClass.GetCountListSpawner());
+                Instantiate(m_PrefabsEnemy, m_ListSpawner[random].position, m_ListSpawner[random].rotation);
+            }
+        }
+    }
+
+
     private void Awake(){
     	if( m_CharacterControler == null )
     		m_CharacterControler = FindObjectOfType<CharacterControlerGames>();
@@ -32,21 +46,12 @@ public class SpawnEnemy : MonoBehaviour {
         SpawnersClass = new Spawners();
     }
 
-    private IEnumerator Start()
+    private void Start()
     {
         SpawnersClass.SetSecondsSpawning(m_SecondsSpawning);
     	SpawnersClass.SetNumberEnemySpawner(m_NumEnemySpawn);
     	SpawnersClass.SetCountListSpawner(m_ListSpawner.Count);
 
-        while (m_CharacterControler.gameObject.activeSelf)
-        {
-            yield return new WaitForSeconds(SpawnersClass.GetSecondsSpawning());
-            int randomNumberEnemy = Random.Range(1, SpawnersClass.GetNumberEnemySpawner() + 1);
-            for(int s = 0; s < randomNumberEnemy; s++)
-            {
-                int random = Random.Range(0, SpawnersClass.GetCountListSpawner());
-                Instantiate(m_PrefabsEnemy, m_ListSpawner[random].position, m_ListSpawner[random].rotation);
-            }
-        }
+        StartCoroutine("StartSpawn");
     }
 }
