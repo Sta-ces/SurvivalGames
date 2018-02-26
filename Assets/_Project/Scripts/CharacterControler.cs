@@ -18,19 +18,17 @@ public class CharacterControler : MonoBehaviour {
 
 	private void Awake()
     {
-        m_rigidbody = GetComponent<Rigidbody>();
-        m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        m_playerInput = ReInput.players.GetPlayer(m_IDPlayerController);
-    }
-
-    private void Start(){
-
     	if( instance != null ){
     		Destroy(instance);
     		return;
     	}
 
     	instance = this;
+
+
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        m_playerInput = ReInput.players.GetPlayer(m_IDPlayerController);
     }
 
     private void FixedUpdate(){
