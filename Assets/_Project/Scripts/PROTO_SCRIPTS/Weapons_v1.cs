@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Rewired;
 
 [RequireComponent(typeof(LineRenderer))]
-public class Weapons : MonoBehaviour {
+public class Weapons_v1 : MonoBehaviour {
 
 	[Header("Bullets")]
     public GameObject m_PrefabsBullet;

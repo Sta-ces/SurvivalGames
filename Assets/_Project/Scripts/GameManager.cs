@@ -5,6 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	void Start() {
-		StartCoroutine(Spawning.instance.StartSpawnEnemy(50));
+		StartCoroutine(Spawning.Instance.StartSpawnEnemy(50));
 	}
 }

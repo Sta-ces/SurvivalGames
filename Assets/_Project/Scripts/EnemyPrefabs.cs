@@ -2,10 +2,7 @@
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyPrefabs : MonoBehaviour {
-
-	public static EnemyPrefabs instance;
-
+public class EnemyPrefabs : Singleton<EnemyPrefabs> {
 
 	public int GetLifeEnemy(){
 		return m_life;
@@ -20,22 +17,15 @@ public class EnemyPrefabs : MonoBehaviour {
 	}
 
 
-	private void Awake() {
-		if( instance != null ){
-			Destroy(instance);
-			return;
-		}
-
-		instance = this;
-
-
-		CreatedEnemies enemy = new CreatedEnemies(Bullets.instance.DamageBullet(), CharacterControler.instance.GetSpeedCharacter());
+	private void Start(){
+		CreatedEnemies enemy = new CreatedEnemies(Bullets.Instance.DamageBullet(), CharacterControler.Instance.GetSpeedCharacter());
 		m_life = enemy.Life;
 		m_speed = enemy.Speed;
 	}
 
 	private void LateUpdate(){
-		GetComponent<NavMeshAgent>().SetDestination(FindObjectOfType<CharacterControler>().transform.position);
+		GetComponent<NavMeshAgent>().speed = m_speed;
+		GetComponent<NavMeshAgent>().SetDestination(CharacterControler.Instance.transform.position);
 	}
 
 

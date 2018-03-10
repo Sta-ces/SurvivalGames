@@ -2,33 +2,29 @@
 using Rewired;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CharacterControler : MonoBehaviour {
+public class CharacterControler : Singleton<CharacterControler> {
 
-	public static CharacterControler instance;
+    public enum e_Player{
+        Player1,
+        Player2
+    }
 
-	public int m_IDPlayerController = 0;
+
+    public e_Player m_Player = e_Player.Player1;
     [Range(1f, 10f)]
     public float m_SpeedCharacter = 5f;
 
 
-    public float GetSpeedCharacter(){
-    	return m_SpeedCharacter;
-    }
+    public Player GetPlayerInput(){ return m_playerInput; }
+    public float GetSpeedCharacter(){ return m_SpeedCharacter; }
 
 
 	private void Awake()
     {
-    	if( instance != null ){
-    		Destroy(instance);
-    		return;
-    	}
-
-    	instance = this;
-
-
         m_rigidbody = GetComponent<Rigidbody>();
         m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        m_playerInput = ReInput.players.GetPlayer(m_IDPlayerController);
+        
+        m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
     }
 
     private void FixedUpdate(){
@@ -36,6 +32,19 @@ public class CharacterControler : MonoBehaviour {
     	Turn();
     }
 
+
+    private int GetIDPlayer(e_Player _player){
+        int idPlayer = 0;
+        switch(_player){
+            case e_Player.Player1:
+                idPlayer = 0; break;
+            case e_Player.Player2:
+                idPlayer = 1; break;
+            default:
+                idPlayer = 0; break;
+        }
+        return idPlayer;
+    }
 
     private void Movement()
     {

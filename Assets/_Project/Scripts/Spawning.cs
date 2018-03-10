@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawning : MonoBehaviour {
-
-	public static Spawning instance;
+public class Spawning : Singleton<Spawning> {
 
 	public GameObject m_RobotsPrefabs;
 	public Transform[] m_Spawners;
@@ -30,15 +28,5 @@ public class Spawning : MonoBehaviour {
 			int random = Random.Range(1, GetCountSpawners());
 			Instantiate(m_RobotsPrefabs, m_Spawners[random].position, m_Spawners[random].rotation);
 		}
-	}
-
-
-	private void Awake(){
-		if( instance != null ){
-			Destroy(instance);
-			return;
-		}
-
-		instance = this;
 	}
 }

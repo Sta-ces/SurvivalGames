@@ -123,3 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254f21dfee066c6489b1efb347a70970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Damage: 10
+  m_TagEnemiesToKill:
+  - Enemy
