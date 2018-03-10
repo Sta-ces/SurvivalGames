@@ -16,12 +16,12 @@ public class Bullets : Singleton<Bullets> {
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        if ( m_TagEnemiesToKill.Contains(other.gameObject.tag) )
+        if ( m_TagEnemiesToKill.Contains(col.gameObject.tag) )
         {
-            if(other.gameObject.GetComponent<EnemyControler>())
-                other.gameObject.GetComponent<EnemyControler>().SetLifeEnemy(m_Damage);
+            if(col.gameObject.GetComponent<EnemyControler>())
+                col.gameObject.GetComponent<EnemyControler>().SetLifeEnemy(m_Damage);
         }
         
         Destroy(gameObject);

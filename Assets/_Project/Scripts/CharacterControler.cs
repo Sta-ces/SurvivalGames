@@ -23,7 +23,7 @@ public class CharacterControler : Singleton<CharacterControler> {
     {
         m_rigidbody = GetComponent<Rigidbody>();
         m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        
+
         m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
     }
 

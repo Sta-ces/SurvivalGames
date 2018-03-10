@@ -24,18 +24,20 @@ public class Spawning : Singleton<Spawning> {
 
 
 	public IEnumerator StartSpawnRobots(int _numMaxEnemy){
-		for(int enemy = 0; enemy < _numMaxEnemy; enemy++){
+		int enemy = 0;
+		while(CharacterControler.Instance.gameObject.activeSelf && enemy < _numMaxEnemy){
 			yield return new WaitForSeconds(m_SecondsToSpawn);
 			int random = Random.Range(1, m_RobotsSpawners.Length);
 			Instantiate(m_RobotsPrefabs, m_RobotsSpawners[random].position, m_RobotsSpawners[random].rotation);
+			enemy++;
 		}
-		
 		isBoss = true;
 	}
 
-	public void SpawnBoss(){
-		Instantiate(m_BossPrefabs, m_BossSpawner.position, m_BossSpawner.rotation);
+	public IEnumerator SpawnBoss(){
 		isBoss = false;
+		yield return new WaitForSeconds(m_SecondsToSpawn);
+		Instantiate(m_BossPrefabs, m_BossSpawner.position, m_BossSpawner.rotation);
 	}
 
 
@@ -47,7 +49,7 @@ public class Spawning : Singleton<Spawning> {
 
 	private void Update(){
 		if( isBoss && GameObject.FindGameObjectsWithTag(m_RobotsPrefabs.tag).Length <= 0 )
-			SpawnBoss();
+			StartCoroutine(SpawnBoss());
 	}
 
 
