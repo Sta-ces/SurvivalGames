@@ -258,7 +258,7 @@ MonoBehaviour:
   m_LocationSpawnBullet: {fileID: 4495701972446046}
   m_TimeLifeBullet: 2
   m_SpeedBullet: 40
-  isAmmo: 1
+  isAmmo: 0
   m_MaxAmmo: 10
   m_TimeReload: 2
 --- !u!114 &114704070243608760

@@ -20,8 +20,8 @@ public class Bullets : Singleton<Bullets> {
     {
         if ( m_TagEnemiesToKill.Contains(other.gameObject.tag) )
         {
-            Destroy(other.gameObject);
-            //HitEnemy(other.gameObject);
+            if(other.gameObject.GetComponent<EnemyControler>())
+                other.gameObject.GetComponent<EnemyControler>().SetLifeEnemy(m_Damage);
         }
         
         Destroy(gameObject);
