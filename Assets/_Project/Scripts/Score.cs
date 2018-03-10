@@ -5,22 +5,20 @@ public class Score : Singleton<Score> {
     public int GetScore(){ return m_score; }
     public int GetHighscore(){ return m_highscore; }
 
-    public void AddScore(int _addScore = 1){ m_score += _addScore; }
-    public void ResetScore(){ m_score = 0; }
-    public void SetHighscore(){ m_highscore = m_score; }
+    public void AddScore(int _addScore = 1){
+        m_score += _addScore;
 
-
-    private void Awake()
-    {
-        m_highscore = PlayerPrefs.GetInt("HighScore");
-    }
-
-    private void LateUpdate()
-    {
         if ( m_score > m_highscore ){
             SetHighscore();
-            PlayerPrefs.SetInt("HighScore", m_highscore);
         }
+    }
+    public void ResetScore(){
+        m_score = 0;
+        m_highscore = PlayerPrefs.GetInt("HighScore");
+    }
+    public void SetHighscore(){
+        m_highscore = m_score;
+        PlayerPrefs.SetInt("HighScore", m_highscore);
     }
 
 

@@ -11,9 +11,8 @@ public class Bullets : Singleton<Bullets> {
     public List<string> m_TagEnemiesToKill;
 
 
-    public int DamageBullet(){
-        return m_Damage;
-    }
+    public int DamageBullet(){ return m_Damage; }
+    public List<string> GetTags(){ return m_TagEnemiesToKill; }
 
 
     private void OnTriggerEnter(Collider col)

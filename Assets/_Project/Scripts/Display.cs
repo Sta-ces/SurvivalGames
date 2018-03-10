@@ -12,15 +12,15 @@ public class Display : Singleton<Display> {
 	public Text m_ScoreText;
 
 
-	public void DisplayGameOver(bool _active){ m_GameOverPanel.SetActive(_active); }
-	public void DisplayScore(int _score){ DisplayScore(_score.ToString()); }
-	public void DisplayScore(string _score){ m_ScoreText.text = _score; }
+	public void SetDisplayGameOver(bool _active){ m_GameOverPanel.SetActive(_active); }
+	public void SetDisplayScore(int _score){ SetDisplayScore(_score.ToString()); }
+	public void SetDisplayScore(string _score){ m_ScoreText.text = _score; }
 
 
 	private void Update(){
 		if( !CharacterControler.Instance.gameObject.activeSelf ){
-			DisplayScore(Score.Instance.GetScore());
-			DisplayGameOver(true);
+			SetDisplayScore(Score.Instance.GetScore());
+			SetDisplayGameOver(true);
 		}
 	}
 }

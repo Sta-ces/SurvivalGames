@@ -10,11 +10,13 @@ public class CharacterControler : Singleton<CharacterControler> {
     }
 
 
+    public Transform m_PlayerSpawner;
     public e_Player m_Player = e_Player.Player1;
     [Range(1f, 10f)]
     public float m_SpeedCharacter = 5f;
 
 
+    public Vector3 GetPlayerSpawner(){ return m_PlayerSpawner.position; }
     public Player GetPlayerInput(){ return m_playerInput; }
     public float GetSpeedCharacter(){ return m_SpeedCharacter; }
 
@@ -25,6 +27,8 @@ public class CharacterControler : Singleton<CharacterControler> {
         m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
+
+        m_PlayerSpawner.position = m_PlayerSpawner == null ? new Vector3(0,1,0) : m_PlayerSpawner.position;
     }
 
     private void FixedUpdate(){

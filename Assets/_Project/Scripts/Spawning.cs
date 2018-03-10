@@ -18,20 +18,23 @@ public class Spawning : Singleton<Spawning> {
 	public float m_SecondsToSpawn = 1f;
 
 
+	public int GetNumberRobots(){ return m_NumberRobots; }
 	public int GetCountSpawners(){ return m_RobotsSpawners.Length; }
 	public float GetSecondsToSpawn(){ return m_SecondsToSpawn; }
 	public Transform[] GetArraySpawners(){ return m_RobotsSpawners; }
 
+	public void SetIsBoss(bool _isBoss){ isBoss = _isBoss; }
 
-	public IEnumerator StartSpawnRobots(int _numMaxEnemy){
+
+	public IEnumerator SpawnRobots(int _numMaxEnemy){
 		int enemy = 0;
 		while(CharacterControler.Instance.gameObject.activeSelf && enemy < _numMaxEnemy){
 			yield return new WaitForSeconds(m_SecondsToSpawn);
 			int random = Random.Range(1, m_RobotsSpawners.Length);
 			Instantiate(m_RobotsPrefabs, m_RobotsSpawners[random].position, m_RobotsSpawners[random].rotation);
 			enemy++;
+			isBoss = enemy >= _numMaxEnemy ? true : false;
 		}
-		isBoss = true;
 	}
 
 	public IEnumerator SpawnBoss(){
@@ -43,8 +46,7 @@ public class Spawning : Singleton<Spawning> {
 
 	private void Start(){
 		if( m_RobotsSpawners.Length > 0 )
-			StartCoroutine(StartSpawnRobots(m_NumberRobots));
-		else Debug.LogError("No Spawner is set.");
+			StartCoroutine(SpawnRobots(m_NumberRobots));
 	}
 
 	private void Update(){

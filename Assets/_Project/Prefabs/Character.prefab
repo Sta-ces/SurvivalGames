@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121302c825e10c04f9c24305989f2dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerSpawner: {fileID: 0}
   m_Player: 0
   m_SpeedCharacter: 10
 --- !u!114 &114570731848242368
