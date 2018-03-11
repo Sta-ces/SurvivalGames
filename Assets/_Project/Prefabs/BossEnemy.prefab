@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23887394425601834}
   - component: {fileID: 114198054745153732}
   - component: {fileID: 195403775655739822}
+  - component: {fileID: 114539151893832428}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Enemy
@@ -110,6 +111,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Life: 1000
   m_Speed: 1
+--- !u!114 &114539151893832428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848378852191118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43efd7668f5dd94fa79a5b64bf25d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &195403775655739822
 NavMeshAgent:
   m_ObjectHideFlags: 1

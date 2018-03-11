@@ -16,26 +16,38 @@ public class CharacterControler : Singleton<CharacterControler> {
     public float m_SpeedCharacter = 5f;
 
 
+    public bool GetActivePlayer(){ return gameObject.activeSelf; }
+
     public Vector3 GetPlayerSpawner(){ return m_PlayerSpawner.position; }
     public Player GetPlayerInput(){ return m_playerInput; }
     public float GetSpeedCharacter(){ return m_SpeedCharacter; }
 
 
-	private void Awake()
-    {
-        m_rigidbody = GetComponent<Rigidbody>();
-        m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
-        m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
-
-        m_PlayerSpawner.position = m_PlayerSpawner == null ? new Vector3(0,1,0) : m_PlayerSpawner.position;
+    private void Start(){
+        SetInfoPlayer();
     }
 
     private void FixedUpdate(){
+        SetInfoPlayer();
     	Movement();
     	Turn();
+        OtherInput();
     }
 
+
+    private void SetInfoPlayer()
+    {
+        if( m_rigidbody == null ){
+            m_rigidbody = GetComponent<Rigidbody>();
+            m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        }
+
+        //if( m_playerInput == null )
+            m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
+
+        if( m_PlayerSpawner == null )
+            m_PlayerSpawner.position = new Vector3(0,1,0);
+    }
 
     private int GetIDPlayer(e_Player _player){
         int idPlayer = 0;
@@ -68,6 +80,13 @@ public class CharacterControler : Singleton<CharacterControler> {
             rotation = Quaternion.LookRotation(new Vector3(m_playerInput.GetAxis("LookX"), 0, m_playerInput.GetAxis("LookZ")));
 
         m_rigidbody.rotation = rotation;
+    }
+
+    private void OtherInput(){
+        if( m_playerInput.GetButtonDown("Pause") ){
+            Display.Instance.SetDisplayPause();
+            Levels.PausedGame();
+        }
     }
 
 

@@ -38,19 +38,17 @@ public class Weapons : Singleton<Weapons> {
     	ResetAmmo();
     }
 
-    private void Update(){
+    private void LateUpdate(){
     	Player input = CharacterControler.Instance.GetPlayerInput();
 
     	if( isShoot ){
 	    	if( input.GetButtonDown("Shoot") ){
 	    		Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
-                if( isAmmo )
-	    		    m_ammo--;
+                if( isAmmo ) m_ammo--;
 	    	}
 
-	    	if( isAmmo && ( m_ammo <= 0 || input.GetButtonDown("Reload") ) && m_ammo < m_MaxAmmo ){
+	    	if( isAmmo && ( m_ammo <= 0 || input.GetButtonDown("Reload") ) && m_ammo < m_MaxAmmo )
 	    		StartCoroutine("Reloading");
-	    	}
 	    }
     }
 

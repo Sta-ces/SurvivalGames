@@ -28,7 +28,7 @@ public class Spawning : Singleton<Spawning> {
 
 	public IEnumerator SpawnRobots(int _numMaxEnemy){
 		int enemy = 0;
-		while(CharacterControler.Instance.gameObject.activeSelf && enemy < _numMaxEnemy){
+		while(CharacterControler.Instance.GetActivePlayer() && enemy < _numMaxEnemy){
 			yield return new WaitForSeconds(m_SecondsToSpawn);
 			int random = Random.Range(1, m_RobotsSpawners.Length);
 			Instantiate(m_RobotsPrefabs, m_RobotsSpawners[random].position, m_RobotsSpawners[random].rotation);
@@ -49,7 +49,7 @@ public class Spawning : Singleton<Spawning> {
 			StartCoroutine(SpawnRobots(m_NumberRobots));
 	}
 
-	private void Update(){
+	private void LateUpdate(){
 		if( isBoss && GameObject.FindGameObjectsWithTag(m_RobotsPrefabs.tag).Length <= 0 )
 			StartCoroutine(SpawnBoss());
 	}

@@ -5,23 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Levels : MonoBehaviour {
 
-	public void Retry(string _levelName){
-		Display.Instance.SetDisplayGameOver(false);
-		Score.Instance.ResetScore();
-		CharacterControler.Instance.transform.position = CharacterControler.Instance.GetPlayerSpawner();
-		CharacterControler.Instance.gameObject.SetActive(true);
-		foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-			Destroy(enemy);
-		Spawning.Instance.SetIsBoss(false);
-		StartCoroutine(Spawning.Instance.SpawnRobots(Spawning.Instance.GetNumberRobots()));
-	}
+	public static void PausedGame(){ Time.timeScale = (Time.timeScale == 1) ? 0 : 1; }
 
+	public void LoadLevelAsync(Object _Level){ LoadLevelAsync(_Level.name); }
+	public void LoadLevelAsync(int _idLevel){ LoadLevelAsync(SceneManager.GetSceneAt(_idLevel).name); }
+	public void LoadLevelAsync(string _nameLevel){ StartCoroutine(LoadLevelAsynchronous(_nameLevel)); }
 
-	private IEnumerator LoadLevelAsync(string _levelName){
-		AsyncOperation async = SceneManager.LoadSceneAsync(_levelName);
+	private IEnumerator LoadLevelAsynchronous(string _nameLevel){
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_nameLevel);
 
-		while(!async.isDone){
-			yield return null;
-		}
+        while (!asyncLoad.isDone)
+        {
+        	print(asyncLoad.progress);
+            yield return null;
+        }
 	}
 }

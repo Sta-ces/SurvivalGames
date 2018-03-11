@@ -28,8 +28,10 @@ public class EnemyControler : Singleton<EnemyControler> {
 	}
 
 	private void OnCollisionEnter(Collision col){
-		if( col.gameObject == CharacterControler.Instance.gameObject )
+		if( col.gameObject == CharacterControler.Instance.gameObject ){
 			col.gameObject.SetActive(false);
+			Display.Instance.CharacterDead();
+		}
 	}
 
 
@@ -37,6 +39,9 @@ public class EnemyControler : Singleton<EnemyControler> {
 		if( m_Life <= 0 ){
 			Destroy(gameObject);
 			Score.Instance.AddScore();
+
+			if(GetComponent<BossKiller>())
+				BossKiller.Instance.BossKilled();
 		}
 	}
 }
