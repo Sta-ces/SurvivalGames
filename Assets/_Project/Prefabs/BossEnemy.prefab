@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23887394425601834}
   - component: {fileID: 114198054745153732}
   - component: {fileID: 195403775655739822}
+  - component: {fileID: 114097223348094946}
   - component: {fileID: 114539151893832428}
   m_Layer: 0
   m_Name: BossEnemy
@@ -98,6 +99,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114097223348094946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848378852191118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c702c56e17d7149a4554c0f1b44809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114198054745153732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Life: 1000
   m_Speed: 1
-  m_GivePieces: 25
+  m_GivePieces: 100
 --- !u!114 &114539151893832428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43efd7668f5dd94fa79a5b64bf25d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LevelToUnlock: 2
 --- !u!195 &195403775655739822
 NavMeshAgent:
   m_ObjectHideFlags: 1
