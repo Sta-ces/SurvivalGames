@@ -20,6 +20,7 @@ public class Display : SimpleSingleton<Display> {
 	public GameObject m_FirstButtonPause;
 
 	[Header("Scoring")]
+	public Text m_Pieces;
 	public Text m_ScoreGameOverText;
 	public Text m_ScoreWinnerText;
 
@@ -39,6 +40,8 @@ public class Display : SimpleSingleton<Display> {
 		if( m_PausePanel.activeSelf )
 			SetFirstSelected( m_FirstButtonPause );
 	}
+	public void SetDisplayPieces(int _pieces){ SetDisplayPieces (_pieces.ToString()); }
+	public void SetDisplayPieces(string _pieces){ m_Pieces.text = _pieces; }
 	public void SetDisplayScore(int _score){ SetDisplayScore(_score.ToString()); }
 	public void SetDisplayScore(string _score){
 		m_ScoreGameOverText.text = _score;
@@ -49,7 +52,12 @@ public class Display : SimpleSingleton<Display> {
 	}
 
 	public void CharacterDead(){
-		SetDisplayScore(Score.Instance.GetScore());
+		SetDisplayPieces(Score.Instance.GetPieces());
 		SetDisplayGameOver(true);
+	}
+
+
+	private void OnEnable(){
+		SetDisplayPieces(Score.Instance.GetPieces());
 	}
 }

@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Life: 1000
   m_Speed: 1
+  m_GivePieces: 25
 --- !u!114 &114539151893832428
 MonoBehaviour:
   m_ObjectHideFlags: 1

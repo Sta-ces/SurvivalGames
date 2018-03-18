@@ -7,6 +7,7 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 	public int m_Life = 10;
 	[Range(1,20)]
 	public float m_Speed = 3.5f;
+	public int m_GivePieces = 25;
 
 
 	public int GetLifeEnemy(){ return m_Life; }
@@ -38,7 +39,8 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 	private void CheckLife(){
 		if( m_Life <= 0 ){
 			Destroy(gameObject);
-			Score.Instance.AddScore();
+			Score.Instance.AddPieces(m_GivePieces);
+			Display.Instance.SetDisplayPieces(Score.Instance.GetPieces());
 
 			if(GetComponent<BossKiller>())
 				BossKiller.Instance.BossKilled();
