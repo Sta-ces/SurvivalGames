@@ -16,19 +16,45 @@ public class Boss : MonoBehaviour {
 	[Header("Points Attacks")]
 	public List<Transform> m_PointsAttacks;
 
+	public int GetLifeEnemy(){ return m_Life; }
+	public float GetSpeedEnemy(){ return m_Speed; }
+
+	public void SetLifeEnemy(int _damage){ m_Life -= _damage; }
+	public void SetSpeedEnemy(float _speed){ m_Speed += _speed; }
+
+	[Header("Boss Killed")]
+	public int m_LevelToUnlock;
+
+
+	public virtual void Attack(){}
+
 
 	private void LateUpdate(){
 		GetComponent<NavMeshAgent>().speed = m_Speed;
 
-		if (!isAttack)
-			if (m_destination == null || Vector3.Distance(transform.position, m_destination.position) - transform.lossyScale.x <= 1)
-				StartCoroutine("AttackBoss");
+		if (CharacterControler.Instance.gameObject.activeSelf) {
+			if (!isAttack)
+				if (m_destination == null || Vector3.Distance (transform.position, m_destination.position) - (transform.lossyScale.x * 2) <= 1)
+					StartCoroutine ("AttackBoss");
 
-		if (isAttack && CharacterControler.Instance.transform != null){
-			CharacterControler character = CharacterControler.Instance;
-			Vector3 charPos = character.transform.position;
-			Vector3 look = new Vector3(charPos.x,transform.position.y,charPos.z);
-			transform.LookAt(look);
+			if (isAttack && CharacterControler.Instance.transform != null) {
+				CharacterControler character = CharacterControler.Instance;
+				Vector3 charPos = character.transform.position;
+				Vector3 look = new Vector3 (charPos.x, transform.position.y, charPos.z);
+				transform.LookAt (look);
+			}
+		}else{
+			isAttack = false;
+			GetComponent<NavMeshAgent>().destination = transform.position;
+		}
+
+		CheckLife();
+	}
+
+	private void OnCollisionEnter(Collision col){
+		if( col.gameObject == CharacterControler.Instance.gameObject ){
+			col.gameObject.SetActive(false);
+			Display.Instance.CharacterDead();
 		}
 	}
 
@@ -44,13 +70,28 @@ public class Boss : MonoBehaviour {
 		int attack = 0;
 		while (attack <= m_TimeAttack) {
 			yield return new WaitForSeconds(1);
-			print("ATTACK");
+			Attack();
 			attack++;
 		}
 
 		MoveBoss();
 
 		isAttack = false;
+	}
+
+	private void CheckLife(){
+		if( m_Life <= 0 ){
+			Destroy(gameObject);
+			Score.Instance.AddPieces(m_GivePieces);
+			Display.Instance.SetDisplayPieces(Score.Instance.GetPieces());
+			BossKilled();
+		}
+	}
+
+	private void BossKilled(){
+		Levels.Instance.PauseGame();
+		Display.Instance.SetDisplayWinner(true);
+		Levels.Instance.SetLevelsAdventure(m_LevelToUnlock);
 	}
 
 	private Transform m_destination;

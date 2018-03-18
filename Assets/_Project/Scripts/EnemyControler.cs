@@ -34,16 +34,13 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 			Display.Instance.CharacterDead();
 		}
 	}
-
+		
 
 	private void CheckLife(){
 		if( m_Life <= 0 ){
 			Destroy(gameObject);
 			Score.Instance.AddPieces(m_GivePieces);
 			Display.Instance.SetDisplayPieces(Score.Instance.GetPieces());
-
-			if(GetComponent<BossKiller>())
-				BossKiller.Instance.BossKilled();
 		}
 	}
 }

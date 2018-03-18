@@ -122,7 +122,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7aae39c46c3e6ba4fb317218d5ffd574, type: 2}
+  - {fileID: 2100000, guid: 269851f71af102b4e93eeeba4e2b5705, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,7 +156,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7aae39c46c3e6ba4fb317218d5ffd574, type: 2}
+  - {fileID: 2100000, guid: 269851f71af102b4e93eeeba4e2b5705, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -257,8 +257,8 @@ MonoBehaviour:
   m_PrefabsBullet: {fileID: 1314644170093374, guid: 7eb4c4201731b0a43a8753995679024a,
     type: 2}
   m_LocationSpawnBullet: {fileID: 4495701972446046}
-  m_TimeLifeBullet: 2
-  m_SpeedBullet: 40
+  m_TimeLifeBullet: 3
+  m_SpeedBullet: 35
   isAmmo: 0
   m_MaxAmmo: 10
   m_TimeReload: 2

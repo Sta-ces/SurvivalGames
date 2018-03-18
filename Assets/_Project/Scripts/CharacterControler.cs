@@ -11,7 +11,6 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     }
 
 
-    public Transform m_PlayerSpawner;
     public e_Player m_Player = e_Player.Player1;
     [Range(1f, 10f)]
     public float m_SpeedCharacter = 5f;
@@ -19,7 +18,6 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 
     public bool GetActivePlayer(){ return gameObject.activeSelf; }
 
-    public Vector3 GetPlayerSpawner(){ return m_PlayerSpawner.position; }
     public Player GetPlayerInput(){ return m_playerInput; }
     public float GetSpeedCharacter(){ return m_SpeedCharacter; }
 
@@ -46,9 +44,6 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
         }
 
         m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
-
-        if( m_PlayerSpawner == null )
-            m_PlayerSpawner.position = new Vector3(0,1,0);
     }
 
     private int GetIDPlayer(e_Player _player){

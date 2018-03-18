@@ -6,7 +6,6 @@ public class Spawning : SimpleSingleton<Spawning> {
 
 	[Header("Boss")]
 	public GameObject m_BossPrefabs;
-	public Transform m_BossSpawner;
 
 	[Header("Robots")]
 	public GameObject m_RobotsPrefabs;
@@ -40,7 +39,7 @@ public class Spawning : SimpleSingleton<Spawning> {
 	public IEnumerator SpawnBoss(){
 		isBoss = false;
 		yield return new WaitForSeconds(m_SecondsToSpawn);
-		Instantiate(m_BossPrefabs, m_BossSpawner.position, m_BossSpawner.rotation);
+		m_BossPrefabs.SetActive(true);
 	}
 
 

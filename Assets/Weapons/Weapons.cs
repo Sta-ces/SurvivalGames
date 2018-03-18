@@ -2,7 +2,7 @@
 using UnityEngine;
 using Rewired;
 
-public class Weapons : Singleton<Weapons> {
+public class Weapons : SimpleSingleton<Weapons> {
 
 	[Header("Bullets")]
     public GameObject m_PrefabsBullet;
@@ -32,6 +32,13 @@ public class Weapons : Singleton<Weapons> {
     public void SetIsShoot(bool _isshoot){
         isShoot = _isshoot;
     }
+		
+	public void Shoot(GameObject _prefabs, Transform _position, float _speed = 5f, float _timeDestroy = 3f)
+	{
+		GameObject bullet = Instantiate(_prefabs, _position.position, _position.rotation);
+		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * _speed;
+		Destroy(bullet, _timeDestroy);
+	}
 
 
     private void Awake(){
@@ -52,13 +59,6 @@ public class Weapons : Singleton<Weapons> {
 	    }
     }
 
-
-    private void Shoot(GameObject _prefabs, Transform _position, float _speed = 5f, float _timeDestroy = 3f)
-    {
-        GameObject bullet = Instantiate(_prefabs, _position.position, _position.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * _speed;
-        Destroy(bullet, _timeDestroy);
-    }
 
     private IEnumerator Reloading(){
         isShoot = false;

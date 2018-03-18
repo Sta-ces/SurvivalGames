@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Bullets : Singleton<Bullets> {
+public class Bullets : SimpleSingleton<Bullets> {
 
     [Range(1, 50)]
     public int m_Damage = 10;
@@ -21,6 +21,9 @@ public class Bullets : Singleton<Bullets> {
         {
             if(col.gameObject.GetComponent<EnemyControler>())
                 col.gameObject.GetComponent<EnemyControler>().SetLifeEnemy(m_Damage);
+
+			if (col.gameObject.GetComponent<Boss>())
+				col.gameObject.GetComponent<Boss>().SetLifeEnemy(m_Damage);
         }
         
         Destroy(gameObject);
