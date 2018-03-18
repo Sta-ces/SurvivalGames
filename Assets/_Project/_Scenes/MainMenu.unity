@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 401193549}
   - component: {fileID: 401193548}
   - component: {fileID: 401193547}
+  - component: {fileID: 401193550}
   m_Layer: 5
   m_Name: Levels
   m_TagString: Untagged
@@ -209,6 +210,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401193545}
+--- !u!114 &401193550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401193545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e25d19f0079f4947867e9a6ca34a00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Levels:
+  - {fileID: 1807658776}
+  - {fileID: 1376774890}
+  - {fileID: 2129276040}
+  - {fileID: 402463213}
+  - {fileID: 1675827576}
 --- !u!1 &402463211
 GameObject:
   m_ObjectHideFlags: 0

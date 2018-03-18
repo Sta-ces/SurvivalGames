@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Levels : SimpleSingleton<Levels> {
 
+	public int GetLevelsAdventure(){ return PlayerPrefs.GetInt("Levels", 1); }
+	public void SetLevelsAdventure(int _levelsAdventure){
+		PlayerPrefs.SetInt("Levels", _levelsAdventure);
+	}
+
 	public void PauseGame(){ Time.timeScale = (Time.timeScale == 1) ? 0 : 1; }
 
 	public void QuitGame(){ Application.Quit(); }

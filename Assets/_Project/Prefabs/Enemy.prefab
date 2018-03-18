@@ -118,7 +118,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100002, guid: cb26b6a1496c6a642b0f233dc42759a6, type: 3}
+  - {fileID: 2100000, guid: 1a589eb2acea11a45b14cb1333941808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Life: 10
   m_Speed: 7.5
+  m_GivePieces: 25
 --- !u!195 &195234341834613904
 NavMeshAgent:
   m_ObjectHideFlags: 1
