@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class EnemyControler : Singleton<EnemyControler> {
+public class EnemyControler : SimpleSingleton<EnemyControler> {
 
 	public int m_Life = 10;
 	[Range(1,20)]

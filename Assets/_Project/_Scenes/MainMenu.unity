@@ -320,6 +320,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402463211}
+--- !u!1 &423777585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 423777587}
+  - component: {fileID: 423777586}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &423777586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423777585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97b0e03e01d5ac4089b04c9c3aa20ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &423777587
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423777585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &484680560
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,8 +640,8 @@ MonoBehaviour:
       _name: DPADLEFT
       _type: 0
       _descriptiveName: DPADLEFT
-      _positiveDescriptiveName: LEFT
-      _negativeDescriptiveName: RIGHT
+      _positiveDescriptiveName: RIGHT
+      _negativeDescriptiveName: LEFT
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -795,7 +835,7 @@ MonoBehaviour:
         _elementIdentifierId: 19
         _axisRange: 0
         _invert: 0
-        _axisContribution: 0
+        _axisContribution: 1
         _keyboardKeyCode: 0
         _modifierKey1: 0
         _modifierKey2: 0
@@ -806,7 +846,7 @@ MonoBehaviour:
         _elementIdentifierId: 17
         _axisRange: 0
         _invert: 0
-        _axisContribution: 1
+        _axisContribution: 0
         _keyboardKeyCode: 0
         _modifierKey1: 0
         _modifierKey2: 0
@@ -877,46 +917,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &512909971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 512909973}
-  - component: {fileID: 512909972}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &512909972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 512909971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a97b0e03e01d5ac4089b04c9c3aa20ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &512909973
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 512909971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 537.5, y: 313.648, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624137264
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,8 +950,8 @@ MonoBehaviour:
   rewiredPlayerIds: 00000000
   usePlayingPlayersOnly: 1
   moveOneElementPerAxisPress: 1
-  m_HorizontalAxis: MoveX
-  m_VerticalAxis: MoveZ
+  m_HorizontalAxis: DPADLEFT
+  m_VerticalAxis: DPADUP
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 4.5
@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512909972}
+      - m_Target: {fileID: 423777586}
         m_MethodName: LoadLevelAsync
         m_Mode: 2
         m_Arguments:
@@ -1767,7 +1767,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512909972}
+      - m_Target: {fileID: 423777586}
         m_MethodName: LoadLevelAsync
         m_Mode: 2
         m_Arguments:

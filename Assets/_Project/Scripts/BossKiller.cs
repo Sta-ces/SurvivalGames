@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class BossKiller : Singleton<BossKiller> {
+public class BossKiller : SimpleSingleton<BossKiller> {
 
 
 	public void BossKilled(){
+		Levels.Instance.PauseGame ();
 		Display.Instance.SetDisplayWinner(true);
 	}
 }

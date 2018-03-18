@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Levels : MonoBehaviour {
+public class Levels : SimpleSingleton<Levels> {
 
-	public static void PausedGame(){ Time.timeScale = (Time.timeScale == 1) ? 0 : 1; }
+	public void PauseGame(){ Time.timeScale = (Time.timeScale == 1) ? 0 : 1; }
 
 	public void LoadLevelAsync(Object _Level){ LoadLevelAsync(_Level.name); }
 	public void LoadLevelAsync(int _idLevel){ LoadLevelAsync(SceneManager.GetSceneAt(_idLevel).name); }

@@ -2,7 +2,8 @@
 using Rewired;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CharacterControler : Singleton<CharacterControler> {
+public class CharacterControler : SimpleSingleton<CharacterControler> {
+
 
     public enum e_Player{
         Player1,
@@ -27,11 +28,13 @@ public class CharacterControler : Singleton<CharacterControler> {
         SetInfoPlayer();
     }
 
+	private void Update(){
+		OtherInput();
+	}
+
     private void FixedUpdate(){
-        SetInfoPlayer();
     	Movement();
     	Turn();
-        OtherInput();
     }
 
 
@@ -42,8 +45,7 @@ public class CharacterControler : Singleton<CharacterControler> {
             m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
-        //if( m_playerInput == null )
-            m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
+        m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
 
         if( m_PlayerSpawner == null )
             m_PlayerSpawner.position = new Vector3(0,1,0);
@@ -85,7 +87,7 @@ public class CharacterControler : Singleton<CharacterControler> {
     private void OtherInput(){
         if( m_playerInput.GetButtonDown("Pause") ){
             Display.Instance.SetDisplayPause();
-            Levels.PausedGame();
+            Levels.Instance.PauseGame();
         }
     }
 

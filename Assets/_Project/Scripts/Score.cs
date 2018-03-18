@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Score : Singleton<Score> {
+public class Score : SimpleSingleton<Score> {
 
     public int GetScore(){ return m_score; }
     public int GetHighscore(){ return m_highscore; }

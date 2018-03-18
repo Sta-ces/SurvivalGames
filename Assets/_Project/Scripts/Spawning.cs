@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawning : Singleton<Spawning> {
+public class Spawning : SimpleSingleton<Spawning> {
 
 	[Header("Boss")]
 	public GameObject m_BossPrefabs;
