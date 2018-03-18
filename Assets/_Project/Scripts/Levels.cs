@@ -7,6 +7,7 @@ public class Levels : SimpleSingleton<Levels> {
 
 	public void PauseGame(){ Time.timeScale = (Time.timeScale == 1) ? 0 : 1; }
 
+	public void QuitGame(){ Application.Quit(); }
 	public void LoadLevelAsync(Object _Level){ LoadLevelAsync(_Level.name); }
 	public void LoadLevelAsync(int _idLevel){ LoadLevelAsync(SceneManager.GetSceneAt(_idLevel).name); }
 	public void LoadLevelAsync(string _nameLevel){ StartCoroutine(LoadLevelAsynchronous(_nameLevel)); }
