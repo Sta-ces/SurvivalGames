@@ -7,5 +7,6 @@ public class BulletBoss : MonoBehaviour {
 			col.gameObject.SetActive(false);
 			Display.Instance.CharacterDead();
 		}
+		Destroy(gameObject);
 	}
 }

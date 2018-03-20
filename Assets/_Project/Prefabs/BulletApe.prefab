@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23912182269701048}
   - component: {fileID: 54429407589278816}
   - component: {fileID: 114427294304092544}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BulletApe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
