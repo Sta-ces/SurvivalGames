@@ -19,6 +19,8 @@ public class Weapons : SimpleSingleton<Weapons> {
     [Range(1, 5)]
     public float m_TimeReload = 2;
 
+    public AudioSource m_Sounds;
+
 
     public bool GetIsAmmo(){ return isAmmo; }
     public int GetAmmo(){ return m_ammo; }
@@ -52,6 +54,8 @@ public class Weapons : SimpleSingleton<Weapons> {
 	    	if( input.GetButtonDown("Shoot") ){
 	    		Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
                 if( isAmmo ) m_ammo--;
+
+                if( GetComponent<AudioSource>() ) GetComponent<AudioSource>().Play();
 	    	}
 
 	    	if( isAmmo && ( m_ammo <= 0 || input.GetButtonDown("Reload") ) && m_ammo < m_MaxAmmo )

@@ -30,6 +30,7 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 
 	private void OnCollisionEnter(Collision col){
 		if( col.gameObject == CharacterControler.Instance.gameObject ){
+			col.gameObject.GetComponent<Sounds>().PlaySounds(col.gameObject.GetComponent<Sounds>().GetDeathSound());
 			col.gameObject.SetActive(false);
 			Display.Instance.CharacterDead();
 		}
