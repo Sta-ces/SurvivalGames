@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -9,39 +10,40 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 	public float m_Speed = 3.5f;
 	public int m_GivePieces = 25;
 
+	[Header("Death")]
+	public UnityEvent Death;
 
-	public int GetLifeEnemy(){ return m_Life; }
-	public float GetSpeedEnemy(){ return m_Speed; }
 
-	public void SetLifeEnemy(int _damage){ m_Life -= _damage; }
-	public void SetSpeedEnemy(float _speed){ m_Speed += _speed; }
+	public int LifeEnemy{
+		get{ return m_Life; }
+		set{ m_Life -= value; }
+	}
+
+	public float SpeedEnemy{
+		get{ return m_Speed; }
+		set{ m_Speed += value; }
+	}
 
 
 	private void LateUpdate(){
-		GetComponent<NavMeshAgent>().speed = m_Speed;
+		GetComponent<NavMeshAgent>().speed = EnemyControler.Instance.SpeedEnemy;
 
-		if( CharacterControler.Instance.gameObject.activeSelf )
+		if( !CharacterControler.Instance.DeathPlayer )
 			GetComponent<NavMeshAgent>().SetDestination(CharacterControler.Instance.transform.position);
 		else
 			GetComponent<NavMeshAgent>().SetDestination(transform.position);
 
 		CheckLife();
 	}
-
-	private void OnCollisionEnter(Collision col){
-		if( col.gameObject == CharacterControler.Instance.gameObject ){
-			col.gameObject.GetComponent<Sounds>().PlaySounds(col.gameObject.GetComponent<Sounds>().GetDeathSound());
-			col.gameObject.SetActive(false);
-			Display.Instance.CharacterDead();
-		}
-	}
 		
 
 	private void CheckLife(){
 		if( m_Life <= 0 ){
+			Death.Invoke();
 			Destroy(gameObject);
 			Score.Instance.AddPieces(m_GivePieces);
-			Display.Instance.SetDisplayPieces(Score.Instance.GetPieces());
+			Score.Instance.AddScore();
+			Display.Instance.DisplayAllScoring();
 		}
 	}
 }

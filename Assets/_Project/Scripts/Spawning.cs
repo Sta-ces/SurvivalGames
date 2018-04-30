@@ -1,58 +1,78 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawning : SimpleSingleton<Spawning> {
 
 	[Header("Boss")]
 	public GameObject m_BossPrefabs;
+	public Transform m_BossSpawners;
 
 	[Header("Robots")]
 	public GameObject m_RobotsPrefabs;
 	public Transform[] m_RobotsSpawners;
 
 	[Header("Enemy Wave")]
+	public bool Infinite = false;
 	public int m_NumberRobots = 50;
 	[Range(0.1f, 10f)]
 	public float m_SecondsToSpawn = 1f;
 
+	[Header("Active Boss")]
+	public UnityEvent ActivateBoss;
 
-	public int GetNumberRobots(){ return m_NumberRobots; }
-	public int GetCountSpawners(){ return m_RobotsSpawners.Length; }
-	public float GetSecondsToSpawn(){ return m_SecondsToSpawn; }
-	public Transform[] GetArraySpawners(){ return m_RobotsSpawners; }
 
-	public void SetIsBoss(bool _isBoss){ isBoss = _isBoss; }
+	public int GetNumberRobots{
+		get{ return m_NumberRobots; }
+		set{ m_NumberRobots = value; }
+	}
+
+	public int GetCountSpawners{
+		get{ return m_RobotsSpawners.Length; }
+	}
+
+	public float GetSecondsToSpawn{
+		get{ return m_SecondsToSpawn; }
+		set{ m_SecondsToSpawn = value; }
+	}
+
+	public Transform[] GetArraySpawners{
+		get{ return m_RobotsSpawners; }
+	}
+
+	private bool isBoss = false;
+	public bool IsBoss {
+		get{ return isBoss; }
+		set{ isBoss = value; }
+	}
 
 
 	public IEnumerator SpawnRobots(int _numMaxEnemy){
 		int enemy = 0;
-		while(CharacterControler.Instance.GetActivePlayer() && enemy < _numMaxEnemy){
-			yield return new WaitForSeconds(m_SecondsToSpawn);
-			int random = Random.Range(1, m_RobotsSpawners.Length);
-			Instantiate(m_RobotsPrefabs, m_RobotsSpawners[random].position, m_RobotsSpawners[random].rotation);
-			enemy++;
-			isBoss = enemy >= _numMaxEnemy ? true : false;
+		while(!CharacterControler.Instance.DeathPlayer && enemy < _numMaxEnemy){
+			yield return new WaitForSeconds(Spawning.Instance.GetSecondsToSpawn);
+			int random = Random.Range(1, Spawning.Instance.GetCountSpawners);
+			Instantiate(m_RobotsPrefabs, Spawning.Instance.GetArraySpawners[random].position, Spawning.Instance.GetArraySpawners[random].rotation);
+			if(!Infinite) enemy++;
+			Spawning.Instance.IsBoss = enemy >= _numMaxEnemy ? true : false;
 		}
 	}
 
 	public IEnumerator SpawnBoss(){
-		isBoss = false;
-		yield return new WaitForSeconds(m_SecondsToSpawn);
-		m_BossPrefabs.SetActive(true);
+		Spawning.Instance.IsBoss = false;
+		yield return new WaitForSeconds(Spawning.Instance.GetSecondsToSpawn);
+		ActivateBoss.Invoke();
 	}
 
 
 	private void Start(){
-		if( m_RobotsSpawners.Length > 0 )
-			StartCoroutine(SpawnRobots(m_NumberRobots));
+		if (Spawning.Instance.GetCountSpawners > 0)
+			StartCoroutine(SpawnRobots (Spawning.Instance.GetNumberRobots));
 	}
 
 	private void LateUpdate(){
-		if( isBoss && GameObject.FindGameObjectsWithTag(m_RobotsPrefabs.tag).Length <= 0 )
+		if( Spawning.Instance.IsBoss && GameObject.FindGameObjectsWithTag(m_RobotsPrefabs.tag).Length <= 0 )
 			StartCoroutine(SpawnBoss());
 	}
-
-
-	private bool isBoss = false;
 }

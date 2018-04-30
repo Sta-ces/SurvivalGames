@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Boss : MonoBehaviour {
+public class Boss : SimpleSingleton<Boss> {
 
 	[Header("Info Boss")]
 	public int m_Life = 1000;
@@ -16,23 +17,30 @@ public class Boss : MonoBehaviour {
 	[Header("Points Attacks")]
 	public List<Transform> m_PointsAttacks;
 
-	public int GetLifeEnemy(){ return m_Life; }
-	public float GetSpeedEnemy(){ return m_Speed; }
+	public int LifeEnemy{
+		get{ return m_Life; }
+		set{ m_Life -= value; }
+	}
+	public float SpeedEnemy{
+		get{ return m_Speed; }
+		set{ m_Speed += value; }
+	}
 
-	public void SetLifeEnemy(int _damage){ m_Life -= _damage; }
-	public void SetSpeedEnemy(float _speed){ m_Speed += _speed; }
+	[Header("Boss Hited")]
+	public UnityEvent BossHit;
 
 	[Header("Boss Killed")]
 	public int m_LevelToUnlock;
+	public UnityEvent BossDeath;
 
 
 	public virtual void Attack(){}
 
 
 	private void LateUpdate(){
-		GetComponent<NavMeshAgent>().speed = m_Speed;
+		GetComponent<NavMeshAgent>().speed = Boss.Instance.SpeedEnemy;
 
-		if (CharacterControler.Instance.gameObject.activeSelf) {
+		if ( !CharacterControler.Instance.DeathPlayer ) {
 			if (!isAttack)
 				if (m_destination == null || Vector3.Distance (transform.position, m_destination.position) - (transform.lossyScale.x * 2) <= 1)
 					StartCoroutine ("AttackBoss");
@@ -49,13 +57,6 @@ public class Boss : MonoBehaviour {
 		}
 
 		CheckLife();
-	}
-
-	private void OnCollisionEnter(Collision col){
-		if( col.gameObject == CharacterControler.Instance.gameObject ){
-			col.gameObject.SetActive(false);
-			Display.Instance.CharacterDead();
-		}
 	}
 
 
@@ -80,18 +81,13 @@ public class Boss : MonoBehaviour {
 	}
 
 	private void CheckLife(){
-		if( m_Life <= 0 ){
-			Destroy(gameObject);
+		if (m_Life <= 0) {
+			BossDeath.Invoke ();
+			Destroy (gameObject);
 			Score.Instance.AddPieces(m_GivePieces);
-			Display.Instance.SetDisplayPieces(Score.Instance.GetPieces());
-			BossKilled();
+			Score.Instance.AddScore();
+			Display.Instance.DisplayAllScoring();
 		}
-	}
-
-	private void BossKilled(){
-		Levels.Instance.PauseGame();
-		Display.Instance.SetDisplayWinner(true);
-		Levels.Instance.SetLevelsAdventure(m_LevelToUnlock);
 	}
 
 	private Transform m_destination;

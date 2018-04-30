@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Rewired;
 
 public class Weapons : SimpleSingleton<Weapons> {
@@ -19,26 +20,50 @@ public class Weapons : SimpleSingleton<Weapons> {
     [Range(1, 5)]
     public float m_TimeReload = 2;
 
-    public AudioSource m_Sounds;
+	[Header("Shoot")]
+	public UnityEvent WeaponsShoot;
 
 
-    public bool GetIsAmmo(){ return isAmmo; }
-    public int GetAmmo(){ return m_ammo; }
-    public int GetMaxAmmo(){ return m_MaxAmmo; }
-    public float GetTimeReload(){ return m_TimeReload; }
+    public bool IsAmmo{
+		get{ return isAmmo; }
+		set{ isAmmo = value; }
+	}
 
-    public void ResetAmmo(){
-        m_ammo = m_MaxAmmo;
-    }
+	private int m_ammo;
+    public int GetAmmo{ 
+		get{ return m_ammo; }
+		set{ m_ammo = value; }
+	}
 
-    public void SetIsShoot(bool _isshoot){
-        isShoot = _isshoot;
-    }
-		
+    public int GetMaxAmmo{
+		get{ return m_MaxAmmo; }
+		set{ m_MaxAmmo = value; }
+	}
+
+    public float GetTimeReload {
+		get{ return m_TimeReload; }
+		set{ m_TimeReload = value; }
+	}
+
+	private bool isShoot = true;
+    public bool IsShoot{
+		get{ return isShoot; }
+		set{ isShoot = value; }
+	}
+
+	public void ResetAmmo(){
+		Weapons.Instance.GetAmmo = Weapons.Instance.GetMaxAmmo;
+	}
+
 	public void Shoot(GameObject _prefabs, Transform _position, float _speed = 5f, float _timeDestroy = 3f)
 	{
 		GameObject bullet = Instantiate(_prefabs, _position.position, _position.rotation);
+
+		if (!bullet.GetComponent<Rigidbody> ())
+			bullet.AddComponent<Rigidbody> ();
+		
 		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * _speed;
+
 		Destroy(bullet, _timeDestroy);
 	}
 
@@ -48,30 +73,27 @@ public class Weapons : SimpleSingleton<Weapons> {
     }
 
     private void LateUpdate(){
-    	Player input = CharacterControler.Instance.GetPlayerInput();
 
-    	if( isShoot ){
-	    	if( input.GetButtonDown("Shoot") ){
+		if( Weapons.Instance.IsShoot ){
+			if( Controls.Shoot ){
 	    		Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
-                if( isAmmo ) m_ammo--;
+				if( Weapons.Instance.IsAmmo ) Weapons.Instance.GetAmmo--;
 
-                if( GetComponent<AudioSource>() ) GetComponent<AudioSource>().Play();
+				WeaponsShoot.Invoke();
 	    	}
 
-	    	if( isAmmo && ( m_ammo <= 0 || input.GetButtonDown("Reload") ) && m_ammo < m_MaxAmmo )
-	    		StartCoroutine("Reloading");
+			if( Weapons.Instance.IsAmmo )
+				if( Weapons.Instance.GetAmmo <= 0 || Controls.Reload )
+					if( Weapons.Instance.GetAmmo < Weapons.Instance.GetMaxAmmo )
+	    				StartCoroutine("Reloading");
 	    }
     }
 
 
     private IEnumerator Reloading(){
-        isShoot = false;
-        yield return new WaitForSeconds(this.GetTimeReload());
+		Weapons.Instance.IsShoot = false;
+		yield return new WaitForSeconds(Weapons.Instance.GetTimeReload);
         ResetAmmo();
-        isShoot = true;
+		Weapons.Instance.IsShoot = true;
     }
-
-
-    private int m_ammo;
-    private bool isShoot = true;
 }

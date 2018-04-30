@@ -2,35 +2,35 @@
 
 public class Score : SimpleSingleton<Score> {
 
-	public int GetPieces(){ return PlayerPrefs.GetInt("Pieces"); }
-    public int GetScore(){ return m_score; }
-    public int GetHighscore(){ return m_highscore; }
+	private static int score = 0;
+    public int GetScore{
+		get{ return score; }
+		set{ score = value; }
+	}
+
+    public int GetHighscore{
+		get{ return PlayerPrefs.GetInt("HighScore", 0); }
+		set{ PlayerPrefs.SetInt("HighScore", value); }
+	}
+
+	public int GetPieces{
+		get{ return PlayerPrefs.GetInt ("Pieces", 0); }
+		set{ PlayerPrefs.SetInt("Pieces", value); }
+	}
+
+    public void AddScore(int _addScore = 1){
+		Score.Instance.GetScore += _addScore;
+
+		if ( Score.Instance.GetScore > Score.Instance.GetHighscore ){
+			Score.Instance.GetHighscore = Score.Instance.GetScore;
+        }
+	}
 
 	public void AddPieces(int _addPieces = 1){
-		m_pieces = PlayerPrefs.GetInt("Pieces") + _addPieces;
-		SetPieces();
+		Score.Instance.GetPieces += _addPieces;
 	}
-    public void AddScore(int _addScore = 1){
-        m_score += _addScore;
 
-        if ( m_score > m_highscore ){
-            SetHighscore();
-        }
-    }
     public void ResetScore(){
-        m_score = 0;
-        m_highscore = PlayerPrefs.GetInt("HighScore");
+		Score.Instance.GetScore = 0;
     }
-    public void SetHighscore(){
-        m_highscore = m_score;
-        PlayerPrefs.SetInt("HighScore", m_highscore);
-    }
-	public void SetPieces(){
-		PlayerPrefs.SetInt("Pieces", m_pieces);
-	}
-
-
-	private int m_pieces = 0;
-    private int m_score = 0;
-    private int m_highscore = 0;
 }

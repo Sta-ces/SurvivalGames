@@ -1,38 +1,64 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using Rewired;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CharacterControler : SimpleSingleton<CharacterControler> {
-
 
     public enum e_Player{
         Player1,
         Player2
     }
 
-
     public e_Player m_Player = e_Player.Player1;
     [Range(1f, 10f)]
-    public float m_SpeedCharacter = 5f;
+	public float m_SpeedCharacter = 5f;
+
+	[Header("Death")]
+	public UnityEvent Death;
 
 
-    public bool GetActivePlayer(){ return gameObject.activeSelf; }
+	private void OnCollisionEnter(Collision col){
+		if( col.gameObject.GetComponent<EnemyControler>() || col.gameObject.GetComponent<Boss>() ){
+			Death.Invoke();
+		}
+	}
 
-    public Player GetPlayerInput(){ return m_playerInput; }
-    public float GetSpeedCharacter(){ return m_SpeedCharacter; }
+	private bool deathPlayer = false;
+	public bool DeathPlayer{
+		get{ return deathPlayer; }
+		set { deathPlayer = value; }
+	}
+
+	private Player m_playerInput;
+	public Player PlayerInput{
+		get{ return m_playerInput; }
+		set{ m_playerInput = value; }
+	}
+
+	public float SpeedCharacter{
+		get{ return m_SpeedCharacter; }
+		set{ m_SpeedCharacter = value; }
+	}
 
 
     private void Start(){
+		CharacterControler.Instance.DeathPlayer = false;
         SetInfoPlayer();
     }
 
 	private void Update(){
-		OtherInput();
+		if (!CharacterControler.Instance.DeathPlayer) {
+			SetControls ();
+			OtherInput ();
+		}
 	}
 
     private void FixedUpdate(){
-    	Movement();
-    	Turn();
+		if (!CharacterControler.Instance.DeathPlayer) {
+			Movement ();
+			Turn ();
+		}
     }
 
 
@@ -43,7 +69,7 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
             m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
-        m_playerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
+		CharacterControler.Instance.PlayerInput = ReInput.players.GetPlayer(GetIDPlayer(m_Player));
     }
 
     private int GetIDPlayer(e_Player _player){
@@ -59,12 +85,22 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
         return idPlayer;
     }
 
+	private void SetControls(){
+		Controls.MoveX = m_playerInput.GetAxis ("MoveX");
+		Controls.MoveZ = m_playerInput.GetAxis ("MoveZ");
+		Controls.LookX = m_playerInput.GetAxis ("LookX");
+		Controls.LookZ = m_playerInput.GetAxis ("LookZ");
+		Controls.Pause = m_playerInput.GetButtonDown ("Pause");
+		Controls.Shoot = m_playerInput.GetButtonDown ("Shoot");
+		Controls.Reload = m_playerInput.GetButtonDown ("Reload");
+	}
+
     private void Movement()
     {
         Vector3 velocity = m_rigidbody.velocity;
 
-        velocity.z = m_playerInput.GetAxis("MoveZ") * m_SpeedCharacter;
-        velocity.x = m_playerInput.GetAxis("MoveX") * m_SpeedCharacter;
+		velocity.z = Controls.MoveZ * SpeedCharacter;
+		velocity.x = Controls.MoveX * SpeedCharacter;
 
         m_rigidbody.velocity = velocity;
     }
@@ -73,20 +109,18 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     {
         Quaternion rotation = m_rigidbody.rotation;
 
-        if (m_playerInput.GetAxis("LookX") != 0 || m_playerInput.GetAxis("LookZ") != 0)
-            rotation = Quaternion.LookRotation(new Vector3(m_playerInput.GetAxis("LookX"), 0, m_playerInput.GetAxis("LookZ")));
+		if (Controls.LookX != 0 || Controls.LookZ != 0)
+			rotation = Quaternion.LookRotation(new Vector3(Controls.LookX, 0, Controls.LookZ));
 
         m_rigidbody.rotation = rotation;
     }
 
     private void OtherInput(){
-        if( m_playerInput.GetButtonDown("Pause") ){
+		if( Controls.Pause ){
             Display.Instance.SetDisplayPause();
-            Levels.Instance.PauseGame();
         }
     }
 
 
-    private Player m_playerInput;
     private Rigidbody m_rigidbody;
 }

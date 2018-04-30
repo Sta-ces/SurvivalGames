@@ -11,19 +11,27 @@ public class Bullets : SimpleSingleton<Bullets> {
     public List<string> m_TagEnemiesToKill;
 
 
-    public int DamageBullet(){ return m_Damage; }
-    public List<string> GetTags(){ return m_TagEnemiesToKill; }
+    public int DamageBullet{
+		get{ return m_Damage; }
+		set{ m_Damage = value; }
+	}
+
+    public List<string> GetTags{
+		get{ return m_TagEnemiesToKill; }
+	}
 
 
     private void OnTriggerEnter(Collider col)
     {
-        if ( m_TagEnemiesToKill.Contains(col.gameObject.tag) )
+		if ( Bullets.Instance.GetTags.Contains(col.gameObject.tag) )
         {
             if(col.gameObject.GetComponent<EnemyControler>())
-                col.gameObject.GetComponent<EnemyControler>().SetLifeEnemy(m_Damage);
+				col.gameObject.GetComponent<EnemyControler>().LifeEnemy = Bullets.Instance.DamageBullet;
 
-			if (col.gameObject.GetComponent<Boss>())
-				col.gameObject.GetComponent<Boss>().SetLifeEnemy(m_Damage);
+			if (col.gameObject.GetComponent<Boss> ()) {
+				col.gameObject.GetComponent<Boss> ().LifeEnemy = Bullets.Instance.DamageBullet;
+				col.gameObject.GetComponent<Boss> ().BossHit.Invoke ();
+			}
         }
         
         Destroy(gameObject);

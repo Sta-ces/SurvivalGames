@@ -1,19 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Levels : SimpleSingleton<Levels> {
 
-	public int GetLevelsAdventure(){ return PlayerPrefs.GetInt("Levels", 1); }
-	public void SetLevelsAdventure(int _levelsAdventure){
-		PlayerPrefs.SetInt("Levels", _levelsAdventure);
+	public int LevelsAdventure{
+		get{ return PlayerPrefs.GetInt ("Levels", 1); }
+		set{ PlayerPrefs.SetInt("Levels", value); }
 	}
 
-	public void PauseGame(){ Time.timeScale = (Time.timeScale == 1) ? 0 : 1; }
-
 	public void QuitGame(){ Application.Quit(); }
-	public void LoadLevelAsync(Object _Level){ LoadLevelAsync(_Level.name); }
+
+	public void LoadLevel(int _idLevel){ LoadLevel (SceneManager.GetSceneAt (_idLevel).name); }
+	public void LoadLevel(string _nameLevel){ SceneManager.LoadScene (_nameLevel); }
+
 	public void LoadLevelAsync(int _idLevel){ LoadLevelAsync(SceneManager.GetSceneAt(_idLevel).name); }
 	public void LoadLevelAsync(string _nameLevel){ StartCoroutine(LoadLevelAsynchronous(_nameLevel)); }
 

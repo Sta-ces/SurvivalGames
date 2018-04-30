@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7eee7b2ae112994d86de05be059efab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Life: 1000
+  m_Life: 2000
   m_Speed: 5
   m_TimeAttack: 5
   m_GivePieces: 100
@@ -235,7 +235,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  BossHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_LevelToUnlock: 2
+  BossDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_PrefabsBullet: {fileID: 1285849088057842, guid: 4cb753dde2395b547ac96928263a7561,
     type: 2}
   m_SpeedBullet: 20
