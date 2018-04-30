@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/_Scenes/Level1.unity
     guid: 1d401b4750f06124889627eff860b38e
+  - enabled: 1
+    path: Assets/_Project/_Scenes/Survival.unity
+    guid: 369cc998efafe224896564060907785d
