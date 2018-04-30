@@ -17,7 +17,9 @@ public class Display : SimpleSingleton<Display> {
 	public Text m_Score;
 	public Text m_Pieces;
 	public Text m_ScoreGameOverText;
+	public Text m_HighscoreGameOverText;
 	public Text m_ScoreWinnerText;
+	public Text m_HighscoreWinnerText;
 
 
 	public void SetDisplayGameOver(){
@@ -33,6 +35,7 @@ public class Display : SimpleSingleton<Display> {
 	public void DisplayAllScoring(){
 		SetDisplayPieces();
 		SetDisplayScore();
+		SetDisplayHighScore();
 	}
 
 	public void SetDisplayPieces(){ SetDisplayPieces (Score.Instance.GetPieces); }
@@ -53,6 +56,16 @@ public class Display : SimpleSingleton<Display> {
 		
 		if (m_ScoreWinnerText != null)
 			m_ScoreWinnerText.text = _score;
+	}
+
+	public void SetDisplayHighScore(){ SetDisplayHighScore(Score.Instance.GetHighscore); }
+	public void SetDisplayHighScore(int _highscore){ SetDisplayHighScore(_highscore.ToString()); }
+	public void SetDisplayHighScore(string _highscore){
+		if (m_HighscoreGameOverText != null)
+			m_HighscoreGameOverText.text = _highscore;
+
+		if (m_HighscoreWinnerText != null)
+			m_HighscoreWinnerText.text = _highscore;
 	}
 
 	public void CharacterDead(){
