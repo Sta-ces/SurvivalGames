@@ -12262,7 +12262,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764734931}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 46ec4ed652af74f7d9a680ac07e9f8a2, type: 3}
@@ -14390,7 +14390,18 @@ Prefab:
       propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 65849665931809588, guid: 7f3c765ecf3eb2b40ad4b67acc09f310,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 65849665931809588, guid: 7f3c765ecf3eb2b40ad4b67acc09f310,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65057616342666386, guid: 7f3c765ecf3eb2b40ad4b67acc09f310, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7f3c765ecf3eb2b40ad4b67acc09f310, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &862607974 stripped

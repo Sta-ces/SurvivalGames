@@ -25,12 +25,12 @@ public class Bullets : SimpleSingleton<Bullets> {
     {
 		if (!CharacterControler.Instance.DeathPlayer) {
 			if (Bullets.Instance.GetTags.Contains (col.gameObject.tag)) {
-				if (col.gameObject.GetComponent<EnemyControler> ())
-					col.gameObject.GetComponent<EnemyControler> ().LifeEnemy = Bullets.Instance.DamageBullet;
+				if (col.gameObject.GetComponent<EnemyControler>())
+					col.gameObject.GetComponent<EnemyControler>().LifeEnemy = Bullets.Instance.DamageBullet;
 
-				if (col.gameObject.GetComponent<Boss> ()) {
-					col.gameObject.GetComponent<Boss> ().LifeEnemy = Bullets.Instance.DamageBullet;
-					col.gameObject.GetComponent<Boss> ().BossHit.Invoke ();
+				if (col.gameObject.GetComponent<Boss>()) {
+					col.gameObject.GetComponent<Boss>().LifeEnemy = Bullets.Instance.DamageBullet;
+					col.gameObject.GetComponent<Boss>().BossHit.Invoke ();
 				}
 			}
 

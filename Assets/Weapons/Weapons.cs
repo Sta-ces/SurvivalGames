@@ -59,8 +59,8 @@ public class Weapons : SimpleSingleton<Weapons> {
 	{
 		GameObject bullet = Instantiate(_prefabs, _position.position, _position.rotation);
 
-		if (!bullet.GetComponent<Rigidbody> ())
-			bullet.AddComponent<Rigidbody> ();
+		if (!bullet.GetComponent<Rigidbody>())
+			bullet.AddComponent<Rigidbody>();
 		
 		bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * _speed;
 
@@ -87,6 +87,9 @@ public class Weapons : SimpleSingleton<Weapons> {
 					if( Weapons.Instance.GetAmmo < Weapons.Instance.GetMaxAmmo )
 	    				StartCoroutine("Reloading");
 	    }
+
+	    if(CharacterControler.Instance.DeathPlayer)
+	    	GameObject.FindGameObjectsWithTag(LayerMask.LayerToName(m_PrefabsBullet.layer));
     }
 
 
