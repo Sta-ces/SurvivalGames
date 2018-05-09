@@ -759,6 +759,18 @@ Transform:
   m_Father: {fileID: 364016713}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &221560925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1064148640703972, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 917927884}
+--- !u!81 &221560926
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 221560925}
+  m_Enabled: 1
 --- !u!1 &225736689
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BossPrefabs: {fileID: 0}
   m_BossSpawners: {fileID: 0}
-  m_RobotsPrefabs: {fileID: 1077688147609956, guid: 13f2be1a8fad501499b8efbfbb8c7113,
+  m_RobotsPrefabs: {fileID: 1953526896028458, guid: 875893ceaf16b1d4ba864572ab0ce347,
     type: 2}
   m_RobotsSpawners:
   - {fileID: 1638951827}
@@ -1548,7 +1560,6 @@ GameObject:
   - component: {fileID: 764734935}
   - component: {fileID: 764734934}
   - component: {fileID: 764734933}
-  - component: {fileID: 764734932}
   - component: {fileID: 764734937}
   - component: {fileID: 764734936}
   m_Layer: 0
@@ -1558,13 +1569,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &764734932
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 764734931}
-  m_Enabled: 1
 --- !u!124 &764734933
 Behaviour:
   m_ObjectHideFlags: 0

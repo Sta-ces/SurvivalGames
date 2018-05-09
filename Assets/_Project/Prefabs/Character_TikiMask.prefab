@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4548497875862436}
   - component: {fileID: 33938687280903144}
   - component: {fileID: 23950458854469264}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1276891837
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,9 +39,9 @@ GameObject:
   - component: {fileID: 65512624561284164}
   - component: {fileID: 54337477099495318}
   - component: {fileID: 114606370979819594}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character_TikiMask
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4046161415771656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4821836968557924}
   - component: {fileID: 33676338716661846}
   - component: {fileID: 23486590400754822}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1704296005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4913361978290092}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpawnBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4057625854801932}
   - component: {fileID: 33319035078542552}
   - component: {fileID: 23456899847697620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1651658759
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4101090686663754}
   - component: {fileID: 33521299850839556}
   - component: {fileID: 23249827052603866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh387651163
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 4067360104676594}
   - component: {fileID: 33399256753303172}
   - component: {fileID: 23939934628683620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh338512066
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4531873210807246}
   - component: {fileID: 33387509145802024}
   - component: {fileID: 23603566072829010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh263355546
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 120606281341924782}
   - component: {fileID: 114427785615614838}
   - component: {fileID: 82996001405702884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4058615740514398}
   - component: {fileID: 33260145602995458}
   - component: {fileID: 23855343092475554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1638170669
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 4075036700121396}
   - component: {fileID: 33070092348049050}
   - component: {fileID: 23560303397026188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh324862718
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4853706215507980}
   - component: {fileID: 33974115911520790}
   - component: {fileID: 23616652845278166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1651956358
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4247860490142620}
   - component: {fileID: 33833148677137406}
   - component: {fileID: 23425503722307772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1395256895
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 4452851216817662}
   - component: {fileID: 33808296351613464}
   - component: {fileID: 23528417206959310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh1685646932
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,11 +1095,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Player: 0
   m_SpeedCharacter: 10
-  Pause:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   Death:
     m_PersistentCalls:
       m_Calls:
