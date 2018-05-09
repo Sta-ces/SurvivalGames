@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca47f002e95ce24588666514e518243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseVisible: 0
+  MouseVisibility: 1
 --- !u!1001 &263097351
 Prefab:
   m_ObjectHideFlags: 0
@@ -1676,7 +1676,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 46ec4ed652af74f7d9a680ac07e9f8a2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7152bb8526403704bb562c34984a4fb6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
@@ -2361,6 +2361,14 @@ Prefab:
         type: 2}
       propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046161415771656, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046161415771656, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.038
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
