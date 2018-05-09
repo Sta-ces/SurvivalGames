@@ -1,26 +1,71 @@
 fileFormatVersion: 2
-guid: 4812ce25dfc95d647b44a045752359d0
-timeCreated: 1525851934
+guid: 7d14e4ebaede16640b175f4b8e560956
+timeCreated: 1525860810
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: default
-    400000: //RootNode
-    400002: default
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: defaultMat
-    second: {fileID: 2100000, guid: dcd9dfa8dfd944144aed38c90ba50965, type: 2}
+    100000: mesh1276891837
+    100002: mesh1395256895
+    100004: mesh1638170669
+    100006: mesh1651658759
+    100008: mesh1651956358
+    100010: mesh1685646932
+    100012: mesh1704296005
+    100014: mesh263355546
+    100016: mesh324862718
+    100018: mesh338512066
+    100020: mesh387651163
+    100022: //RootNode
+    400000: mesh1276891837
+    400002: mesh1395256895
+    400004: mesh1638170669
+    400006: mesh1651658759
+    400008: mesh1651956358
+    400010: mesh1685646932
+    400012: mesh1704296005
+    400014: mesh263355546
+    400016: mesh324862718
+    400018: mesh338512066
+    400020: mesh387651163
+    400022: //RootNode
+    2100000: mat1
+    2300000: mesh1276891837
+    2300002: mesh1395256895
+    2300004: mesh1638170669
+    2300006: mesh1651658759
+    2300008: mesh1651956358
+    2300010: mesh1685646932
+    2300012: mesh1704296005
+    2300014: mesh263355546
+    2300016: mesh324862718
+    2300018: mesh338512066
+    2300020: mesh387651163
+    3300000: mesh1276891837
+    3300002: mesh1395256895
+    3300004: mesh1638170669
+    3300006: mesh1651658759
+    3300008: mesh1651956358
+    3300010: mesh1685646932
+    3300012: mesh1704296005
+    3300014: mesh263355546
+    3300016: mesh324862718
+    3300018: mesh338512066
+    3300020: mesh387651163
+    4300000: mesh1276891837
+    4300002: mesh1395256895
+    4300004: mesh1638170669
+    4300006: mesh1651658759
+    4300008: mesh1651956358
+    4300010: mesh1685646932
+    4300012: mesh1704296005
+    4300014: mesh263355546
+    4300016: mesh324862718
+    4300018: mesh338512066
+    4300020: mesh387651163
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -53,8 +98,8 @@ ModelImporter:
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public class Display : SimpleSingleton<Display> {
 
 	[Header("GameOver")]
+	public GameObject GameOverPanel;
 	public UnityEvent GameOver;
 
 	[Header("Winner")]
 	public UnityEvent Winner;
 
 	[Header("Pause")]
+	public GameObject PausePanel;
 	public UnityEvent Pause;
 
 	[Header("Scoring")]
@@ -23,12 +25,18 @@ public class Display : SimpleSingleton<Display> {
 
 
 	public void SetDisplayGameOver(){
+		if(GameOverPanel != null)
+			GameOverPanel.SetActive(!GameOverPanel.activeSelf);
+
 		GameOver.Invoke();
 	}
 	public void SetDisplayWinner(){
 		Winner.Invoke();
 	}
 	public void SetDisplayPause(){
+		if(PausePanel != null)
+			PausePanel.SetActive(!PausePanel.activeSelf);
+			
 		Pause.Invoke();
 	}
 
