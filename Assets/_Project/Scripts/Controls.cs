@@ -43,4 +43,16 @@ public class Controls {
 		get{ return reload; }
 		set{ reload = value; }
 	}
+
+	private static bool submit;
+	public static bool Submit{
+		get{ return submit; }
+		set{ submit = value; }
+	}
+
+	private static bool cancel;
+	public static bool Cancel{
+		get{ return cancel; }
+		set{ cancel = value; }
+	}
 }

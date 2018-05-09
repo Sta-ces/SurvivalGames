@@ -11,6 +11,9 @@ public class Levels : SimpleSingleton<Levels> {
 
 	public void QuitGame(){ Application.Quit(); }
 
+	public void ReloadLevel(){ SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+	public void ReloadLevelAsync(){ StartCoroutine(LoadLevelAsynchronous(SceneManager.GetActiveScene().name)); }
+
 	public void LoadLevel(int _idLevel){ LoadLevel (SceneManager.GetSceneAt (_idLevel).name); }
 	public void LoadLevel(string _nameLevel){ SceneManager.LoadScene (_nameLevel); }
 

@@ -25,9 +25,6 @@ public class Display : SimpleSingleton<Display> {
 
 
 	public void SetDisplayGameOver(){
-		if(GameOverPanel != null)
-			GameOverPanel.SetActive(!GameOverPanel.activeSelf);
-
 		GameOver.Invoke();
 	}
 	public void SetDisplayWinner(){
@@ -36,7 +33,7 @@ public class Display : SimpleSingleton<Display> {
 	public void SetDisplayPause(){
 		if(PausePanel != null)
 			PausePanel.SetActive(!PausePanel.activeSelf);
-			
+
 		Pause.Invoke();
 	}
 
