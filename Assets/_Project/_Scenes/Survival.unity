@@ -1678,7 +1678,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7152bb8526403704bb562c34984a4fb6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1978,6 +1978,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: eb5c780282740f84eab496a21c1fff8f, type: 3}
   m_PrefabInternal: {fileID: 834745299}
+--- !u!82 &855766236 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82996001405702884, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 917927884}
 --- !u!1001 &860196718
 Prefab:
   m_ObjectHideFlags: 0
@@ -2144,6 +2149,11 @@ Prefab:
         type: 2}
       propertyPath: Death.m_PersistentCalls.m_Calls.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4238240281635508, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2369,6 +2379,31 @@ Prefab:
     - target: {fileID: 4046161415771656, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 855766236}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
