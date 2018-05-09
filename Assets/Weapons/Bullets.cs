@@ -24,7 +24,7 @@ public class Bullets : SimpleSingleton<Bullets> {
     private void OnTriggerEnter(Collider col)
     {
 		if (!CharacterControler.Instance.DeathPlayer) {
-			if (Bullets.Instance.GetTags.Contains (col.gameObject.tag)) {
+			if (Bullets.Instance.GetTags.Contains(col.gameObject.tag)) {
 				if (col.gameObject.GetComponent<EnemyControler>())
 					col.gameObject.GetComponent<EnemyControler>().LifeEnemy = Bullets.Instance.DamageBullet;
 

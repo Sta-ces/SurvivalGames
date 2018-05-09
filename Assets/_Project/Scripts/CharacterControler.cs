@@ -14,6 +14,9 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     [Range(1f, 10f)]
 	public float m_SpeedCharacter = 5f;
 
+	[Header("Pause")]
+	public UnityEvent Pause;
+
 	[Header("Death")]
 	public UnityEvent Death;
 
@@ -116,9 +119,8 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     }
 
     private void OtherInput(){
-		if( Controls.Pause ){
+		if( Controls.Pause )
             Display.Instance.SetDisplayPause();
-        }
     }
 
 

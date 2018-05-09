@@ -41,6 +41,7 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 		if( m_Life <= 0 ){
 			Death.Invoke();
 			Destroy(gameObject);
+
 			Score.Instance.AddPieces(m_GivePieces);
 			Score.Instance.AddScore();
 			Display.Instance.DisplayAllScoring();

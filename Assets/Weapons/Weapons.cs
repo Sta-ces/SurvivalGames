@@ -87,9 +87,6 @@ public class Weapons : SimpleSingleton<Weapons> {
 					if( Weapons.Instance.GetAmmo < Weapons.Instance.GetMaxAmmo )
 	    				StartCoroutine("Reloading");
 	    }
-
-	    if(CharacterControler.Instance.DeathPlayer)
-	    	GameObject.FindGameObjectsWithTag(LayerMask.LayerToName(m_PrefabsBullet.layer));
     }
 
 

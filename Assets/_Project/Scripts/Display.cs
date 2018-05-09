@@ -76,5 +76,6 @@ public class Display : SimpleSingleton<Display> {
 
 	private void OnEnable(){
 		SetDisplayPieces(Score.Instance.GetPieces);
+		DisplayAllScoring();
 	}
 }
