@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,7 +38,8 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1057634740}
-  m_IndirectSpecularColor: {r: 0.3528508, g: 0.5736292, b: 0.8686655, a: 1}
+  m_IndirectSpecularColor: {r: 0.3529068, g: 0.5736541, b: 0.8686608, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 225736691}
   - component: {fileID: 225736690}
   - component: {fileID: 225736693}
+  - component: {fileID: 225736694}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -560,7 +561,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca47f002e95ce24588666514e518243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseVisibility: 1
+  MouseVisibility: 0
+--- !u!114 &225736694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 225736689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22910dfc15ab5524cad9b4101d6ee20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerToMute: {fileID: 221560926}
 --- !u!1001 &263097351
 Prefab:
   m_ObjectHideFlags: 0
@@ -1976,6 +1989,97 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 67d57a27828870549947c26d596f0f3c, type: 3}
   m_PrefabInternal: {fileID: 745971288}
+--- !u!1 &764353413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 764353414}
+  - component: {fileID: 764353416}
+  - component: {fileID: 764353415}
+  m_Layer: 9
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764353414
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764353413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.295}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 917927885}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &764353415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764353413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafc90245bfe9e2408e358f71deace2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SampleCount: 8
+  ScatteringCoef: 0.5
+  ExtinctionCoef: 0.01
+  SkyboxExtinctionCoef: 0.9
+  MieG: 0.1
+  HeightFog: 0
+  HeightScale: 0.1
+  GroundLevel: 0
+  Noise: 0
+  NoiseScale: 0.015
+  NoiseIntensity: 1
+  NoiseIntensityOffset: 0.3
+  NoiseVelocity: {x: 3, y: 3}
+  MaxRayLength: 400
+--- !u!108 &764353416
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764353413}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 0.9433962, g: 0.84036994, b: 0, a: 1}
+  m_Intensity: 50
+  m_Range: 1.5
+  m_SpotAngle: 130
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 1
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &764734931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,6 +2092,7 @@ GameObject:
   - component: {fileID: 764734933}
   - component: {fileID: 764734937}
   - component: {fileID: 764734936}
+  - component: {fileID: 764734932}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1995,6 +2100,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &764734932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764734931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eed1d9cbe64423499f1fefc0ce50417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resolution: 0
+  DefaultSpotCookie: {fileID: 2800000, guid: 5157bf6d690b6df458f6c0ce0c06d329, type: 3}
 --- !u!124 &764734933
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2080,54 +2198,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -2246,10 +2379,6 @@ Prefab:
     - target: {fileID: 4225406697248822, guid: b1af5ea2c9b13564e9347b509188c85b, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469426206187684, guid: b1af5ea2c9b13564e9347b509188c85b, type: 2}
-      propertyPath: m_Name
-      value: Controls
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1af5ea2c9b13564e9347b509188c85b, type: 2}
@@ -2856,9 +2985,50 @@ Prefab:
       propertyPath: WeaponsShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114427785615614838, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_laserWidthStart
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 120606281341924782, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371622977197074, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.061
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427785615614838, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: c8be8fc249dab9b41ab80de249cdccab, type: 2}
+    - target: {fileID: 120606281341924782, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c8be8fc249dab9b41ab80de249cdccab, type: 2}
+    - target: {fileID: 114427785615614838, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_laserLength
+      value: 5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 120606281341924782, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 5.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114427785615614838, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
+    - {fileID: 120606281341924782, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &917927885 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4371622977197074, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 917927884}
 --- !u!1001 &933669487
 Prefab:
   m_ObjectHideFlags: 0
@@ -3154,7 +3324,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.15
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3522,22 +3692,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 67d57a27828870549947c26d596f0f3c, type: 3}
   m_PrefabInternal: {fileID: 1211091139}
---- !u!1 &1229447008 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1469426206187684, guid: b1af5ea2c9b13564e9347b509188c85b,
-    type: 2}
-  m_PrefabInternal: {fileID: 829251463}
---- !u!114 &1229447009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229447008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4277439272ac1f74190b54276d3ad50a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1231864353
 Prefab:
   m_ObjectHideFlags: 0

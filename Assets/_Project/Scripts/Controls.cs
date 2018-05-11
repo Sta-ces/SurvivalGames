@@ -55,4 +55,10 @@ public class Controls {
 		get{ return cancel; }
 		set{ cancel = value; }
 	}
+
+	private static bool mute;
+	public static bool Mute{
+		get{ return mute; }
+		set{ mute = value; }
+	}
 }

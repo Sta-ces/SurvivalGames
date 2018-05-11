@@ -17,6 +17,9 @@ public class GamePadInputs : MonoBehaviour {
 
 	private void Update(){
 		SetControls();
+
+		if( Controls.Mute )
+        	MuteAllSounds.Instance.MuteSounds();
 	}
 
 	private void SetControls(){
@@ -29,5 +32,6 @@ public class GamePadInputs : MonoBehaviour {
 		Controls.Reload = PlayerInput.GetButtonDown ("Reload");
 		Controls.Submit = PlayerInput.GetButtonDown ("Submit");
 		Controls.Cancel = PlayerInput.GetButtonDown ("Cancel");
+		Controls.Mute = PlayerInput.GetButtonDown ("Mute");
 	}
 }
