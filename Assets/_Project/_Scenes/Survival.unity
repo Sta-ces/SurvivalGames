@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22910dfc15ab5524cad9b4101d6ee20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListenerToMute: {fileID: 0}
+  ListenerToMute: {fileID: 1851414990}
 --- !u!1001 &239048537
 Prefab:
   m_ObjectHideFlags: 0
@@ -6148,6 +6148,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: eb5c780282740f84eab496a21c1fff8f, type: 3}
   m_PrefabInternal: {fileID: 1819326884}
+--- !u!81 &1851414990 stripped
+AudioListener:
+  m_PrefabParentObject: {fileID: 81406025765767234, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 917927884}
 --- !u!1 &1859500358
 GameObject:
   m_ObjectHideFlags: 0
