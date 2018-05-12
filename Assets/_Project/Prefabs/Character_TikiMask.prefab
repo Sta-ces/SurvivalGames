@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 65512624561284164}
   - component: {fileID: 54337477099495318}
   - component: {fileID: 114606370979819594}
+  - component: {fileID: 114129511598933824}
   m_Layer: 9
   m_Name: Character_TikiMask
   m_TagString: Player
@@ -54,7 +55,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4046161415771656}
-  - component: {fileID: 81567248504445252}
   m_Layer: 9
   m_Name: model
   m_TagString: Untagged
@@ -191,6 +191,22 @@ GameObject:
   - component: {fileID: 82996001405702884}
   m_Layer: 9
   m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1874326046960308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4343378239022982}
+  - component: {fileID: 81406025765767234}
+  m_Layer: 9
+  m_Name: Ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,6 +398,7 @@ Transform:
   m_Children:
   - {fileID: 4046161415771656}
   - {fileID: 4371622977197074}
+  - {fileID: 4343378239022982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -397,6 +414,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4046161415771656}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4343378239022982
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874326046960308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4238240281635508}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4371622977197074
 Transform:
@@ -993,12 +1023,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1.9, z: 0.6}
   m_Center: {x: -0.100000024, y: 0.95, z: -0.25}
---- !u!81 &81567248504445252
+--- !u!81 &81406025765767234
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1064148640703972}
+  m_GameObject: {fileID: 1874326046960308}
   m_Enabled: 1
 --- !u!82 &82996001405702884
 AudioSource:
@@ -1009,9 +1039,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f6cb1f581b7444b23a05b613a16420d5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1142,7 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d8ea7a753198b45bc98524181d3cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PrefabsBullet: {fileID: 1314644170093374, guid: 7eb4c4201731b0a43a8753995679024a,
+  m_PrefabsBullet: {fileID: 1588916533704828, guid: 6883e1811fe9ba542bb1445da4cdff08,
     type: 2}
   m_LocationSpawnBullet: {fileID: 4913361978290092}
   m_TimeLifeBullet: 3
@@ -1152,9 +1182,31 @@ MonoBehaviour:
   m_TimeReload: 2
   WeaponsShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 82996001405702884}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114129511598933824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040944152032364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5026bed4b5a1960458d657fe42beac66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114606370979819594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1181,7 +1233,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1040944152032364}
+      - m_Target: {fileID: 1064148640703972}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1202,6 +1254,29 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1845002028355490}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114129511598933824}
+        m_MethodName: CreateObjectOAtPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1114982879267994, guid: fee3fac762dc8094ba77744bdcd83b04,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
