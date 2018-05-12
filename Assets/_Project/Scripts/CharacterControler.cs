@@ -43,6 +43,11 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 		if (!CharacterControler.Instance.DeathPlayer) {
 			Movement ();
 			Turn ();
+		}
+    }
+
+    private void Update(){
+		if (!CharacterControler.Instance.DeathPlayer) {
 			OtherInput ();
 		}
     }

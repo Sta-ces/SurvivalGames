@@ -729,7 +729,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 91bcbf22a35dab14cafe6e21be41360c, type: 2}
+  - {fileID: 2100000, guid: 7aae39c46c3e6ba4fb317218d5ffd574, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -834,7 +834,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 91bcbf22a35dab14cafe6e21be41360c, type: 2}
+  - {fileID: 2100000, guid: 7aae39c46c3e6ba4fb317218d5ffd574, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1104,7 +1104,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.9433962, g: 0.84036994, b: 0, a: 1}
+  m_Color: {r: 0.7439401, g: 0.9811321, b: 0.09718761, a: 1}
   m_Intensity: 50
   m_Range: 1.5
   m_SpotAngle: 130
