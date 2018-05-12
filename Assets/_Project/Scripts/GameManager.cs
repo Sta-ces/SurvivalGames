@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void OnEnable(){
-		PauseGame();
 		Cursor.visible = MouseVisibility;
 		Cursor.lockState = CursorLockMode.Confined;
 	}
