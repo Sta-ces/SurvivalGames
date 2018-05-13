@@ -19,11 +19,11 @@ public class Boss : SimpleSingleton<Boss> {
 
 	public int LifeEnemy{
 		get{ return m_Life; }
-		set{ m_Life -= value; }
+		set{ m_Life = value; }
 	}
 	public float SpeedEnemy{
 		get{ return m_Speed; }
-		set{ m_Speed += value; }
+		set{ m_Speed = value; }
 	}
 
 	[Header("Boss Hited")]

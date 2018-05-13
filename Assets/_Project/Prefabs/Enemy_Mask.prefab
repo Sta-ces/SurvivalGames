@@ -283,9 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1473597a841ac74d88b8a09077cfc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Life: 10
-  m_Speed: 6
-  m_GivePieces: 25
+  Life: 10
+  Speed: 6
+  MaxSpeed: 10
+  GivePieces: 25
   Death:
     m_PersistentCalls:
       m_Calls:

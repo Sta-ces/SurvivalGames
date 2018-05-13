@@ -21,9 +21,11 @@ public class Score : SimpleSingleton<Score> {
     public void AddScore(int _addScore = 1){
 		Score.Instance.GetScore += _addScore;
 
-		if ( Score.Instance.GetScore > Score.Instance.GetHighscore ){
+		if ( Score.Instance.GetScore > Score.Instance.GetHighscore )
 			Score.Instance.GetHighscore = Score.Instance.GetScore;
-        }
+
+        if ( Score.Instance.GetScore % Difficulties.Instance.HowMuchKilled == 0 )
+        	Difficulties.Instance.GrowDifficulties();
 	}
 
 	public void AddPieces(int _addPieces = 1){
