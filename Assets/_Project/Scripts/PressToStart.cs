@@ -9,7 +9,7 @@ public class PressToStart : MonoBehaviour {
 	public UnityEvent OnQuit;
 
 	void Update () {
-		bool _check = (CheckIfRestart && GameManager.Restart);
+		bool _check = (CheckIfRestart && GameManager.Restart && Score.Instance.GetHighscore >= 5);
 
 		if(Controls.Submit || _check) OnPress.Invoke();
 		if(Controls.Cancel) OnQuit.Invoke();
