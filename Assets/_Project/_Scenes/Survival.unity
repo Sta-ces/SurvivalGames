@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0177b51f5573c6d47a8a259b8aba85a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HowMuchKilled: 50
   ValueDifficulties: 0.25
 --- !u!1001 &239048537
 Prefab:

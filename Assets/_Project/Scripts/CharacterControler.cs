@@ -68,8 +68,21 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 
 		if (Controls.LookX != 0 || Controls.LookZ != 0)
 			rotation = Quaternion.LookRotation(new Vector3(Controls.LookX, 0, Controls.LookZ));
+		else if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+			rotation.eulerAngles = TurnFollowMouse();
 
         m_rigidbody.rotation = rotation;
+    }
+
+    private Vector3 TurnFollowMouse()
+    {
+    	//Grab the current mouse position on the screen
+    	Vector3 mousePos = Input.mousePosition;
+    	Vector3 vect3Mouse = new Vector3(mousePos.x,mousePos.y, mousePos.z - Camera.main.transform.position.z);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(vect3Mouse);
+		//Rotates toward the mouse
+		float angle = Mathf.Atan2((mousePosition.y - transform.position.y), (mousePosition.x - transform.position.x))*Mathf.Rad2Deg - 90;
+        return new Vector3(0, -angle ,0);
     }
 
     private void OtherInput(){
