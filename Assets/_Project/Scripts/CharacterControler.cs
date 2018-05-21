@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -8,16 +9,21 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     [Range(1f, 10f)]
 	public float m_SpeedCharacter = 5f;
 
-	[Header("Death")]
+    [Header("Limit Zone")]
+    public LimitZone LimitsZone;
+    [Serializable]
+    public struct LimitZone
+    {
+        public float Top;
+        public float Left;
+        public float Right;
+        public float Bottom;
+    }
+
+    [Header("Death")]
 	public UnityEvent Death;
 
-
-	private void OnCollisionEnter(Collision col){
-		if( col.gameObject.GetComponent<EnemyControler>() || col.gameObject.GetComponent<Boss>() ){
-			Death.Invoke();
-		}
-	}
-
+    
 	private bool deathPlayer = false;
 	public bool DeathPlayer{
 		get{ return deathPlayer; }
@@ -30,6 +36,14 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 	}
 
 
+    private void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.GetComponent<EnemyControler>() || col.gameObject.GetComponent<Boss>())
+        {
+            Death.Invoke();
+        }
+    }
+
     private void Start(){
 		CharacterControler.Instance.DeathPlayer = false;
 
@@ -40,14 +54,16 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     }
 
     private void FixedUpdate(){
-		if (!CharacterControler.Instance.DeathPlayer) {
-			Movement ();
-			Turn ();
-		}
+        if (!CharacterControler.Instance.DeathPlayer)
+        {
+            Movement();
+            LimitMove();
+            Turn();
+        } else m_rigidbody.velocity = Vector3.zero;
     }
 
     private void Update(){
-		if (!CharacterControler.Instance.DeathPlayer) {
+		if (GameManager.OnPlay && !CharacterControler.Instance.DeathPlayer) {
 			OtherInput ();
 		}
     }
@@ -60,6 +76,14 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 		velocity.x = Controls.MoveX * SpeedCharacter;
 
         m_rigidbody.velocity = velocity;
+    }
+
+    private void LimitMove()
+    {
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, LimitsZone.Left, LimitsZone.Right);
+        pos.z = Mathf.Clamp(pos.z, LimitsZone.Bottom, LimitsZone.Top);
+        transform.position = pos;
     }
 
     private void Turn()

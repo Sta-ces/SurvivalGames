@@ -16,6 +16,13 @@ public class GameManager : MonoBehaviour {
 		set{ isPaused = value; }
 	}
 
+    private static bool onPlay = false;
+    public static bool OnPlay
+    {
+        get { return onPlay; }
+        set { onPlay = value; }
+    }
+
 	public void PauseGame(){
 		Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
 		GameManager.IsPaused = (Time.timeScale == 1) ? true : false;
@@ -24,6 +31,8 @@ public class GameManager : MonoBehaviour {
 	public void RestartGame(bool _restart){
 		GameManager.Restart = _restart;
 	}
+
+    public void OnPlaying(bool _play) { onPlay = _play; }
 
 	private void OnEnable(){
 		Cursor.visible = MouseVisibility;

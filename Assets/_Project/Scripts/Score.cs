@@ -8,6 +8,12 @@ public class Score : SimpleSingleton<Score> {
 		set{ score = value; }
 	}
 
+    public int GetLastScore
+    {
+        get { return PlayerPrefs.GetInt("LastScore", 0); }
+        set { PlayerPrefs.SetInt("LastScore", value); }
+    }
+
     public int GetHighscore{
 		get{ return PlayerPrefs.GetInt("HighScore", 0); }
 		set{ PlayerPrefs.SetInt("HighScore", value); }
@@ -26,6 +32,8 @@ public class Score : SimpleSingleton<Score> {
 
         if ( Score.Instance.GetScore % Difficulties.Instance.HowMuchKilled == 0 )
         	Difficulties.Instance.GrowDifficulties();
+
+        Score.Instance.GetLastScore = Score.Instance.GetScore;
 	}
 
 	public void AddPieces(int _addPieces = 1){
@@ -33,6 +41,7 @@ public class Score : SimpleSingleton<Score> {
 	}
 
     public void ResetScore(){
-		Score.Instance.GetScore = 0;
+        Score.Instance.GetLastScore = Score.Instance.GetScore;
+        Score.Instance.GetScore = 0;
     }
 }

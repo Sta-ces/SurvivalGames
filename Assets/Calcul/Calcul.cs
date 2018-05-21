@@ -28,4 +28,13 @@ public class Calcul
     {
         return -_sizeTile / 2 + 0.5f + _positionTile;
     }
+
+    public static Vector3 NumberAbs(Vector3 _numb, bool _positif = true)
+    {
+        _numb.x = _positif ? Mathf.Abs(_numb.x) : -Mathf.Abs(_numb.x);
+        _numb.y = _positif ? Mathf.Abs(_numb.y) : -Mathf.Abs(_numb.y);
+        _numb.z = _positif ? Mathf.Abs(_numb.z) : -Mathf.Abs(_numb.z);
+
+        return _numb;
+    }
 }
