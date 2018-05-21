@@ -47,10 +47,11 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 
 	private void CheckLife(){
 		if( Life <= 0 ){
-            if (Calcul.RandomNumber(1, 6) == 1)
+            if (Calcul.RandomNumber(1, 8) == 1)
             {
                 int _pieces = Calcul.RandomNumber(1, 4);
                 Score.Instance.AddPieces(_pieces);
+                print(_pieces);
                 Pieces.Invoke();
             }
 			Score.Instance.AddScore();
