@@ -1585,6 +1585,7 @@ GameObject:
   - component: {fileID: 446546055}
   - component: {fileID: 446546054}
   - component: {fileID: 446546053}
+  - component: {fileID: 446546056}
   m_Layer: 5
   m_Name: PressToRestart
   m_TagString: Untagged
@@ -1739,6 +1740,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 446546051}
+--- !u!114 &446546056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 446546051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec08ea8eb316a4419c598503b6ec9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  On: 'Press A to Restart
+
+    Press B to Quit'
+  Off: 'Press Enter to Restart
+
+    Press Esc to Quit'
 --- !u!1 &457545055
 GameObject:
   m_ObjectHideFlags: 0
@@ -7522,6 +7540,7 @@ GameObject:
   - component: {fileID: 1859500361}
   - component: {fileID: 1859500360}
   - component: {fileID: 1859500362}
+  - component: {fileID: 1859500363}
   m_Layer: 5
   m_Name: PressToStart
   m_TagString: Untagged
@@ -7581,7 +7600,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Press A to Start
 
-    Press B To Quit'
+    Press B to Quit'
 --- !u!222 &1859500361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7709,6 +7728,23 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1859500363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859500358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec08ea8eb316a4419c598503b6ec9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  On: 'Press A to Start
+
+    Press B to Quit'
+  Off: 'Press Enter to Start
+
+    Press Esc to Quit'
 --- !u!1 &1874662566
 GameObject:
   m_ObjectHideFlags: 0
@@ -7960,6 +7996,7 @@ GameObject:
   - component: {fileID: 1931397183}
   - component: {fileID: 1931397182}
   - component: {fileID: 1931397181}
+  - component: {fileID: 1931397184}
   m_Layer: 5
   m_Name: PressToUnPause
   m_TagString: Untagged
@@ -8092,6 +8129,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1931397179}
+--- !u!114 &1931397184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1931397179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec08ea8eb316a4419c598503b6ec9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  On: 'Press A to Continue
+
+    Press B to Quit'
+  Off: 'Press Enter to Continue
+
+    Press Esc to Quit'
 --- !u!1 &1951584995
 GameObject:
   m_ObjectHideFlags: 0

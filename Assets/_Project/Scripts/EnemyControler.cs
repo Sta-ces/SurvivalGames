@@ -10,10 +10,12 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 	public float Speed = 3.5f;
 	[Range(5,20)]
 	public float MaxSpeed = 10f;
-	public int GivePieces = 25;
 
 	[Header("Death")]
 	public UnityEvent Death;
+
+    [Header("Pieces")]
+    public UnityEvent Pieces;
 
 
 	public int LifeEnemy{
@@ -45,7 +47,12 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 
 	private void CheckLife(){
 		if( Life <= 0 ){
-			Score.Instance.AddPieces(GivePieces);
+            if (Calcul.RandomNumber(1, 6) == 1)
+            {
+                int _pieces = Calcul.RandomNumber(1, 4);
+                Score.Instance.AddPieces(_pieces);
+                Pieces.Invoke();
+            }
 			Score.Instance.AddScore();
 			Display.Instance.DisplayAllScoring();
 

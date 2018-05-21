@@ -4,7 +4,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class ChangeText : MonoBehaviour {
 
+    [TextArea]
     public string On;
+    [TextArea]
     public string Off;
 
     void LateUpdate()
