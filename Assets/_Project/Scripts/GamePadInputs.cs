@@ -56,5 +56,6 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
 		Controls.Submit = PlayerInput.GetButtonDown ("Submit");
 		Controls.Cancel = PlayerInput.GetButtonDown ("Cancel");
 		Controls.Mute = PlayerInput.GetButtonDown ("Mute");
+        Controls.ActivedSkill = PlayerInput.GetButtonDown ("ActivedSkill");
 	}
 }

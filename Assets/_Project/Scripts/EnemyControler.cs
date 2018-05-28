@@ -51,7 +51,6 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
             {
                 int _pieces = Calcul.RandomNumber(1, 4);
                 Score.Instance.AddPieces(_pieces);
-                print(_pieces);
                 Pieces.Invoke();
             }
 			Score.Instance.AddScore();

@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54337477099495318}
   - component: {fileID: 114606370979819594}
   - component: {fileID: 114129511598933824}
+  - component: {fileID: 114540436915107086}
   m_Layer: 9
   m_Name: Character_TikiMask
   m_TagString: Player
@@ -1194,7 +1195,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 0.7439401, g: 0.9811321, b: 0.09718761, a: 1}
-  m_Intensity: 50
+  m_Intensity: 40
   m_Range: 1.5
   m_SpotAngle: 130
   m_CookieSize: 10
@@ -1266,6 +1267,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5026bed4b5a1960458d657fe42beac66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114540436915107086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040944152032364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4ac3d930c623744a7c5d9af9a81361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill:
+  - Unlock: 0
+    Name: "B\xE9n\xE9diction des Dieux"
+    Description: "1% de chance que le score soit doubl\xE9."
+    RequiredLevel: 5
+    Enable: 1
+  - Unlock: 0
+    Name: Seconde Chance
+    Description: 50% de chance de ressusciter.
+    RequiredLevel: 25
+    Enable: 0
+  - Unlock: 0
+    Name: Tire Automatique
+    Description: Plus besoin de marteler ta touche de tir, elle fonctionne toute seule.
+    RequiredLevel: 50
+    Enable: 0
+  - Unlock: 0
+    Name: Cool Down
+    Description: Ralenti le temps pendant 5 secondes. (Utilisable toutes les 20 destructions
+      d'ennemis)
+    RequiredLevel: 100
+    Enable: 0
+  - Unlock: 0
+    Name: Triple Shoot
+    Description: "Tire 3 fl\xE8ches dans 3 direction diff\xE9rentes."
+    RequiredLevel: 125
+    Enable: 0
+  - Unlock: 0
+    Name: Bouclier
+    Description: "Te prot\xE8ge 1 seul fois par partie lanc\xE9e."
+    RequiredLevel: 150
+    Enable: 0
+  - Unlock: 0
+    Name: Shockwave
+    Description: "Produit une vague d\xE9truisant tous les ennemis autour de vous.
+      (Utilisable toutes les 30 destruction d'ennemi)"
+    RequiredLevel: 200
+    Enable: 0
+  - Unlock: 0
+    Name: Fin de jeu
+    Description: "Fini le jeu, mais avant \xE7a, tu dois d\xE9truire les 50 derniers
+      ennemis."
+    RequiredLevel: 500
+    Enable: 0
 --- !u!114 &114606370979819594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1342,6 +1398,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1679065303300108}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: VibrationGamepad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114793060554296012
@@ -1405,7 +1483,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36117fcbe9402ac49be8c7c9327f9373, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.844502, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

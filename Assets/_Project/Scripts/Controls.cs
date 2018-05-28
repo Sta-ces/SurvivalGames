@@ -61,4 +61,11 @@ public class Controls {
 		get{ return mute; }
 		set{ mute = value; }
 	}
+
+    private static bool activedSkill;
+    public static bool ActivedSkill
+    {
+        get { return activedSkill; }
+        set { activedSkill = value; }
+    }
 }
