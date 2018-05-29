@@ -33,6 +33,13 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 	}
 
 
+    public void Killed()
+    {
+        Death.Invoke();
+        Destroy(gameObject);
+    }
+
+
 	private void LateUpdate(){
 		GetComponent<NavMeshAgent>().speed = EnemyControler.Instance.SpeedEnemy;
 
@@ -56,8 +63,7 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 			Score.Instance.AddScore();
 			Display.Instance.DisplayAllScoring();
 
-			Death.Invoke();
-			Destroy(gameObject);
+            Killed();
 		}
 	}
 }

@@ -67,6 +67,11 @@ public class Weapons : SimpleSingleton<Weapons> {
 		Destroy(bullet, _timeDestroy);
 	}
 
+    public void AutomaticShoot()
+    {
+        Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
+    }
+
 
     private void Awake(){
     	ResetAmmo();

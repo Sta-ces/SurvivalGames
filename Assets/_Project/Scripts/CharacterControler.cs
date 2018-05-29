@@ -40,7 +40,8 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     {
         if (col.gameObject.GetComponent<EnemyControler>() || col.gameObject.GetComponent<Boss>())
         {
-            Death.Invoke();
+            if(!SecondChance.Instance.CheckSkill())
+                Death.Invoke();
         }
     }
 

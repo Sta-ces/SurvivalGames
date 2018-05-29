@@ -11,5 +11,8 @@ public class Editor_Saver : Editor {
 
         if (GUILayout.Button("Reset HighScore"))
         	PlayerPrefs.DeleteKey("HighScore");
+
+        if (GUILayout.Button("Add 100 Points"))
+            Score.Instance.GetHighscore += 100;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillMenuPlayer : MonoBehaviour {
+public class SkillMenuPlayer : SimpleSingleton<SkillMenuPlayer> {
     
     [Header("Skills")]
     [Tooltip("The GameObject parent")]
@@ -13,8 +13,36 @@ public class SkillMenuPlayer : MonoBehaviour {
     [Tooltip("The GameObject who will be Instantiate in the SkillContainer (parent)")]
     public GameObject SkillsButtonPrefabs;
 
-    [Header("When is created")]
-    public UnityEvent IsCreated;
+    [Header("Descriptions")]
+    [Tooltip("Title of the Skill")]
+    public Text DescriptionTitle;
+    [Tooltip("Description text of the Skill")]
+    public Text DescriptionText;
+
+    [Header("Parameters")]
+    [Tooltip("Max Number Active Skill [-1 = Infinity]")]
+    public int MaxActiveSkill = -1;
+
+    [Header("When is appear on screen")]
+    public UnityEvent OnStart;
+
+
+    public int MaxSkill
+    {
+        get { return MaxActiveSkill; }
+    }
+    
+    public int SkillActivate
+    {
+        get {
+            int skillActivate = 0;
+
+            foreach (SkillsButtons skill in SkillsContainer.GetComponentsInChildren<SkillsButtons>())
+                if (skill.skill.Enable) skillActivate++;
+
+            return skillActivate;
+        }
+    }
 
 
     public void CreateSkills()
@@ -22,17 +50,6 @@ public class SkillMenuPlayer : MonoBehaviour {
         if (SkillsContainer != null && SkillsButtonPrefabs != null)
         {
             Instantiate(SkillsButtonPrefabs, SkillsContainer);
-            /*if (SkillsContainer.transform.childCount > 0)
-                DestroyAllChildren(SkillsContainer.transform);*/
-
-            /*for(int _skill = 0; _skill < PlayerSkillTree.GetSkills.Length; _skill++)
-            {
-                GameObject node = Instantiate(SkillsButtonPrefabs, SkillsContainer);
-                node.GetComponent<SkillsButtons>().SkillID = _skill;
-                node.GetComponent<SkillsButtons>().Information();
-            }*/
-
-            //IsCreated.Invoke();
         }
         else
         {
@@ -43,11 +60,23 @@ public class SkillMenuPlayer : MonoBehaviour {
         }
     }
 
+    public void Description(SkillsButtons _button)
+    {
+        DescriptionTitle.text = _button.skill.Name;
+        DescriptionText.text = _button.skill.Description;
+    }
+
     public void SetFirstSelected(EventSystem _eventSystem)
     {
         GameObject _object = GetFirstChild(SkillsContainer).gameObject;
         _eventSystem.firstSelectedGameObject = _object;
         _eventSystem.SetSelectedGameObject(_object);
+    }
+
+
+    private void OnEnable()
+    {
+        OnStart.Invoke();
     }
 
     private void DestroyAllChildren(Transform _parent)

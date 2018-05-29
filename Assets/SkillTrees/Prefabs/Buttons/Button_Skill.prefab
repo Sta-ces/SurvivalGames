@@ -125,7 +125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5445a94cecc9b7d4ca7ff4ae667d0f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillID: -1
+  skill:
+    Unlock: 1
+    Name: 
+    Description: 
+    RequiredLevel: 0
+    AlwaysEnable: 0
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -302,7 +308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level
+  m_Text: 
 --- !u!114 &114751625936896848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,7 +389,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 114123075767974270}
   m_OnClick:
     m_PersistentCalls:

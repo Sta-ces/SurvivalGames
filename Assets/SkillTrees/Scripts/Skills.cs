@@ -20,4 +20,10 @@ public class Skills : SimpleSingleton<Skills> {
     public Skill skill;
 
     public virtual void EffectSkill() { }
+    
+    public void SaveInformation(Skill _skill, string _nameObject)
+    {
+        PlayerPrefs.SetString(_nameObject + "Unlock", _skill.Unlock.ToString().ToLower());
+        PlayerPrefs.SetString(_nameObject + "Enable", _skill.Enable.ToString().ToLower());
+    }
 }
