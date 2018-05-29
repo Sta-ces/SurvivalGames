@@ -68,4 +68,25 @@ public class Controls {
         get { return activedSkill; }
         set { activedSkill = value; }
     }
+
+    private static bool coolDown;
+    public static bool CoolDown
+    {
+        get { return coolDown; }
+        set { coolDown = value; }
+    }
+
+    private static bool shockwave;
+    public static bool Shockwave
+    {
+        get { return shockwave; }
+        set { shockwave = value; }
+    }
+
+    private static bool superTiki;
+    public static bool SuperTiki
+    {
+        get { return superTiki; }
+        set { superTiki = value; }
+    }
 }

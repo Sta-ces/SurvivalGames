@@ -46,16 +46,19 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
 	}
 
 	private void SetControls(){
-		Controls.MoveX = PlayerInput.GetAxis ("MoveX");
-		Controls.MoveZ = PlayerInput.GetAxis ("MoveZ");
-		Controls.LookX = PlayerInput.GetAxis ("LookX");
-		Controls.LookZ = PlayerInput.GetAxis ("LookZ");
-		Controls.Pause = PlayerInput.GetButtonDown ("Pause");
-		Controls.Shoot = PlayerInput.GetButtonDown ("Shoot");
-		Controls.Reload = PlayerInput.GetButtonDown ("Reload");
-		Controls.Submit = PlayerInput.GetButtonDown ("Submit");
-		Controls.Cancel = PlayerInput.GetButtonDown ("Cancel");
-		Controls.Mute = PlayerInput.GetButtonDown ("Mute");
-        Controls.ActivedSkill = PlayerInput.GetButtonDown ("ActivedSkill");
-	}
+		Controls.MoveX = PlayerInput.GetAxis("MoveX");
+		Controls.MoveZ = PlayerInput.GetAxis("MoveZ");
+		Controls.LookX = PlayerInput.GetAxis("LookX");
+		Controls.LookZ = PlayerInput.GetAxis("LookZ");
+		Controls.Pause = PlayerInput.GetButtonDown("Pause");
+		Controls.Shoot = PlayerInput.GetButtonDown("Shoot");
+		Controls.Reload = PlayerInput.GetButtonDown("Reload");
+		Controls.Submit = PlayerInput.GetButtonDown("Submit");
+		Controls.Cancel = PlayerInput.GetButtonDown("Cancel");
+		Controls.Mute = PlayerInput.GetButtonDown("Mute");
+        Controls.ActivedSkill = PlayerInput.GetButtonDown("ActivedSkill");
+        Controls.CoolDown = PlayerInput.GetButtonDown("CoolDown");
+        Controls.Shockwave = PlayerInput.GetButtonDown("Shockwave");
+        Controls.SuperTiki = PlayerInput.GetButtonDown("SuperTiki");
+    }
 }

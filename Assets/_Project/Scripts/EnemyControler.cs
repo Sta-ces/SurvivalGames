@@ -62,6 +62,7 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
             }
 			Score.Instance.AddScore();
 			Display.Instance.DisplayAllScoring();
+            CoolDown.CountingKill++;
 
             Killed();
 		}
