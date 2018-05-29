@@ -26,8 +26,15 @@ public class TripleShoot : MonoBehaviour {
             if (SkillScript.skill.Enable)
             {
                 IsTripleShoot = true;
+                ActiveSkill();
             } else IsTripleShoot = false;
         } else IsTripleShoot = false;
+    }
+
+
+    private void Start()
+    {
+        CheckSkill();
     }
 
     private void ActiveSkill()
