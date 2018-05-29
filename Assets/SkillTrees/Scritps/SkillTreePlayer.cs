@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class SkillTreePlayer : SimpleSingleton<SkillTreePlayer> {
 
-    public Skills.Skill[] GetSkills
+    /*public Skills.Skill[] GetSkills
     {
         get { return Skills.Instance.skill; }
     }
@@ -19,9 +19,9 @@ public class SkillTreePlayer : SimpleSingleton<SkillTreePlayer> {
             {
             }
         }
-    }
+    }*/
 
-    public void HailToGods()
+    /*public void HailToGods()
     {
         if (Calcul.RandomNumber(1, 100) == 1)
         {
@@ -32,5 +32,5 @@ public class SkillTreePlayer : SimpleSingleton<SkillTreePlayer> {
     public void SecondChance()
     {
         print("Second Chance");
-    }
+    }*/
 }

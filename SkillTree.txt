@@ -1,0 +1,8 @@
+Hail to Gods (5) = 1% of chance to multiply your score.
+Second Chance (25) = 1 extra life (1 time each game).
+Automatic Shoot (50) = Shoot Automaticly without used the trigger.
+Cool Down (100) = Slow down time during 5 seconds (Can use the all 20 kills).
+Triple Shoot (125) = Shoots in 3 different directions.
+Shield (150) = Protect you for 1 hit.
+Shockwave (200) = Kill all the enemies in a certain range.
+End of the game (500) = Kill the last 50 enemies and finish the game.

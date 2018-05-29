@@ -12,7 +12,15 @@ public class Editor_SkillMenuPlayer : Editor {
 
         // Call your custom function here
         // Exemple : scriptTarget.YourFunctionName();
-        if (GUILayout.Button("Generate Skills"))
-            scriptTarget.CreateSkills();
+        numberSkill = EditorGUILayout.IntField("Number to create", numberSkill);
+        if (GUILayout.Button("Create a Skill"))
+        {
+            for(int num = 0;num < numberSkill; num++)
+            {
+                scriptTarget.CreateSkills();
+            }
+        }
     }
+
+    private int numberSkill = 1;
 }

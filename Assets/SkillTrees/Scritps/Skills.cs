@@ -16,7 +16,8 @@ public class Skills : SimpleSingleton<Skills> {
         public int RequiredLevel;
         public bool AlwaysEnable;
         public bool Enable;
-        public Behaviour Script;
     }
-    public Skill[] skill;
+    public Skill skill;
+
+    public virtual void EffectSkill() { }
 }
