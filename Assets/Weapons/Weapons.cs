@@ -8,6 +8,8 @@ public class Weapons : SimpleSingleton<Weapons> {
 	[Header("Bullets")]
     public GameObject m_PrefabsBullet;
     public Transform m_LocationSpawnBullet;
+    public Transform m_LocationSpawnBullet_2;
+    public Transform m_LocationSpawnBullet_3;
     [Range(1f, 10f)]
     public float m_TimeLifeBullet = 3f;
     [Range(5f, 50f)]
@@ -82,6 +84,11 @@ public class Weapons : SimpleSingleton<Weapons> {
 		if( Weapons.Instance.IsShoot ){
 			if( Controls.Shoot ){
 	    		Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
+                if (TripleShoot.IsTripleShoot)
+                {
+                    Shoot(m_PrefabsBullet, m_LocationSpawnBullet_2, m_SpeedBullet, m_TimeLifeBullet);
+                    Shoot(m_PrefabsBullet, m_LocationSpawnBullet_3, m_SpeedBullet, m_TimeLifeBullet);
+                }
 				if( Weapons.Instance.IsAmmo ) Weapons.Instance.GetAmmo--;
 
 				WeaponsShoot.Invoke();

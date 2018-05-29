@@ -35,10 +35,13 @@ public class CoolDown : MonoBehaviour {
         {
             if (SkillScript.skill.Enable)
             {
-                if (CountingKill >= NumberKill && Controls.CoolDown)
+                if (CountingKill >= NumberKill)
                 {
-                    ResetCountingKill();
-                    StartCoroutine("ActiveSkill");
+                    if (Controls.CoolDown)
+                    {
+                        ResetCountingKill();
+                        StartCoroutine("ActiveSkill");
+                    }
                 }
             }
         }
@@ -52,14 +55,15 @@ public class CoolDown : MonoBehaviour {
     private IEnumerator ActiveSkill()
     {
         print("CoolDown!");
-
-        float _speedBase = EnemyControler.Instance.SpeedEnemy;
-        EnemyControler.Instance.SpeedEnemy = EnemySpeed;
+        
+        EnemyCapacity.SpeedEnemy = EnemySpeed;
 
         OnActivate.Invoke();
 
         yield return new WaitForSeconds(SecondCoolDown);
 
-        EnemyControler.Instance.SpeedEnemy = _speedBase;
+        EnemyCapacity.SpeedEnemy = EnemyControler.Instance.SpeedBase;
+
+        print("Fin CooldDown");
     }
 }

@@ -23,10 +23,10 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 		set{ Life = value; }
 	}
 
-	public float SpeedEnemy{
-		get{ return Speed; }
-		set{ Speed = value; }
-	}
+    public float SpeedBase
+    {
+        get { return Speed; }
+    }
 
 	public float MaxSpeedEnemy{
 		get{ return MaxSpeed; }
@@ -39,9 +39,9 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
         Destroy(gameObject);
     }
 
-
-	private void LateUpdate(){
-		GetComponent<NavMeshAgent>().speed = EnemyControler.Instance.SpeedEnemy;
+    
+    private void LateUpdate(){
+		GetComponent<NavMeshAgent>().speed = (EnemyCapacity.SpeedEnemy == 0) ? SpeedBase : EnemyCapacity.SpeedEnemy;
 
 		if( !CharacterControler.Instance.DeathPlayer )
 			GetComponent<NavMeshAgent>().SetDestination(CharacterControler.Instance.transform.position);

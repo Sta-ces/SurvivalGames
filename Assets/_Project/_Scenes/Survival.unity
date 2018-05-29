@@ -897,6 +897,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d0a438c388ef3e14ab76ae12401b7f39, type: 2}
   m_PrefabInternal: {fileID: 141183553}
+--- !u!4 &152339729 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4371622977197074, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 917927884}
 --- !u!114 &152339731 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
@@ -5740,8 +5745,26 @@ Prefab:
     - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
         type: 2}
       propertyPath: m_TimeLifeBullet
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4913361978290092, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522824546704478, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_LocationSpawnBullet_2
+      value: 
+      objectReference: {fileID: 1810329942}
+    - target: {fileID: 114014593689757892, guid: a43a38b04509aca489dfa32bea6e2ef5,
+        type: 2}
+      propertyPath: m_LocationSpawnBullet_3
+      value: 
+      objectReference: {fileID: 1869813677}
     m_RemovedComponents:
     - {fileID: 114540436915107086, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a43a38b04509aca489dfa32bea6e2ef5, type: 2}
@@ -10944,6 +10967,36 @@ Transform:
   m_PrefabParentObject: {fileID: 4860350637157512, guid: 0641fa3b0faf88940a63ac8503904afd,
     type: 2}
   m_PrefabInternal: {fileID: 1787019400}
+--- !u!1 &1810329941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1353872908228302, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1810329942}
+  m_Layer: 9
+  m_Name: SpawnBullet (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810329942
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4913361978290092, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810329941}
+  m_LocalRotation: {x: -0, y: -0.2588186, z: -0, w: 0.965926}
+  m_LocalPosition: {x: 0, y: 0, z: 0.26399994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 152339729}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -30.000002, z: 0}
 --- !u!1001 &1814687744
 Prefab:
   m_ObjectHideFlags: 0
@@ -11515,6 +11568,36 @@ MonoBehaviour:
   Off: 'Press Enter to Start
 
     Press Esc to Quit'
+--- !u!1 &1869813676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1353872908228302, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1869813677}
+  m_Layer: 9
+  m_Name: SpawnBullet (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1869813677
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4913361978290092, guid: a43a38b04509aca489dfa32bea6e2ef5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869813676}
+  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0, z: 0.26399994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 152339729}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!1 &1874662566
 GameObject:
   m_ObjectHideFlags: 0
@@ -12079,6 +12162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706b9f36c67b17346b7845c5199ae9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkillScript: {fileID: 0}
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1935960196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12097,7 +12186,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   NumberKill: 20
-  SecondCoolDown: 10
+  SecondCoolDown: 5
   EnemySpeed: 2.5
 --- !u!114 &1935960197
 MonoBehaviour:
