@@ -37,6 +37,7 @@ public class SecondChance : SimpleSingleton<SecondChance> {
     }
 
     private bool extraLife = true;
+    public bool ExtraLife { get { return extraLife; } }
     public void SetExtraLife(bool _extraLife)
     {
         extraLife = _extraLife;
