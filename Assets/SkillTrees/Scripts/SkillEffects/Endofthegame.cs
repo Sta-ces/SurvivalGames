@@ -5,14 +5,35 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class Endofthegame : MonoBehaviour {
- 
- 
- void Start () {
- 
- }
- 
- 
- void Update () {
- 
- }
+
+    public SkillsButtons SkillScript;
+
+    [Header("Activate")]
+    public UnityEvent OnActivate;
+
+    public void CheckSkill()
+    {
+        if (SkillScript != null)
+        {
+            if (SkillScript.skill.Enable)
+            {
+                Spawning.Instance.Infinite = false;
+                if (Spawning.Instance.IsFinish)
+                {
+                    ActiveSkill();
+                }
+            }
+        }
+    }
+
+    private void Update()
+    {
+        CheckSkill();
+    }
+
+    private void ActiveSkill()
+    {
+        print("End of the game!");
+        OnActivate.Invoke();
+    }
 }

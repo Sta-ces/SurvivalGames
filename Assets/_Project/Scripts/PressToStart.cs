@@ -8,10 +8,15 @@ public class PressToStart : MonoBehaviour {
 	public UnityEvent OnPress;
 	public UnityEvent OnQuit;
 
-	void LateUpdate () {
-		bool _check = (CheckIfRestart && GameManager.Restart && Score.Instance.GetLastScore >= 5);
+    public void ActiveOnPress() { OnPress.Invoke(); }
 
-		if(Controls.Submit || _check) OnPress.Invoke();
-		if(Controls.Cancel) OnQuit.Invoke();
+	void FixedUpdate () {
+        if (!DeleteSave.Instance.IsOpen)
+        {
+            bool _check = (CheckIfRestart && GameManager.Restart && Score.Instance.GetLastScore >= 5);
+
+            if (Controls.Submit || _check) OnPress.Invoke();
+            if (Controls.Cancel) OnQuit.Invoke();
+        }
     }
 }

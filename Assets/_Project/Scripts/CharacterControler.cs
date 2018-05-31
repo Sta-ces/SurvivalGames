@@ -55,7 +55,7 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     }
 
     private void FixedUpdate(){
-        if (!CharacterControler.Instance.DeathPlayer)
+        if (!CharacterControler.Instance.DeathPlayer && !GameManager.IsPaused)
         {
             Movement();
             LimitMove();
@@ -111,7 +111,7 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     }
 
     private void OtherInput(){
-		if( Controls.Pause )
+		if( Controls.Pause && !DeleteSave.Instance.IsOpen )
             Display.Instance.SetDisplayPause();
     }
 

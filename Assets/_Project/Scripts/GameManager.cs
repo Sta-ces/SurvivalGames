@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour {
     }
 
 	public void PauseGame(){
-		Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
-		GameManager.IsPaused = (Time.timeScale == 1) ? true : false;
+        /*Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
+		GameManager.IsPaused = Time.timeScale == 1;*/
+        GameManager.IsPaused = !GameManager.IsPaused;
 	}
 
 	public void RestartGame(bool _restart){

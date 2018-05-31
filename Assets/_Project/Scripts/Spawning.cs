@@ -53,16 +53,28 @@ public class Spawning : SimpleSingleton<Spawning> {
 		set{ isBoss = value; }
 	}
 
+    private bool isFinish = false;
+    public bool IsFinish
+    {
+        get { return isFinish; }
+        set { isFinish = value; }
+    }
+
 
 	public IEnumerator SpawnRobots(int _numMaxEnemy){
 		int enemy = 0;
 		while(!CharacterControler.Instance.DeathPlayer && enemy < _numMaxEnemy){
 			yield return new WaitForSeconds(Spawning.Instance.GetSecondsToSpawn);
-			int random = Random.Range(1, Spawning.Instance.GetCountSpawners);
-			Instantiate(RobotsPrefabs, Spawning.Instance.GetArraySpawners[random].position, Spawning.Instance.GetArraySpawners[random].rotation);
-			if(!Infinite) enemy++;
-			Spawning.Instance.IsBoss = enemy >= _numMaxEnemy ? true : false;
-		}
+            if (!GameManager.IsPaused)
+            {
+                int random = Random.Range(1, Spawning.Instance.GetCountSpawners);
+                Instantiate(RobotsPrefabs, Spawning.Instance.GetArraySpawners[random].position, Spawning.Instance.GetArraySpawners[random].rotation);
+                if (!Infinite) enemy++;
+                if (BossPrefabs != null)
+                    Spawning.Instance.IsBoss = enemy >= _numMaxEnemy;
+                IsFinish = enemy >= _numMaxEnemy;
+            }
+        }
 	}
 
 	public IEnumerator SpawnBoss(){
