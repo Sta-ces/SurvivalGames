@@ -13,13 +13,10 @@ public class SkillsUI : MonoBehaviour {
     {
         if(SkillScript != null)
         {
-            if (SkillScript.skill.Enable && SkillScript.skill.Unlock)
+            if (GetComponentInChildren<Image>())
             {
-                if (GetComponentInChildren<Image>())
-                {
-                    DisplayUISkill();
-                    CustomUISkill();
-                }
+                DisplayUISkill();
+                CustomUISkill();
             }
         }
     }

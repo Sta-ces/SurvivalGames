@@ -23,7 +23,10 @@ public class Skills : SimpleSingleton<Skills> {
     
     public void SaveInformation(Skill _skill, string _nameObject)
     {
-        PlayerPrefs.SetString(_nameObject + "Unlock", _skill.Unlock.ToString().ToLower());
-        PlayerPrefs.SetString(_nameObject + "Enable", _skill.Enable.ToString().ToLower());
+        string _name = _nameObject.Replace(" ", "");
+        _name = _name.Trim();
+
+        PlayerPrefs.SetString(_name + "Unlock", _skill.Unlock.ToString().ToLower());
+        PlayerPrefs.SetString(_name + "Enable", _skill.Enable.ToString().ToLower());
     }
 }

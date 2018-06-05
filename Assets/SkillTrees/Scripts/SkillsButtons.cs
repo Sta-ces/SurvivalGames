@@ -21,19 +21,21 @@ public class SkillsButtons : Skills {
         if (SkillMenuPlayer.Instance.MaxSkill < 0 || SkillMenuPlayer.Instance.SkillActivate <= SkillMenuPlayer.Instance.MaxSkill || skill.Enable)
         {
             if (skill.Unlock && !skill.AlwaysEnable) skill.Enable = !skill.Enable;
-            SaveInformation(skill, gameObject.name);
+            SaveInformation(skill, skill.Name);
             Information();
         }
     }
 
     public void Information()
     {
-        skill.Unlock = PlayerPrefs.GetString(gameObject.name + "Unlock", "false").ToLower() == "true";
+        SaveInformation(skill, skill.Name);
+
+        skill.Unlock = PlayerPrefs.GetString(skill.Name + "Unlock", "false").ToLower() == "true";
         if(!skill.Unlock)
             skill.Unlock = skill.RequiredLevel <= Score.Instance.GetHighscore;
 
         if (skill.Unlock)
-            skill.Enable = PlayerPrefs.GetString(gameObject.name + "Enable", "false").ToLower() == "true";
+            skill.Enable = PlayerPrefs.GetString(skill.Name + "Enable", "false").ToLower() == "true";
         else skill.Enable = false;
         skill.Enable = (skill.AlwaysEnable && skill.Unlock) ? true : skill.Enable;
 
@@ -51,8 +53,8 @@ public class SkillsButtons : Skills {
             if (skill.Unlock) _textComp.text = "";
             else _textComp.text = skill.RequiredLevel.ToString();
         }
-
-        SaveInformation(skill, gameObject.name);
+        
+        SaveInformation(skill, skill.Name);
     }
 
 

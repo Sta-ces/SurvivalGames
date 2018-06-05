@@ -73,6 +73,15 @@ public class SkillMenuPlayer : SimpleSingleton<SkillMenuPlayer> {
         _eventSystem.SetSelectedGameObject(_object);
     }
 
+    public void SetInformationChildren()
+    {
+        foreach(Transform child in SkillsContainer)
+        {
+            if(child.GetComponent<SkillsButtons>())
+                child.GetComponent<SkillsButtons>().Information();
+        }
+    }
+
 
     private void OnEnable()
     {
