@@ -313,7 +313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 125
 --- !u!222 &41389545
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &89028580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 1
+    Unlock: 0
     Name: Automatic Shoot
     Description: Shoot Automaticly without used the trigger.
     RequiredLevel: 50
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1777341965}
   m_OnClick:
     m_PersistentCalls:
@@ -2235,12 +2235,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 1
+    Unlock: 0
     Name: Cool Down
     Description: Slow down time during 5 seconds (Can use the all 20 kills).
     RequiredLevel: 100
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2292,7 +2292,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 323372190}
   m_OnClick:
     m_PersistentCalls:
@@ -3195,7 +3195,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &427860501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,7 +3353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &444768839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3369,10 +3369,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 27.73999, y: -452}
+  m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444768840
 MonoBehaviour:
@@ -3665,7 +3665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 100
 --- !u!222 &449711489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4269,7 +4269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 50
 --- !u!222 &526840806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5698,12 +5698,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 1
+    Unlock: 0
     Name: Triple Shoot
     Description: Shoots in 3 different directions.
     RequiredLevel: 125
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5755,7 +5755,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1910414584}
   m_OnClick:
     m_PersistentCalls:
@@ -7082,7 +7082,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 5
 --- !u!222 &929312817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8126,7 +8126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1037427760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8142,10 +8142,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 27.73999, y: -552}
+  m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037427761
 MonoBehaviour:
@@ -9870,7 +9870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1317143509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9886,10 +9886,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 27.73999, y: -652}
+  m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317143510
 MonoBehaviour:
@@ -12473,7 +12473,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!82 &1689761925 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82409240219642384, guid: 89f65d6cdb6dd7c41890dc2c24a043f6,
@@ -12588,7 +12588,7 @@ MonoBehaviour:
     Description: 1 extra life (1 time each game).
     RequiredLevel: 25
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -15947,7 +15947,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!82 &2051496973 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82409240219642384, guid: 89f65d6cdb6dd7c41890dc2c24a043f6,
@@ -16319,12 +16319,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 1
+    Unlock: 0
     Name: Hail To Gods
     Description: 1% of chance to multiply your score. (Always Activate)
     RequiredLevel: 5
     AlwaysEnable: 1
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -16376,7 +16376,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 634442873}
   m_OnClick:
     m_PersistentCalls:
