@@ -1,16 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SkillsUI : MonoBehaviour {
 
     public SkillsButtons SkillScript;
     public Sprite SkillImage;
-
-    [Header("Dev")]
-    public bool Test = false;
 
 
     public virtual void CustomUISkill() { }
@@ -23,6 +17,7 @@ public class SkillsUI : MonoBehaviour {
             {
                 if (GetComponentInChildren<Image>())
                 {
+                    DisplayUISkill();
                     CustomUISkill();
                 }
             }
@@ -31,24 +26,15 @@ public class SkillsUI : MonoBehaviour {
 
     public void DisplayUISkill()
     {
-        if(SkillScript != null)
+        if (SkillImage != null && GetComponentsInChildren<Image>().Length > 0)
         {
-            if (SkillImage != null && GetComponentsInChildren<Image>().Length > 0)
-            {
-                foreach (Image _img in GetComponentsInChildren<Image>())
-                    _img.sprite = SkillImage;
-            }
-
-            if(!Test)
-                gameObject.SetActive(SkillScript.skill.Enable && SkillScript.skill.Unlock);
-
-            if (!Test && SkillScript.skill.AlwaysEnable)
-                gameObject.SetActive(false);
+            foreach (Image _img in GetComponentsInChildren<Image>())
+                _img.sprite = SkillImage;
         }
-    }
+        
+        gameObject.SetActive(SkillScript.skill.Enable && SkillScript.skill.Unlock);
 
-    void Start () {
-        DisplayUISkill();
-        UISkill();
-	}
+        if (SkillScript.skill.AlwaysEnable)
+            gameObject.SetActive(false);
+    }
 }

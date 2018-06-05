@@ -34,7 +34,7 @@ public class AutomaticShoot : MonoBehaviour {
     private IEnumerator ActiveSkill()
     {
         print("Automatic Shoot!");
-        while (true)
+        while (!CharacterControler.Instance.DeathPlayer)
         {
             yield return new WaitForSeconds(CoolDownShoot);
             OnActivate.Invoke();

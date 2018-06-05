@@ -1765,12 +1765,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 0
+    Unlock: 1
     Name: Automatic Shoot
     Description: Shoot Automaticly without used the trigger.
     RequiredLevel: 50
     AlwaysEnable: 0
-    Enable: 0
+    Enable: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1777341965}
   m_OnClick:
     m_PersistentCalls:
@@ -2234,7 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 0
+    Unlock: 1
     Name: Cool Down
     Description: Slow down time during 5 seconds (Can use the all 20 kills).
     RequiredLevel: 100
@@ -2291,7 +2291,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 323372190}
   m_OnClick:
     m_PersistentCalls:
@@ -3194,7 +3194,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &427860501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,16 +3251,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0b9c4ae2d3206ae41b7a188f5f5743cc, type: 3}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 14
-    m_MaxSize: 30
-    m_Alignment: 5
+    m_MaxSize: 50
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 0
 --- !u!222 &427860504
@@ -3370,7 +3370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -252}
+  m_AnchoredPosition: {x: 27.73999, y: -350}
   m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444768840
@@ -3386,7 +3386,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 765095265}
   SkillImage: {fileID: 21300000, guid: 0ea76905a66441c46a7a6f00ceda0270, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &446546051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,7 +3658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!222 &449711489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4258,7 +4262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50
+  m_Text: 
 --- !u!222 &526840806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6352,7 +6356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &836129347
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6368,10 +6372,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -452}
-  m_SizeDelta: {x: 55.47998, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &836129348
 MonoBehaviour:
@@ -6386,7 +6390,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 260804217}
   SkillImage: {fileID: 21300000, guid: 88085ed2cf801034e8a83f9a368c3edd, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &860196718
 Prefab:
   m_ObjectHideFlags: 0
@@ -7071,7 +7079,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 
 --- !u!222 &929312817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8133,7 +8141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -552}
+  m_AnchoredPosition: {x: 27.73999, y: -450}
   m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037427761
@@ -8149,7 +8157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 286679492}
   SkillImage: {fileID: 21300000, guid: 11367e82d4897674f85ce00ecf37d308, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1037735780
 Prefab:
   m_ObjectHideFlags: 0
@@ -8292,7 +8304,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &1049927016
 GameObject:
   m_ObjectHideFlags: 0
@@ -9266,7 +9278,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 25
+  m_Text: 
 --- !u!222 &1156719753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9643,7 +9655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -452}
+  m_AnchoredPosition: {x: 27.73999, y: -250}
   m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244633394
@@ -9659,7 +9671,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 1830640258}
   SkillImage: {fileID: 21300000, guid: 710bbe3bf938a62408d90b5b0185585f, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1249777511
 Prefab:
   m_ObjectHideFlags: 0
@@ -9861,7 +9877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1317143509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9877,10 +9893,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -652}
-  m_SizeDelta: {x: 55.47998, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317143510
 MonoBehaviour:
@@ -9895,7 +9911,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 1690648711}
   SkillImage: {fileID: 21300000, guid: c0faf37a54e9e50489e4eab4ebf0dda6, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1323863209
 Prefab:
   m_ObjectHideFlags: 0
@@ -10525,6 +10545,7 @@ GameObject:
   - component: {fileID: 1418875531}
   - component: {fileID: 1418875534}
   - component: {fileID: 1418875532}
+  - component: {fileID: 1418875533}
   m_Layer: 5
   m_Name: Skill_HUD
   m_TagString: Untagged
@@ -10580,6 +10601,17 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
+--- !u!114 &1418875533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418875530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d74b602ec1147f418829732473da3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &1418875534
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12563,12 +12595,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 0
+    Unlock: 1
     Name: Second Chance
     Description: 1 extra life (1 time each game).
     RequiredLevel: 25
     AlwaysEnable: 0
-    Enable: 0
+    Enable: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -12620,7 +12652,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 490848149}
   m_OnClick:
     m_PersistentCalls:
@@ -12962,7 +12994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -652}
+  m_AnchoredPosition: {x: 27.73999, y: -750}
   m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757524147
@@ -12978,7 +13010,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 2080673018}
   SkillImage: {fileID: 21300000, guid: 64ce7271351be2b48bbe610429f16a69, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1758446211
 Prefab:
   m_ObjectHideFlags: 0
@@ -13204,7 +13240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -52}
+  m_AnchoredPosition: {x: 27.73999, y: -150}
   m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769359172
@@ -13220,7 +13256,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 208217770}
   SkillImage: {fileID: 21300000, guid: 1dbf4716d12eae344af2355ba0e255ca, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1774684684
 GameObject:
   m_ObjectHideFlags: 0
@@ -15281,7 +15321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -652}
+  m_AnchoredPosition: {x: 27.73999, y: -50}
   m_SizeDelta: {x: 55.47998, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972983605
@@ -15297,7 +15337,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 1021601744}
   SkillImage: {fileID: 21300000, guid: 9f2b2dab3fa3fc341b4a4f9400065aed, type: 3}
-  Test: 0
+  ActiveSkillEffect:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1974096786
 GameObject:
   m_ObjectHideFlags: 0
@@ -15799,7 +15843,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!82 &2051496973 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82409240219642384, guid: 89f65d6cdb6dd7c41890dc2c24a043f6,
@@ -16171,12 +16215,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill:
-    Unlock: 0
+    Unlock: 1
     Name: Hail To Gods
     Description: 1% of chance to multiply your score. (Always Activate)
     RequiredLevel: 5
     AlwaysEnable: 1
-    Enable: 0
+    Enable: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -16228,7 +16272,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 634442873}
   m_OnClick:
     m_PersistentCalls:
