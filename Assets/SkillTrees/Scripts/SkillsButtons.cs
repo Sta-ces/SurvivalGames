@@ -28,14 +28,14 @@ public class SkillsButtons : Skills {
 
     public void Information()
     {
-        SaveInformation(skill, skill.Name);
+        //SaveInformation(skill, skill.Name);
 
-        skill.Unlock = PlayerPrefs.GetString(skill.Name + "Unlock", "false").ToLower() == "true";
+        skill.Unlock = PlayerPrefs.GetString(ChangeText.DeleteSpace(skill.Name) + "Unlock", "false").ToLower() == "true";
         if(!skill.Unlock)
             skill.Unlock = skill.RequiredLevel <= Score.Instance.GetHighscore;
 
         if (skill.Unlock)
-            skill.Enable = PlayerPrefs.GetString(skill.Name + "Enable", "false").ToLower() == "true";
+            skill.Enable = PlayerPrefs.GetString(ChangeText.DeleteSpace(skill.Name) + "Enable", "false").ToLower() == "true";
         else skill.Enable = false;
         skill.Enable = (skill.AlwaysEnable && skill.Unlock) ? true : skill.Enable;
 

@@ -14,4 +14,12 @@ public class ChangeText : MonoBehaviour {
         if (On != "" && Off != "")
             GetComponent<Text>().text = (GamePadInputs.Instance.IsGamepad) ? On : Off;
     }
+
+
+    public static string DeleteSpace(string _text)
+    {
+        string _string = _text.Replace(" ", "");
+        _string = _string.Trim();
+        return _string;
+    }
 }

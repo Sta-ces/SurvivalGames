@@ -37,7 +37,8 @@ public class AutomaticShoot : MonoBehaviour {
         while (!CharacterControler.Instance.DeathPlayer)
         {
             yield return new WaitForSeconds(CoolDownShoot);
-            OnActivate.Invoke();
+            if(!GameManager.IsPaused)
+                OnActivate.Invoke();
         }
     }
 }

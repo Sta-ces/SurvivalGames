@@ -41,10 +41,9 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
 
     
     private void LateUpdate(){
-        if (GameManager.IsPaused) GetComponent<NavMeshAgent>().speed = 0;
-        else GetComponent<NavMeshAgent>().speed = (EnemyCapacity.SpeedEnemy == 0) ? SpeedBase : EnemyCapacity.SpeedEnemy;
+        GetComponent<NavMeshAgent>().speed = (EnemyCapacity.SpeedEnemy == 0) ? SpeedBase : EnemyCapacity.SpeedEnemy;
 
-		if( !CharacterControler.Instance.DeathPlayer )
+        if ( !CharacterControler.Instance.DeathPlayer && !GameManager.IsPaused )
 			GetComponent<NavMeshAgent>().SetDestination(CharacterControler.Instance.transform.position);
 		else
 			GetComponent<NavMeshAgent>().SetDestination(transform.position);

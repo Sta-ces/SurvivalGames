@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 
 	public bool MouseVisibility = true;
+
+    public UnityEvent OnStart;
 
 	private static bool restart = false;
 	public static bool Restart{
@@ -39,4 +42,9 @@ public class GameManager : MonoBehaviour {
 		Cursor.visible = MouseVisibility;
 		Cursor.lockState = CursorLockMode.Confined;
 	}
+
+    private void Start()
+    {
+        OnStart.Invoke();
+    }
 }

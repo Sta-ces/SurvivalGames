@@ -82,7 +82,7 @@ public class SkillMenuPlayer : SimpleSingleton<SkillMenuPlayer> {
         }
     }
 
-
+    
     private void OnEnable()
     {
         OnStart.Invoke();
