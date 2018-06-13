@@ -60,7 +60,8 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
                 Score.Instance.AddPieces(_pieces);
                 Pieces.Invoke();
             }
-			Score.Instance.AddScore();
+            if (Spawning.Instance.IsInfinite) Score.Instance.AddScore();
+            else Score.Instance.ReduceScore();
 			Display.Instance.DisplayAllScoring();
             CoolDown.CountingKill++;
 

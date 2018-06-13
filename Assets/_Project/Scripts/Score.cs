@@ -24,8 +24,9 @@ public class Score : SimpleSingleton<Score> {
 		set{ PlayerPrefs.SetInt("Pieces", value); }
 	}
 
-    public void AddScore(int _addScore = 1){
-		Score.Instance.GetScore += _addScore;
+    public void AddScore(int _addScore = 1)
+    {
+        Score.Instance.GetScore += _addScore;
 
 		if ( Score.Instance.GetScore > Score.Instance.GetHighscore )
 			Score.Instance.GetHighscore = Score.Instance.GetScore;
@@ -39,6 +40,15 @@ public class Score : SimpleSingleton<Score> {
 	public void AddPieces(int _addPieces = 1){
 		Score.Instance.GetPieces += _addPieces;
 	}
+
+    public void ReduceScore(int _reduceScore = 1)
+    {
+        Score.Instance.GetScore -= _reduceScore;
+    }
+
+    public void EndGameScore(int _endGameScore) {
+        Score.Instance.GetScore = _endGameScore;
+    }
 
     public void ResetScore(){
         Score.Instance.GetLastScore = Score.Instance.GetScore;

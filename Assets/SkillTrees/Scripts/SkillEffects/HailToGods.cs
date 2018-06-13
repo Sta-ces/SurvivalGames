@@ -11,6 +11,10 @@ public class HailToGods : SimpleSingleton<HailToGods> {
     [Header("Activate")]
     public UnityEvent OnActivate;
 
+    [Header("Pourcent")]
+    [Range(1, 100)]
+    public int PourcentActivation = 10;
+
     public void CheckSkill()
     {
         if (SkillScript != null)
@@ -19,7 +23,7 @@ public class HailToGods : SimpleSingleton<HailToGods> {
             {
                 if (CharacterControler.Instance.DeathPlayer)
                 {
-                    if (Calcul.RandomNumber(1, 101) == 1)
+                    if (Calcul.RandomNumber(1, 101) <= PourcentActivation)
                     {
                         ActiveSkill();
                     }

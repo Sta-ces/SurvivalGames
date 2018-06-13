@@ -39,7 +39,7 @@ public class Display : SimpleSingleton<Display> {
 
 	public void DisplayAllScoring(){
 		SetDisplayPieces();
-		SetDisplayScore();
+        SetDisplayScore();
 		SetDisplayHighScore();
 	}
 

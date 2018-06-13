@@ -60,11 +60,18 @@ public class Spawning : SimpleSingleton<Spawning> {
         set { isFinish = value; }
     }
 
+    public bool IsInfinite
+    {
+        get { return Infinite; }
+        set { Infinite = value; }
+    }
+
 
 	public IEnumerator SpawnRobots(int _numMaxEnemy){
 		int enemy = 0;
-		while(!CharacterControler.Instance.DeathPlayer && enemy < _numMaxEnemy){
-			yield return new WaitForSeconds(Spawning.Instance.GetSecondsToSpawn);
+		while(!CharacterControler.Instance.DeathPlayer && enemy < _numMaxEnemy)
+        {
+            yield return new WaitForSeconds(Spawning.Instance.GetSecondsToSpawn);
             if (!GameManager.IsPaused)
             {
                 int random = Random.Range(1, Spawning.Instance.GetCountSpawners);
