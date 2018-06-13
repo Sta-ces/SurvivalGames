@@ -16416,7 +16416,7 @@ MonoBehaviour:
   skill:
     Unlock: 1
     Name: Hail To Gods
-    Description: 1% of chance to multiply your score. (Always Activate)
+    Description: 10% of chance to multiply your score. (Always Activate)
     RequiredLevel: 5
     AlwaysEnable: 1
     Enable: 1

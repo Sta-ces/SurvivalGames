@@ -8,9 +8,19 @@ public class Shockwave : MonoBehaviour {
     [Header("Activate")]
     public UnityEvent OnActivate;
 
+    [Header("Active After")]
+    public int NumberKill = 30;
+
     [Header("Objects to Destroy in Range")]
     [Range(1, 20)]
     public float RangeToDestroy = 2f;
+
+    private static int countingKill = 0;
+    public static int CountingKill
+    {
+        get { return countingKill; }
+        set { countingKill = value; }
+    }
 
     public void CheckSkill()
     {
@@ -18,9 +28,12 @@ public class Shockwave : MonoBehaviour {
         {
             if (SkillScript.skill.Enable)
             {
-                if (Controls.Shockwave)
+                if (CountingKill >= NumberKill)
                 {
-                    ActiveSkill();
+                    if (Controls.Shockwave)
+                    {
+                        ActiveSkill();
+                    }
                 }
             }
         }
