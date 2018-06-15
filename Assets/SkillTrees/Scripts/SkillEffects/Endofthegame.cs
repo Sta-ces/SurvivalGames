@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Endofthegame : MonoBehaviour {
+public class Endofthegame : SimpleSingleton<Endofthegame> {
 
     public SkillsButtons SkillScript;
 
@@ -22,12 +22,20 @@ public class Endofthegame : MonoBehaviour {
         }
     }
 
+    public void FinishIt()
+    {
+        if (Spawning.Instance.IsFinish && FindObjectsOfType<EnemyControler>().Length <= 0)
+            OnFinish.Invoke();
+    }
+
     private void ActiveSkill()
     {
         print("End of the game!");
         OnActivate.Invoke();
 
-        if (Spawning.Instance.IsFinish && FindObjectsOfType<EnemyControler>().Length <= 0)
-            OnFinish.Invoke();
+        Spawning.Instance.GetSecondsToSpawn = Spawning.Instance.GetMinSecondsToSpawn;
+        EnemyCapacity.SpeedEnemy = EnemyControler.Instance.MaxSpeedEnemy;
+
+        FinishIt();
     }
 }

@@ -27,4 +27,9 @@ public class Difficulties : SimpleSingleton<Difficulties>  {
             }
         }
 	}
+
+    public void ChangeHowMuchKilled(int _number)
+    {
+        HowMuchKilled = _number;
+    }
 }

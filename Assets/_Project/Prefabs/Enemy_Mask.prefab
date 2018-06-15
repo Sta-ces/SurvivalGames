@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Life: 10
   Speed: 6
-  MaxSpeed: 10
+  MaxSpeed: 8
   Death:
     m_PersistentCalls:
       m_Calls:

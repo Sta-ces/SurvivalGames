@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/_Scenes/Survival.unity
     guid: 369cc998efafe224896564060907785d
+  - enabled: 1
+    path: Assets/_Project/_Scenes/CinematicEndGame.unity
+    guid: d456a2442d1ef594c8c5ef5d170dae76
   m_configObjects: {}

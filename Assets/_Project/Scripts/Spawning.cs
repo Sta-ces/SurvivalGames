@@ -99,5 +99,7 @@ public class Spawning : SimpleSingleton<Spawning> {
 	private void LateUpdate(){
 		if( Spawning.Instance.IsBoss && GameObject.FindGameObjectsWithTag(RobotsPrefabs.tag).Length <= 0 )
 			StartCoroutine(SpawnBoss());
-	}
+
+        Endofthegame.Instance.FinishIt();
+    }
 }

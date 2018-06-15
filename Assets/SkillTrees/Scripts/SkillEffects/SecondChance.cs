@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -45,7 +42,9 @@ public class SecondChance : SimpleSingleton<SecondChance> {
 
     public void KillAllEnemies()
     {
-        foreach(EnemyControler enemy in GameObject.FindObjectsOfType<EnemyControler>())
-            enemy.Killed();
+        EnemyControler[] enemies = FindObjectsOfType<EnemyControler>();
+        foreach (EnemyControler enemy in enemies)
+            if(enemy.tag == "Enemy")
+                enemy.Killed();
     }
 }
