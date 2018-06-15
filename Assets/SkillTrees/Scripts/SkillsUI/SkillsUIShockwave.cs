@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
 public class SkillsUIShockwave : SkillsUI
 {
@@ -11,6 +7,6 @@ public class SkillsUIShockwave : SkillsUI
     {
         base.CustomUISkill();
 
-        //GetComponentInChildren<Image>().fillAmount = Calcul.ValueToPercentage(Shockwave) / 100;
+        GetComponentInChildren<Image>().fillAmount = Calcul.ValueToPercentage(Shockwave.CountingKill, Shockwave.Instance.NumberKill) / 100;
     }
 }

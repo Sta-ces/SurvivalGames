@@ -64,6 +64,7 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
             else Score.Instance.ReduceScore();
 			Display.Instance.DisplayAllScoring();
             CoolDown.CountingKill++;
+            Shockwave.CountingKill++;
 
             Killed();
 		}

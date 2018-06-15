@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,6 +27,12 @@ public class CoolDown : SimpleSingleton<CoolDown> {
 
     public void ResetCountingKill() { CountingKill = 0; }
 
+    private static bool isCoolDown = false;
+    public static bool IsCoolDown
+    {
+        get { return isCoolDown; }
+    }
+
     public void CheckSkill()
     {
         if (SkillScript != null)
@@ -39,7 +43,6 @@ public class CoolDown : SimpleSingleton<CoolDown> {
                 {
                     if (Controls.CoolDown)
                     {
-                        ResetCountingKill();
                         StartCoroutine("ActiveSkill");
                     }
                 }
@@ -55,14 +58,16 @@ public class CoolDown : SimpleSingleton<CoolDown> {
     private IEnumerator ActiveSkill()
     {
         print("CoolDown!");
-        
+        isCoolDown = true;
+        float defaultSpeed = EnemyCapacity.SpeedEnemy;
         EnemyCapacity.SpeedEnemy = EnemySpeed;
 
         OnActivate.Invoke();
 
         yield return new WaitForSeconds(SecondCoolDown);
+        isCoolDown = false;
 
-        EnemyCapacity.SpeedEnemy = EnemyControler.Instance.SpeedBase;
+        EnemyCapacity.SpeedEnemy = (defaultSpeed == 0) ? EnemyControler.Instance.SpeedBase : defaultSpeed;
 
         print("Fin CooldDown");
     }

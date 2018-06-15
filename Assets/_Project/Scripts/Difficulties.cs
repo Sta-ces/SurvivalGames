@@ -9,10 +9,22 @@ public class Difficulties : SimpleSingleton<Difficulties>  {
 
 
 	public void GrowDifficulties(){
-		if(Spawning.Instance.GetSecondsToSpawn > Spawning.Instance.GetMinSecondsToSpawn){
-			Spawning.Instance.GetSecondsToSpawn -= ValueDifficulties;
-			if(Spawning.Instance.GetSecondsToSpawn < Spawning.Instance.GetMinSecondsToSpawn)
-				Spawning.Instance.GetSecondsToSpawn = Spawning.Instance.GetMinSecondsToSpawn;
-		}
+        if (Spawning.Instance.GetSecondsToSpawn > Spawning.Instance.GetMinSecondsToSpawn) {
+            Spawning.Instance.GetSecondsToSpawn -= ValueDifficulties;
+            if (Spawning.Instance.GetSecondsToSpawn < Spawning.Instance.GetMinSecondsToSpawn)
+                Spawning.Instance.GetSecondsToSpawn = Spawning.Instance.GetMinSecondsToSpawn;
+        }
+        else if (EnemyCapacity.SpeedEnemy < EnemyControler.Instance.MaxSpeedEnemy)
+        {
+            if (!CoolDown.IsCoolDown)
+            {
+                if (EnemyCapacity.SpeedEnemy == 0)
+                    EnemyCapacity.SpeedEnemy = EnemyControler.Instance.SpeedBase + ValueDifficulties;
+                else EnemyCapacity.SpeedEnemy += ValueDifficulties;
+
+                if (EnemyCapacity.SpeedEnemy > EnemyControler.Instance.MaxSpeedEnemy)
+                    EnemyCapacity.SpeedEnemy = EnemyControler.Instance.MaxSpeedEnemy;
+            }
+        }
 	}
 }

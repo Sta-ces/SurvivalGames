@@ -925,7 +925,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &89028580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0177b51f5573c6d47a8a259b8aba85a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HowMuchKilled: 50
+  HowMuchKilled: 35
   ValueDifficulties: 0.25
 --- !u!114 &225736696
 MonoBehaviour:
@@ -2646,7 +2646,7 @@ MonoBehaviour:
     Description: Slow down time during 5 seconds (Can use the all 20 kills).
     RequiredLevel: 100
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3601,7 +3601,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &427860501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5411,7 +5411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec08ea8eb316a4419c598503b6ec9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gamepad: LT / L2
+  Gamepad: RB / R1
   Keyboard: 2
 --- !u!1 &634442871
 GameObject:
@@ -6303,7 +6303,7 @@ MonoBehaviour:
     Description: Shoots in 2 different directions.
     RequiredLevel: 125
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -10552,7 +10552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1244633393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10568,10 +10568,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -250}
-  m_SizeDelta: {x: 55.47998, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244633394
 MonoBehaviour:
@@ -10586,6 +10586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 1830640258}
   SkillImage: {fileID: 21300000, guid: 710bbe3bf938a62408d90b5b0185585f, type: 3}
+  Shield: {fileID: 819922963}
 --- !u!1001 &1249777511
 Prefab:
   m_ObjectHideFlags: 0
@@ -10787,7 +10788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1317143509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10803,10 +10804,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -652}
-  m_SizeDelta: {x: 55.47998, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317143510
 MonoBehaviour:
@@ -13514,7 +13515,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1685811914
 GameObject:
   m_ObjectHideFlags: 0
@@ -13741,7 +13742,7 @@ MonoBehaviour:
     Description: 1 extra life (1 time each game).
     RequiredLevel: 25
     AlwaysEnable: 0
-    Enable: 0
+    Enable: 1
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -14358,7 +14359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1769359171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14375,10 +14376,10 @@ RectTransform:
   m_Father: {fileID: 1418875531}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.73999, y: -552}
-  m_SizeDelta: {x: 55.47998, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769359172
 MonoBehaviour:
@@ -14388,7 +14389,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769359170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0c422a8b0a53144eaaf65b0b829aa83, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c13929d0dea14044b84358762927765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SkillScript: {fileID: 208217770}
@@ -16500,7 +16501,29 @@ MonoBehaviour:
   SkillScript: {fileID: 208217770}
   OnActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1808660989}
+        m_MethodName: SkillUsed
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 208217770}
+          m_ObjectArgumentAssemblyTypeName: SkillsButtons, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1935960193}
+        m_MethodName: ResetCountingKill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   NumberKill: 30
@@ -16571,6 +16594,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 286679492}
           m_ObjectArgumentAssemblyTypeName: SkillsButtons, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1935960196}
+        m_MethodName: ResetCountingKill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -17809,7 +17843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec08ea8eb316a4419c598503b6ec9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gamepad: RB / R1
+  Gamepad: LT / R2
   Keyboard: 3
 --- !u!114 &2066211446
 MonoBehaviour:
@@ -19144,7 +19178,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5 / 5
+  m_Text: 4 / 5
 --- !u!222 &2146330839
 CanvasRenderer:
   m_ObjectHideFlags: 0

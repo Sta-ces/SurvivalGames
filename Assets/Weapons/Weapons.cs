@@ -99,12 +99,12 @@ public class Weapons : SimpleSingleton<Weapons> {
     
     private void Shooting()
     {
+        Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
         if (TripleShoot.IsTripleShoot)
         {
             Shoot(m_PrefabsBullet, m_LocationSpawnBullet_2, m_SpeedBullet, m_TimeLifeBullet);
             Shoot(m_PrefabsBullet, m_LocationSpawnBullet_3, m_SpeedBullet, m_TimeLifeBullet);
         }
-        else Shoot(m_PrefabsBullet, m_LocationSpawnBullet, m_SpeedBullet, m_TimeLifeBullet);
     }
 
     private IEnumerator Reloading(){

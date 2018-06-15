@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Shockwave : MonoBehaviour {
+public class Shockwave : SimpleSingleton<Shockwave> {
 
     public SkillsButtons SkillScript;
 
@@ -21,6 +21,8 @@ public class Shockwave : MonoBehaviour {
         get { return countingKill; }
         set { countingKill = value; }
     }
+
+    public void ResetCountingKill() { CountingKill = 0; }
 
     public void CheckSkill()
     {
