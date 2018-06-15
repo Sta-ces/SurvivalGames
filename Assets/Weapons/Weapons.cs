@@ -69,7 +69,7 @@ public class Weapons : SimpleSingleton<Weapons> {
 		Destroy(bullet, _timeDestroy);
 	}
 
-    public void AutomaticShoot()
+    public void AutomaticShooting()
     {
         Shooting();
     }
@@ -82,8 +82,9 @@ public class Weapons : SimpleSingleton<Weapons> {
     private void LateUpdate(){
 
 		if( Weapons.Instance.IsShoot ){
-			if( Controls.Shoot ){
-                Shooting();
+			if( Controls.Shoot )
+            {
+                if (!AutomaticShoot.Instance.IsAutoShoot) Shooting();
 				if( Weapons.Instance.IsAmmo ) Weapons.Instance.GetAmmo--;
 
 				WeaponsShoot.Invoke();

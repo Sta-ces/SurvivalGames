@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AutomaticShoot : MonoBehaviour {
+public class AutomaticShoot : SimpleSingleton<AutomaticShoot> {
 
     public SkillsButtons SkillScript;
 
@@ -14,6 +14,11 @@ public class AutomaticShoot : MonoBehaviour {
     [Header("Shoot")]
     [Range(0, 5)]
     public float CoolDownShoot = .75f;
+    
+    public bool IsAutoShoot
+    {
+        get { return SkillScript.skill.Enable; }
+    }
 
     public void CheckSkill()
     {
