@@ -305,7 +305,7 @@ MonoBehaviour:
         m_MethodName: CreateObjectOAtPosition
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1130510402471466, guid: 93170c7eb416b9949a63cec2e644cbcb,
+          m_ObjectArgument: {fileID: 1858970073343116, guid: c515f19832c50124fbc3e46ed5136abb,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
