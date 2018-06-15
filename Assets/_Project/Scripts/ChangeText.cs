@@ -5,16 +5,20 @@ using UnityEngine.UI;
 public class ChangeText : MonoBehaviour {
 
     [TextArea]
-    public string On;
+    public string Gamepad;
     [TextArea]
-    public string Off;
+    public string Keyboard;
 
     void LateUpdate()
     {
-        if (On != "" && Off != "")
-            GetComponent<Text>().text = (GamePadInputs.Instance.IsGamepad) ? On : Off;
+        ChangeTextElement();
     }
 
+    public void ChangeTextElement()
+    {
+        if (Gamepad != "" && Keyboard != "")
+            GetComponent<Text>().text = (GamePadInputs.Instance.IsGamepad) ? Gamepad : Keyboard;
+    }
 
     public static string DeleteSpace(string _text)
     {

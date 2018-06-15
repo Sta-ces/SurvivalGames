@@ -35,8 +35,18 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
         PlayerInput.SetVibration(0, MotorSpeed, MotorDuration);
     }
 
+    public void Initialize()
+    {
+        if(PlayerInput == null)
+            PlayerInput = ReInput.players.GetPlayer(0);
+        if(JoystickMap == null)
+            JoystickMap = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
 
-	private void Start(){
+        SetControls();
+    }
+
+
+    private void Start(){
 		PlayerInput = ReInput.players.GetPlayer(0);
         JoystickMap = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
     }
@@ -62,7 +72,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
         Controls.Shoot = PlayerInput.GetButtonDown("Shoot");
         Controls.ShootTouch = JoystickMap.GetElementMapsWithAction("Shoot")[0].elementIdentifierName;
         Controls.Reload = PlayerInput.GetButtonDown("Reload");
-        Controls.ReloadTouch = JoystickMap.GetElementMapsWithAction("Reload")[0].elementIdentifierName;
+        //Controls.ReloadTouch = JoystickMap.GetElementMapsWithAction("Reload")[0].elementIdentifierName;
         Controls.Submit = PlayerInput.GetButtonDown("Submit");
         Controls.SubmitTouch = JoystickMap.GetElementMapsWithAction("Submit")[0].elementIdentifierName;
         Controls.Cancel = PlayerInput.GetButtonDown("Cancel");
