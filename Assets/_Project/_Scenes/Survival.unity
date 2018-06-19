@@ -1577,7 +1577,7 @@ MonoBehaviour:
   skill:
     Unlock: 1
     Name: 'Shockwave '
-    Description: Kill all the enemies in a certain range (Can use the all 30 kills).
+    Description: Kill all the enemies in a certain range (Can use the all 50 kills).
     RequiredLevel: 200
     AlwaysEnable: 0
     Enable: 1
@@ -2618,7 +2618,7 @@ MonoBehaviour:
   skill:
     Unlock: 1
     Name: Cool Down
-    Description: Slow down time during 5 seconds (Can use the all 20 kills).
+    Description: Slow down time during 5 seconds (Can use the all 30 kills).
     RequiredLevel: 100
     AlwaysEnable: 0
     Enable: 0
@@ -3629,7 +3629,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &427860501
 GameObject:
   m_ObjectHideFlags: 0
@@ -7919,7 +7919,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &974532877
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,7 +8403,7 @@ MonoBehaviour:
     Description: Kill the last 50 enemies and finish the game.
     RequiredLevel: 500
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -13775,7 +13775,7 @@ MonoBehaviour:
     Description: 1 extra life (1 time each game).
     RequiredLevel: 25
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -14073,7 +14073,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1001 &1718831127
 Prefab:
   m_ObjectHideFlags: 0
@@ -14479,7 +14479,7 @@ MonoBehaviour:
     type: 2}
   DescriptionTitle: {fileID: 865137897}
   DescriptionText: {fileID: 1049927018}
-  MaxActiveSkill: 4
+  MaxActiveSkill: 3
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -15323,7 +15323,7 @@ MonoBehaviour:
     Description: Protect you for 1 hit.
     RequiredLevel: 150
     AlwaysEnable: 0
-    Enable: 1
+    Enable: 0
   OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -16751,7 +16751,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  NumberKill: 50
+  NumberKill: 75
   SpeedShoot: 0.25
 --- !u!114 &1935960193
 MonoBehaviour:
@@ -16792,7 +16792,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  NumberKill: 30
+  NumberKill: 50
   RangeToDestroy: 7.5
 --- !u!114 &1935960194
 MonoBehaviour:
@@ -16878,7 +16878,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  NumberKill: 20
+  NumberKill: 30
   SecondCoolDown: 5
   EnemySpeed: 2.5
 --- !u!114 &1935960197
