@@ -11,8 +11,9 @@ public class Videos : MonoBehaviour {
 	
 	void LateUpdate ()
     {
-        long frame = GetComponent<VideoPlayer>().frame;
-        long frameCount = Convert.ToInt64(GetComponent<VideoPlayer>().frameCount);
+        VideoPlayer video = GetComponent<VideoPlayer>();
+        long frame = video.frame;
+        long frameCount = Convert.ToInt64(video.frameCount);
 
         if (frame == frameCount)
         {
