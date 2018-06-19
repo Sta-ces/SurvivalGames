@@ -63,9 +63,11 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
             if (Spawning.Instance.IsInfinite) Score.Instance.AddScore();
             else Score.Instance.ReduceScore();
 			Display.Instance.DisplayAllScoring();
-            CoolDown.CountingKill++;
+            if(!CoolDown.IsCoolDown)
+                CoolDown.CountingKill++;
             Shockwave.CountingKill++;
-            Endofthegame.CountingKill++;
+            if(!Endofthegame.IsSuperTiki)
+                Endofthegame.CountingKill++;
 
             Killed();
 		}

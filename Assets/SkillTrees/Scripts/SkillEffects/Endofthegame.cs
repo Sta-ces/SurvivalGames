@@ -27,6 +27,13 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
     [Range(0, 20)]
     public float SpeedShoot = 1f;
 
+    private static bool isSuperTiki = false;
+    public static bool IsSuperTiki
+    {
+        get { return isSuperTiki; }
+        set { isSuperTiki = value; }
+    }
+
     private static int countingKill = 0;
     public static int CountingKill
     {
@@ -74,6 +81,8 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
 
     private IEnumerator SuperTikiPower()
     {
+        IsSuperTiki = true;
+
         GameManager.OnPlay = false;
         Weapons.Instance.IsShoot = false;
         GameManager.IsPaused = true;
@@ -97,6 +106,8 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
         GameManager.IsPaused = false;
         Weapons.Instance.IsShoot = true;
         GameManager.OnPlay = true;
+
+        IsSuperTiki = false;
     }
 
     private void Update()

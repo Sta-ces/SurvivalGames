@@ -6,6 +6,7 @@ public class SunScript : MonoBehaviour {
 	public float SpeedSunRotation = 1f;
 
 	void Update(){
-		transform.Rotate(0, SpeedSunRotation * Time.deltaTime, 0);
+        if(!GameManager.IsPaused)
+		    transform.Rotate(0, SpeedSunRotation * Time.deltaTime, 0);
 	}
 }
