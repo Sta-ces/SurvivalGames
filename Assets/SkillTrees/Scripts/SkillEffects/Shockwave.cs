@@ -50,17 +50,20 @@ public class Shockwave : SimpleSingleton<Shockwave> {
     {
         print("Shockwave!");
 
-        EnemyControler[] enemies = FindObjectsOfType<EnemyControler>();
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        foreach(EnemyControler enemy in enemies)
+        foreach(GameObject enemy in enemies)
         {
-            float distance = Vector3.Distance(enemy.transform.position, transform.position);
+            float distance = Vector3.Distance(enemy.transform.position, CharacterControler.Instance.transform.position);
             if(distance <= RangeToDestroy)
             {
-                if (Endofthegame.Instance.SkillScript.skill.Enable)
-                    Score.Instance.ReduceScore();
+                if (enemy.GetComponent<EnemyControler>())
+                {
+                    if (Endofthegame.Instance.SkillScript.skill.Enable)
+                        Score.Instance.ReduceScore();
 
-                enemy.Killed();
+                    enemy.GetComponent<EnemyControler>().Killed();
+                }
             }
         }
 
