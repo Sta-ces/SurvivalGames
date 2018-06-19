@@ -9,15 +9,12 @@ public class Videos : MonoBehaviour {
     [Header("At The End of the Video")]
     public UnityEvent EndVideo;
 	
-	void LateUpdate ()
+	void Update ()
     {
         long frame = GetComponent<VideoPlayer>().frame;
         long frameCount = Convert.ToInt64(GetComponent<VideoPlayer>().frameCount);
 
         if (frame == frameCount)
-        {
-            print("End Video");
             EndVideo.Invoke();
-        }
 	}
 }

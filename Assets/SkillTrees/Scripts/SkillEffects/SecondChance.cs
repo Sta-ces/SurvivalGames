@@ -44,14 +44,7 @@ public class SecondChance : SimpleSingleton<SecondChance> {
     {
         EnemyControler[] enemies = FindObjectsOfType<EnemyControler>();
         foreach (EnemyControler enemy in enemies)
-        {
-            if (enemy.tag == "Enemy")
-            {
-                if(Endofthegame.Instance.SkillScript.skill.Enable)
-                    Score.Instance.ReduceScore();
-
+            if(enemy.tag == "Enemy")
                 enemy.Killed();
-            }
-        }
     }
 }
