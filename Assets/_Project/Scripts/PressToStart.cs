@@ -13,9 +13,9 @@ public class PressToStart : MonoBehaviour {
 	void FixedUpdate () {
         if (!DeleteSave.Instance.IsOpen)
         {
-            bool _check = (CheckIfRestart && GameManager.Restart && Score.Instance.GetLastScore >= 5);
+            //bool _check = (CheckIfRestart && GameManager.Restart && Score.Instance.GetLastScore >= 5);
 
-            if (Controls.Submit || _check) OnPress.Invoke();
+            if (Controls.Submit) OnPress.Invoke();
             if (Controls.Cancel) OnQuit.Invoke();
         }
     }

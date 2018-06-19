@@ -15,30 +15,15 @@ public class TutorielEnemy : MonoBehaviour {
             StartCoroutine(WaitForRespawn(_seconds));
     }
 
-    public bool Touched(bool _touched)
-    {
-        touched = _touched;
-        return touched;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (!touched)
-        {
-            touched = true;
-            Touching.Invoke();
-        }
+        Touching.Invoke();
     }
     
     private IEnumerator WaitForRespawn(float _seconds = 1f)
     {
         yield return new WaitForSeconds(_seconds);
         if (!GameManager.OnPlay)
-        {
-            touched = false;
             Respawn.Invoke();
-        }
     }
-
-    private bool touched = false;
 }

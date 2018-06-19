@@ -20,9 +20,12 @@ public class HailToGods : SimpleSingleton<HailToGods> {
             {
                 if (CharacterControler.Instance.DeathPlayer)
                 {
-                    if (Calcul.RandomNumber(1, 101) <= PourcentActivation)
+                    if(Score.Instance.GetScore > 0)
                     {
-                        ActiveSkill();
+                        if (Calcul.RandomNumber(1, 101) <= PourcentActivation)
+                        {
+                            ActiveSkill();
+                        }
                     }
                 }
             }
