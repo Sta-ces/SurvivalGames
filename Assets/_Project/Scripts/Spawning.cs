@@ -69,7 +69,7 @@ public class Spawning : SimpleSingleton<Spawning> {
 
 	public IEnumerator SpawnRobots(int _numMaxEnemy){
 		int enemy = 0;
-		while(!CharacterControler.Instance.DeathPlayer && enemy < _numMaxEnemy)
+        while (!CharacterControler.Instance.DeathPlayer && enemy <= _numMaxEnemy)
         {
             yield return new WaitForSeconds(Spawning.Instance.GetSecondsToSpawn);
             if (!GameManager.IsPaused)
@@ -82,7 +82,7 @@ public class Spawning : SimpleSingleton<Spawning> {
                 IsFinish = enemy >= _numMaxEnemy;
             }
         }
-	}
+    }
 
 	public IEnumerator SpawnBoss(){
 		Spawning.Instance.IsBoss = false;
@@ -95,11 +95,4 @@ public class Spawning : SimpleSingleton<Spawning> {
 		if (Spawning.Instance.GetCountSpawners > 0)
 			StartCoroutine(SpawnRobots (Spawning.Instance.GetNumberRobots));
 	}
-
-	private void LateUpdate(){
-		if( Spawning.Instance.IsBoss && GameObject.FindGameObjectsWithTag(RobotsPrefabs.tag).Length <= 0 )
-			StartCoroutine(SpawnBoss());
-
-        Endofthegame.Instance.FinishIt();
-    }
 }

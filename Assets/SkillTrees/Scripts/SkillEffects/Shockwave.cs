@@ -57,6 +57,9 @@ public class Shockwave : SimpleSingleton<Shockwave> {
             float distance = Vector3.Distance(enemy.transform.position, transform.position);
             if(distance <= RangeToDestroy)
             {
+                if (Endofthegame.Instance.SkillScript.skill.Enable)
+                    Score.Instance.ReduceScore();
+
                 enemy.Killed();
             }
         }

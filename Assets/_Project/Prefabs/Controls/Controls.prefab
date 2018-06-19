@@ -35,7 +35,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4225406697248822}
-  - component: {fileID: 114954068108765616}
   - component: {fileID: 114213460771591294}
   m_Layer: 0
   m_Name: Controls
@@ -82,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4277439272ac1f74190b54276d3ad50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MotorSpeed: 0.5
-  MotorDuration: 1
+  MotorSpeed: 1
+  MotorDuration: 0.5
 --- !u!114 &114505288452854632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -636,7 +635,7 @@ MonoBehaviour:
       - _actionCategoryId: 0
         _actionId: 25
         _elementType: 0
-        _elementIdentifierId: 5
+        _elementIdentifierId: 4
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -1912,14 +1911,3 @@ MonoBehaviour:
     customControllerIdCounter: 1
   _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7,
     type: 2}
---- !u!114 &114954068108765616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469426206187684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2de5e236111a11478c1e97f7c3e8248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
