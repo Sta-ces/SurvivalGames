@@ -15,7 +15,7 @@ public class Videos : MonoBehaviour {
         long frame = video.frame;
         long frameCount = Convert.ToInt64(video.frameCount);
 
-        if (frame == frameCount)
+        if (video.isPlaying && frame == frameCount)
         {
             print("End Video");
             EndVideo.Invoke();
