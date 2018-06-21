@@ -4,7 +4,7 @@ public class Score : SimpleSingleton<Score> {
 
 	private static int score = 0;
     public int GetScore{
-		get{ return score; }
+		get{ return score < 0 ? 0 : score; }
 		set{ score = value; }
 	}
 
@@ -42,7 +42,8 @@ public class Score : SimpleSingleton<Score> {
 
     public void ReduceScore(int _reduceScore = 1)
     {
-        Score.Instance.GetScore -= _reduceScore;
+        if(GetScore > 0)
+            Score.Instance.GetScore -= _reduceScore;
     }
 
     public void EndGameScore(int _endGameScore) {
