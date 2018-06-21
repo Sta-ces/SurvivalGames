@@ -12,11 +12,17 @@ public class CoolDown : SimpleSingleton<CoolDown> {
     [Header("Active After")]
     public int NumberKill = 20;
 
+    [Header("Power is Ready")]
+    public UnityEvent OnReady;
+
     [Header("Slow")]
     [Range(1, 20)]
     public int SecondCoolDown = 5;
     [Range(1, 10)]
     public float EnemySpeed = 2f;
+
+    [Header("UnActivate")]
+    public UnityEvent OnUnActivate;
 
     private static int countingKill = 0;
     public static int CountingKill
@@ -50,6 +56,14 @@ public class CoolDown : SimpleSingleton<CoolDown> {
         }
     }
 
+    public void ActivateSoundKill()
+    {
+        if(CountingKill == NumberKill)
+        {
+            OnReady.Invoke();
+        }
+    }
+
     private void LateUpdate()
     {
         CheckSkill();
@@ -68,6 +82,8 @@ public class CoolDown : SimpleSingleton<CoolDown> {
         isCoolDown = false;
 
         EnemyCapacity.SpeedEnemy = (defaultSpeed == 0) ? EnemyControler.Instance.SpeedBase : defaultSpeed;
+
+        OnUnActivate.Invoke();
 
         print("Fin CooldDown");
     }

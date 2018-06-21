@@ -11,6 +11,9 @@ public class Shockwave : SimpleSingleton<Shockwave> {
     [Header("Active After")]
     public int NumberKill = 30;
 
+    [Header("Power is Ready")]
+    public UnityEvent OnReady;
+
     [Header("Objects to Destroy in Range")]
     [Range(1, 20)]
     public float RangeToDestroy = 2f;
@@ -38,6 +41,14 @@ public class Shockwave : SimpleSingleton<Shockwave> {
                     }
                 }
             }
+        }
+    }
+
+    public void ActivateSoundKill()
+    {
+        if (CountingKill == NumberKill)
+        {
+            OnReady.Invoke();
         }
     }
 

@@ -26,6 +26,10 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
     public int NumberKill = 50;
     [Range(0, 20)]
     public float SpeedShoot = 1f;
+    public UnityEvent OnFinishSuperPower;
+
+    [Header("Power is Ready")]
+    public UnityEvent OnReady;
 
     private static bool isSuperTiki = false;
     public static bool IsSuperTiki
@@ -68,6 +72,14 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
         StartCoroutine("SuperTikiPower");
     }
 
+    public void ActivateSoundKill()
+    {
+        if (CountingKill == NumberKill)
+        {
+            OnReady.Invoke();
+        }
+    }
+
     private void ActiveSkill()
     {
         print("End of the game!");
@@ -108,6 +120,8 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
         GameManager.OnPlay = true;
 
         IsSuperTiki = false;
+
+        OnFinishSuperPower.Invoke();
     }
 
     private void Update()

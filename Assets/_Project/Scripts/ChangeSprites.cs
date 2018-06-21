@@ -9,6 +9,6 @@ public class ChangeSprites : MonoBehaviour {
 	
 	void LateUpdate () {
         if(On != null && Off != null)
-            GetComponent<Image>().sprite = (MuteAllSounds.Instance.Mutes) ? Off : On;
+            GetComponent<Image>().sprite = (MuteAllSounds.Mutes) ? Off : On;
 	}
 }

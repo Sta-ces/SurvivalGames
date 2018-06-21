@@ -38,7 +38,7 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.GetComponent<EnemyControler>() || col.gameObject.GetComponent<Boss>())
+        if (col.gameObject.tag == "Enemy" || col.gameObject.GetComponent<Boss>())
         {
             if (!SecondChance.Instance.CheckSkill())
                 Death.Invoke();

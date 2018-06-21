@@ -69,6 +69,10 @@ public class EnemyControler : SimpleSingleton<EnemyControler> {
             if(!Endofthegame.IsSuperTiki)
                 Endofthegame.CountingKill++;
 
+            CoolDown.Instance.ActivateSoundKill();
+            Shockwave.Instance.ActivateSoundKill();
+            Endofthegame.Instance.ActivateSoundKill();
+
             Killed();
 		}
 	}
