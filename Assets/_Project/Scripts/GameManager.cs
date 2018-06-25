@@ -3,8 +3,11 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 
-	public bool MouseVisibility = true;
+    [Header("Mouse Visibility")]
+	public bool MouseGamepad = false;
+    public bool MouseKeyboard = true;
 
+    [Header("On Start Video Game")]
     public UnityEvent OnStart;
 
 	private static bool restart = false;
@@ -27,8 +30,6 @@ public class GameManager : MonoBehaviour {
     }
 
 	public void PauseGame(){
-        /*Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
-		GameManager.IsPaused = Time.timeScale == 1;*/
         GameManager.IsPaused = !GameManager.IsPaused;
 	}
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour {
     public void OnPlaying(bool _play) { onPlay = _play; }
 
 	private void OnEnable(){
-		Cursor.visible = MouseVisibility;
+        Cursor.visible = GamePadInputs.Instance.IsGamepad ? MouseGamepad : MouseKeyboard;
 		Cursor.lockState = CursorLockMode.Confined;
 	}
 

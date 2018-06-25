@@ -18961,8 +18961,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec08ea8eb316a4419c598503b6ec9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gamepad: 
-  Keyboard: 
+  Gamepad: Y
+  Keyboard: M
 --- !u!114 &2109714936
 MonoBehaviour:
   m_ObjectHideFlags: 0

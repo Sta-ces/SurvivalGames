@@ -12,7 +12,9 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
 
 	private Player m_playerInput;
 	public Player PlayerInput{
-		get{ return m_playerInput; }
+		get{
+            return (m_playerInput == null) ? ReInput.players.GetPlayer(0) : m_playerInput;
+        }
 		set{ m_playerInput = value; }
 	}
 
@@ -22,7 +24,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
     {
         get
         {
-            bool _isGamepad = true;
+            bool _isGamepad = false;
             if (PlayerInput.controllers.GetLastActiveController() != null)
                 _isGamepad = PlayerInput.controllers.GetLastActiveController().type == ControllerType.Joystick;
             return _isGamepad;
@@ -39,7 +41,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
     {
         if(PlayerInput == null)
             PlayerInput = ReInput.players.GetPlayer(0);
-        if(JoystickMap == null)
+        if(JoystickMap == null && PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0).Count > 0)
             JoystickMap = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
 
         SetControls();
@@ -47,8 +49,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
 
 
     private void Start(){
-		PlayerInput = ReInput.players.GetPlayer(0);
-        JoystickMap = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
+        Initialize();
     }
 
 	private void Update(){
@@ -58,34 +59,70 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
         	MuteAllSounds.Instance.MuteSounds();
 	}
 
-	private void SetControls(){
-		Controls.MoveX = PlayerInput.GetAxis("MoveX");
-        Controls.MoveXTouch = JoystickMap.GetElementMapsWithAction("MoveX")[0].elementIdentifierName;
-		Controls.MoveZ = PlayerInput.GetAxis("MoveZ");
-        Controls.MoveZTouch = JoystickMap.GetElementMapsWithAction("MoveZ")[0].elementIdentifierName;
-        Controls.LookX = PlayerInput.GetAxis("LookX");
-        Controls.LookXTouch = JoystickMap.GetElementMapsWithAction("LookX")[0].elementIdentifierName;
-        Controls.LookZ = PlayerInput.GetAxis("LookZ");
-        Controls.LookZTouch = JoystickMap.GetElementMapsWithAction("LookZ")[0].elementIdentifierName;
-        Controls.Pause = PlayerInput.GetButtonDown("Pause");
-        Controls.PauseTouch = JoystickMap.GetElementMapsWithAction("Pause")[0].elementIdentifierName;
-        Controls.Shoot = PlayerInput.GetButtonDown("Shoot");
-        Controls.ShootTouch = JoystickMap.GetElementMapsWithAction("Shoot")[0].elementIdentifierName;
-        Controls.Reload = PlayerInput.GetButtonDown("Reload");
-        //Controls.ReloadTouch = JoystickMap.GetElementMapsWithAction("Reload")[0].elementIdentifierName;
-        Controls.Submit = PlayerInput.GetButtonDown("Submit");
-        Controls.SubmitTouch = JoystickMap.GetElementMapsWithAction("Submit")[0].elementIdentifierName;
-        Controls.Cancel = PlayerInput.GetButtonDown("Cancel");
-        Controls.CancelTouch = JoystickMap.GetElementMapsWithAction("Cancel")[0].elementIdentifierName;
-        Controls.Mute = PlayerInput.GetButtonDown("Mute");
-        Controls.MuteTouch = JoystickMap.GetElementMapsWithAction("Mute")[0].elementIdentifierName;
-        Controls.ActivedSkill = PlayerInput.GetButtonDown("ActivedSkill");
-        Controls.ActivedSkillTouch = JoystickMap.GetElementMapsWithAction("ActivedSkill")[0].elementIdentifierName;
-        Controls.CoolDown = PlayerInput.GetButtonDown("CoolDown");
-        Controls.CoolDownTouch = JoystickMap.GetElementMapsWithAction("CoolDown")[0].elementIdentifierName;
-        Controls.Shockwave = PlayerInput.GetButtonDown("Shockwave");
-        Controls.ShockwaveTouch = JoystickMap.GetElementMapsWithAction("Shockwave")[0].elementIdentifierName;
-        Controls.SuperTiki = PlayerInput.GetButtonDown("SuperTiki");
-        Controls.SuperTikiTouch = JoystickMap.GetElementMapsWithAction("SuperTiki")[0].elementIdentifierName;
+	private void SetControls()
+    {
+        if (PlayerInput != null)
+        {
+            Controls.MoveX = PlayerInput.GetAxis("MoveX");
+            if (!IsGamepad)
+            {
+                if (PlayerInput.GetButton("MoveX"))
+                    Controls.MoveX = 1;
+                else if (PlayerInput.GetNegativeButton("MoveX"))
+                    Controls.MoveX = -1;
+                else Controls.MoveX = 0;
+            }
+            Controls.MoveZ = PlayerInput.GetAxis("MoveZ");
+            if (!IsGamepad)
+            {
+                if (PlayerInput.GetButton("MoveZ"))
+                    Controls.MoveZ = 1;
+                else if (PlayerInput.GetNegativeButton("MoveZ"))
+                    Controls.MoveZ = -1;
+                else Controls.MoveZ = 0;
+            }
+            Controls.LookX = PlayerInput.GetAxis("LookX");
+            Controls.LookZ = PlayerInput.GetAxis("LookZ");
+            Controls.Pause = PlayerInput.GetButtonDown("Pause");
+            Controls.Shoot = PlayerInput.GetButtonDown("Shoot");
+            Controls.Reload = PlayerInput.GetButtonDown("Reload");
+            Controls.Submit = PlayerInput.GetButtonDown("Submit");
+            Controls.Cancel = PlayerInput.GetButtonDown("Cancel");
+            Controls.Mute = PlayerInput.GetButtonDown("Mute");
+            Controls.ActivedSkill = PlayerInput.GetButtonDown("ActivedSkill");
+            Controls.CoolDown = PlayerInput.GetButtonDown("CoolDown");
+            Controls.Shockwave = PlayerInput.GetButtonDown("Shockwave");
+            Controls.SuperTiki = PlayerInput.GetButtonDown("SuperTiki");
+        }
+
+        if (JoystickMap != null)
+        {
+            Controls.MoveXTouch = CheckJoystick("MoveX");
+            Controls.MoveZTouch = CheckJoystick("MoveZ");
+            Controls.LookXTouch = CheckJoystick("LookX");
+            Controls.LookZTouch = CheckJoystick("LookZ");
+            Controls.PauseTouch = CheckJoystick("Pause");
+            Controls.ShootTouch = CheckJoystick("Shoot");
+            Controls.ReloadTouch = CheckJoystick("Reload");
+            Controls.SubmitTouch = CheckJoystick("Submit");
+            Controls.CancelTouch = CheckJoystick("Cancel");
+            Controls.MuteTouch = CheckJoystick("Mute");
+            Controls.ActivedSkillTouch = CheckJoystick("ActivedSkill");
+            Controls.CoolDownTouch = CheckJoystick("CoolDown");
+            Controls.ShockwaveTouch = CheckJoystick("Shockwave");
+            Controls.SuperTikiTouch = CheckJoystick("SuperTiki");
+        }
+    }
+
+    private string CheckJoystick(string _nameControl)
+    {
+        string returnValue = "";
+        ActionElementMap[] actionElements = JoystickMap.GetElementMapsWithAction(_nameControl);
+        if (actionElements.Length > 0)
+        {
+            if(actionElements[0] != null)
+                returnValue = actionElements[0].elementIdentifierName;
+        }
+        return returnValue;
     }
 }
