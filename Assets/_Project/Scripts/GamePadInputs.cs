@@ -21,17 +21,18 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
         }
 		set{ m_playerInput = value; }
 	}
-
-    private ControllerMap mappingController;
+    
     public ControllerMap MappingController
     {
         get
         {
+            ControllerMap mappingController = null;
+
             if (PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0).Count > 0 && IsGamepad)
                 mappingController = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
             else if (PlayerInput.controllers.maps.GetMaps(ControllerType.Keyboard, 0).Count > 0 && !IsGamepad)
                 mappingController = PlayerInput.controllers.maps.GetMaps(ControllerType.Keyboard, 0)[0];
-            else mappingController = null;
+
             return mappingController;
         }
     }
