@@ -22,7 +22,19 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
 		set{ m_playerInput = value; }
 	}
 
-    private ControllerMap JoystickMap;
+    private ControllerMap mappingController;
+    public ControllerMap MappingController
+    {
+        get
+        {
+            if (PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0).Count > 0 && IsGamepad)
+                mappingController = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
+            else if (PlayerInput.controllers.maps.GetMaps(ControllerType.Keyboard, 0).Count > 0 && !IsGamepad)
+                mappingController = PlayerInput.controllers.maps.GetMaps(ControllerType.Keyboard, 0)[0];
+            else mappingController = null;
+            return mappingController;
+        }
+    }
 
     public bool IsGamepad
     {
@@ -42,21 +54,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
             PlayerInput.SetVibration(0, MotorSpeed, MotorDuration);
     }
 
-    public void Initialize()
-    {
-        PlayerInput = ReInput.players.GetPlayer(0);
-
-        if (PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0).Count > 0)
-            JoystickMap = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
-        else JoystickMap = null;
-
-        SetControls();
-    }
-
-
-    private void Start(){
-        Initialize();
-    }
+    
 
 	private void Update(){
         SetControls();
@@ -67,30 +65,29 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
         OnCheck.Invoke();
 	}
     
-	private void SetControls()
+	public void SetControls()
     {
         if (PlayerInput != null)
         {
-            Controls.MoveX = PlayerInput.GetAxis("MoveX");
             if (!IsGamepad)
             {
-                if (PlayerInput.GetButton("MoveX"))
-                    Controls.MoveX = 1;
-                else if (PlayerInput.GetNegativeButton("MoveX"))
-                    Controls.MoveX = -1;
+                if (PlayerInput.GetButton("MoveX")) Controls.MoveX = 1;
+                else if (PlayerInput.GetNegativeButton("MoveX")) Controls.MoveX = -1;
                 else Controls.MoveX = 0;
             }
-            Controls.MoveZ = PlayerInput.GetAxis("MoveZ");
+            else Controls.MoveX = PlayerInput.GetAxis("MoveX");
             if (!IsGamepad)
             {
-                if (PlayerInput.GetButton("MoveZ"))
-                    Controls.MoveZ = 1;
-                else if (PlayerInput.GetNegativeButton("MoveZ"))
-                    Controls.MoveZ = -1;
+                if (PlayerInput.GetButton("MoveZ")) Controls.MoveZ = 1;
+                else if (PlayerInput.GetNegativeButton("MoveZ")) Controls.MoveZ = -1;
                 else Controls.MoveZ = 0;
             }
-            Controls.LookX = PlayerInput.GetAxis("LookX");
-            Controls.LookZ = PlayerInput.GetAxis("LookZ");
+            else Controls.MoveZ = PlayerInput.GetAxis("MoveZ");
+            if (IsGamepad)
+            {
+                Controls.LookX = PlayerInput.GetAxis("LookX");
+                Controls.LookZ = PlayerInput.GetAxis("LookZ");
+            }
             Controls.Pause = PlayerInput.GetButtonDown("Pause");
             Controls.Shoot = PlayerInput.GetButtonDown("Shoot");
             Controls.Reload = PlayerInput.GetButtonDown("Reload");
@@ -103,7 +100,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
             Controls.SuperTiki = PlayerInput.GetButtonDown("SuperTiki");
         }
 
-        if (JoystickMap != null)
+        if (MappingController != null)
         {
             Controls.MoveXTouch = CheckJoystick("MoveX");
             Controls.MoveZTouch = CheckJoystick("MoveZ");
@@ -125,7 +122,7 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
     private string CheckJoystick(string _nameControl)
     {
         string returnValue = "";
-        ActionElementMap[] actionElements = JoystickMap.GetElementMapsWithAction(_nameControl);
+        ActionElementMap[] actionElements = MappingController.GetElementMapsWithAction(_nameControl);
         if (actionElements.Length > 0)
         {
             if(actionElements[0] != null)

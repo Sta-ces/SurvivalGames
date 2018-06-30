@@ -35,7 +35,7 @@ public class TextTouchGamePad : MonoBehaviour {
 
     private void Start()
     {
-        GamePadInputs.Instance.Initialize();
+        GamePadInputs.Instance.SetControls();
         ChooseInput();
     }
 }

@@ -60,7 +60,7 @@ public class SkillMenuPlayer : SimpleSingleton<SkillMenuPlayer> {
 
     public void Description(SkillsButtons _button)
     {
-        if (_button.skill.Enable)
+        if (_button.skill.Unlock)
         {
             DescriptionTitle.text = _button.skill.Name;
             DescriptionText.text = _button.skill.Description;
