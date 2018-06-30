@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using Rewired;
 
 public class GamePadInputs : SimpleSingleton<GamePadInputs> {
@@ -8,6 +9,9 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
     public float MotorSpeed = .5f;
     [Range(0,1)]
     public float MotorDuration = 1f;
+
+    [Header("Check each frame")]
+    public UnityEvent OnCheck;
 
 
 	private Player m_playerInput;
@@ -34,15 +38,17 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
 
     public void VibrationGamepad()
     {
-        PlayerInput.SetVibration(0, MotorSpeed, MotorDuration);
+        if(IsGamepad)
+            PlayerInput.SetVibration(0, MotorSpeed, MotorDuration);
     }
 
     public void Initialize()
     {
-        if(PlayerInput == null)
-            PlayerInput = ReInput.players.GetPlayer(0);
-        if(JoystickMap == null && PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0).Count > 0)
+        PlayerInput = ReInput.players.GetPlayer(0);
+
+        if (PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0).Count > 0)
             JoystickMap = PlayerInput.controllers.maps.GetMaps(ControllerType.Joystick, 0)[0];
+        else JoystickMap = null;
 
         SetControls();
     }
@@ -53,12 +59,14 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
     }
 
 	private void Update(){
-		SetControls();
+        SetControls();
 
 		if( Controls.Mute )
         	MuteAllSounds.Instance.MuteSounds();
-	}
 
+        OnCheck.Invoke();
+	}
+    
 	private void SetControls()
     {
         if (PlayerInput != null)

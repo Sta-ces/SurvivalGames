@@ -74,7 +74,7 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
 
     public void ActivateSoundKill()
     {
-        if (CountingKill == NumberKill)
+        if (SkillScript.skill.Enable && CountingKill == NumberKill)
         {
             OnReady.Invoke();
         }

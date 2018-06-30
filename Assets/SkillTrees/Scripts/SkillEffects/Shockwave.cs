@@ -46,7 +46,7 @@ public class Shockwave : SimpleSingleton<Shockwave> {
 
     public void ActivateSoundKill()
     {
-        if (CountingKill == NumberKill)
+        if (SkillScript.skill.Enable && CountingKill == NumberKill)
         {
             OnReady.Invoke();
         }

@@ -39,13 +39,15 @@ public class GameManager : MonoBehaviour {
 
     public void OnPlaying(bool _play) { onPlay = _play; }
 
-	private void OnEnable(){
+    public void CheckMouseVisibility()
+    {
         Cursor.visible = GamePadInputs.Instance.IsGamepad ? MouseGamepad : MouseKeyboard;
-		Cursor.lockState = CursorLockMode.Confined;
-	}
+    }
 
     private void Start()
     {
+        CheckMouseVisibility();
+		Cursor.lockState = CursorLockMode.Confined;
         OnStart.Invoke();
     }
 }

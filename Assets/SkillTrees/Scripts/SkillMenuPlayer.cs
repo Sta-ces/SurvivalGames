@@ -60,8 +60,16 @@ public class SkillMenuPlayer : SimpleSingleton<SkillMenuPlayer> {
 
     public void Description(SkillsButtons _button)
     {
-        DescriptionTitle.text = _button.skill.Name;
-        DescriptionText.text = _button.skill.Description;
+        if (_button.skill.Enable)
+        {
+            DescriptionTitle.text = _button.skill.Name;
+            DescriptionText.text = _button.skill.Description;
+        }
+        else
+        {
+            DescriptionTitle.text = "";
+            DescriptionText.text = "";
+        }
     }
 
     public void SetFirstSelected(EventSystem _eventSystem)
