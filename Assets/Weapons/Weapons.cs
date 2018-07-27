@@ -79,15 +79,13 @@ public class Weapons : SimpleSingleton<Weapons> {
     	ResetAmmo();
     }
 
-    private void LateUpdate(){
+    private void FixedUpdate(){
 
 		if( Weapons.Instance.IsShoot ){
 			if( Controls.Shoot )
             {
                 if (!AutomaticShoot.Instance.IsAutoShoot) Shooting();
 				if( Weapons.Instance.IsAmmo ) Weapons.Instance.GetAmmo--;
-
-				WeaponsShoot.Invoke();
 	    	}
 
 			if( Weapons.Instance.IsAmmo )
@@ -106,6 +104,8 @@ public class Weapons : SimpleSingleton<Weapons> {
             Shoot(m_PrefabsBullet, m_LocationSpawnBullet_2, m_SpeedBullet, m_TimeLifeBullet);
             Shoot(m_PrefabsBullet, m_LocationSpawnBullet_3, m_SpeedBullet, m_TimeLifeBullet);
         }
+
+        WeaponsShoot.Invoke();
     }
 
     private IEnumerator Reloading(){

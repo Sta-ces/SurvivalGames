@@ -23,8 +23,8 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     [Header("Death")]
 	public UnityEvent Death;
 
-    
-	private bool deathPlayer = false;
+
+    private bool deathPlayer = false;
 	public bool DeathPlayer{
 		get{ return deathPlayer; }
 		set { deathPlayer = value; }
@@ -63,12 +63,6 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
         } else m_rigidbody.velocity = Vector3.zero;
     }
 
-    private void Update(){
-		if (GameManager.OnPlay && !CharacterControler.Instance.DeathPlayer) {
-			OtherInput ();
-		}
-    }
-
     private void Movement()
     {
         Vector3 velocity = m_rigidbody.velocity;
@@ -91,7 +85,7 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
     {
 		if (Controls.LookX != 0 || Controls.LookZ != 0)
             m_rigidbody.rotation = Quaternion.LookRotation(new Vector3(Controls.LookX, 0, Controls.LookZ));
-		else if(Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+		else if( !(GameManager.IsAndroid || GameManager.IsIOS) && (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0) )
             m_rigidbody.transform.LookAt(PositionMouse());
     }
 
@@ -117,11 +111,6 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
             vect3Mouse = new Vector3(hit.point.x, 0, hit.point.z);
 
         return vect3Mouse;
-    }
-
-    private void OtherInput(){
-		if( Controls.Pause && !DeleteSave.Instance.IsOpen )
-            Display.Instance.SetDisplayPause();
     }
 
     private Rigidbody m_rigidbody;

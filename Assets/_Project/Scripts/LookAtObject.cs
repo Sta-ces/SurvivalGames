@@ -4,7 +4,7 @@ public class LookAtObject : MonoBehaviour {
 
     public Transform ObjectToLookAt;
 
-	void Update () {
+	private void LateUpdate() {
         if(ObjectToLookAt != null)
             transform.LookAt(ObjectToLookAt);
 	}

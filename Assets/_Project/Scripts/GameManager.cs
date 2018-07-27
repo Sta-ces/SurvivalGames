@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     [Header("On Start Video Game")]
     public UnityEvent OnStart;
 
-	private static bool restart = false;
+    private static bool restart = false;
 	public static bool Restart{
 		get{ return restart; }
 		set{ restart = value; }
@@ -27,6 +27,16 @@ public class GameManager : MonoBehaviour {
     {
         get { return onPlay; }
         set { onPlay = value; }
+    }
+
+    public static bool IsAndroid
+    {
+        get { return Application.platform == RuntimePlatform.Android; }
+    }
+
+    public static bool IsIOS
+    {
+        get { return Application.platform == RuntimePlatform.IPhonePlayer; }
     }
 
 	public void PauseGame(){

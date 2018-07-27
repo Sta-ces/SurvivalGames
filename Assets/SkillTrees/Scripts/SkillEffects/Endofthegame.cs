@@ -72,6 +72,18 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
         StartCoroutine("SuperTikiPower");
     }
 
+    public void CheckSuperTiki()
+    {
+        if (PlayerPrefs.GetString("SuperTikiPower", "false").ToLower() == "true")
+        {
+            if (CountingKill >= NumberKill)
+            {
+                print("Super Tiki!");
+                OnSuperPower.Invoke();
+            }
+        }
+    }
+
     public void ActivateSoundKill()
     {
         if (SkillScript.skill.Enable && CountingKill == NumberKill)
@@ -124,20 +136,8 @@ public class Endofthegame : SimpleSingleton<Endofthegame> {
         OnFinishSuperPower.Invoke();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        if(PlayerPrefs.GetString("SuperTikiPower", "false").ToLower() == "true")
-        {
-            if(CountingKill >= NumberKill)
-            {
-                if (Controls.SuperTiki)
-                {
-                    print("Super Tiki!");
-                    OnSuperPower.Invoke();
-                }
-            }
-        }
-        
         if(FindObjectsOfType<Spawning>().Length > 0)
             FinishIt();
     }

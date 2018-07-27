@@ -24,7 +24,8 @@ public class FollowObject : MonoBehaviour {
         }
     }
 
-	void LateUpdate () {
+    private void Update()
+    {
         Follow();
-	}
+    }
 }

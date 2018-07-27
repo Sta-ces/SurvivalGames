@@ -35,10 +35,7 @@ public class Shockwave : SimpleSingleton<Shockwave> {
             {
                 if (CountingKill >= NumberKill)
                 {
-                    if (Controls.Shockwave)
-                    {
-                        ActiveSkill();
-                    }
+                    ActiveSkill();
                 }
             }
         }
@@ -50,11 +47,6 @@ public class Shockwave : SimpleSingleton<Shockwave> {
         {
             OnReady.Invoke();
         }
-    }
-
-    private void Update()
-    {
-        CheckSkill();
     }
 
     private void ActiveSkill()

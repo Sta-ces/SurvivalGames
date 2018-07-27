@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour {
 
-    public string NameOfSceneToLoad;
+    public int NameOfSceneToLoad = 0;
     
 	IEnumerator Start () {
-		if( NameOfSceneToLoad != "")
+		if( NameOfSceneToLoad != 0)
         {
             AsyncOperation async = SceneManager.LoadSceneAsync(NameOfSceneToLoad);
 

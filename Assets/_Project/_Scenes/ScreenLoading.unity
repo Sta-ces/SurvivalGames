@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa374800e4b8dc46a80b55d9ca85608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameOfSceneToLoad: Survival
+  NameOfSceneToLoad: 1
 --- !u!1 &590934441
 GameObject:
   m_ObjectHideFlags: 0

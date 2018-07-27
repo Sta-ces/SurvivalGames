@@ -47,10 +47,7 @@ public class CoolDown : SimpleSingleton<CoolDown> {
             {
                 if (CountingKill >= NumberKill)
                 {
-                    if (Controls.CoolDown)
-                    {
-                        StartCoroutine("ActiveSkill");
-                    }
+                    StartCoroutine("ActiveSkill");
                 }
             }
         }
@@ -62,11 +59,6 @@ public class CoolDown : SimpleSingleton<CoolDown> {
         {
             OnReady.Invoke();
         }
-    }
-
-    private void LateUpdate()
-    {
-        CheckSkill();
     }
 
     private IEnumerator ActiveSkill()

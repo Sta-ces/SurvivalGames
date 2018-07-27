@@ -18,7 +18,9 @@ public class MuteAllSounds : SimpleSingleton<MuteAllSounds> {
 
     private void Update()
     {
-        if(touchMuteSound != null)
+        if (Controls.Mute) MuteSounds();
+
+        if (touchMuteSound != null)
             touchMuteSound.text = Controls.MuteTouch;
     }
 }

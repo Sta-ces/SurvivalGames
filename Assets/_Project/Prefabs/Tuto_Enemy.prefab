@@ -120,7 +120,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 11baee7d9b8f7a847907d8956b1abe2a, type: 3}
+  - {fileID: 2100000, guid: 1a589eb2acea11a45b14cb1333941808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -188,7 +188,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1082205894730930}
-  m_Mesh: {fileID: 4300000, guid: 11baee7d9b8f7a847907d8956b1abe2a, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b875365b203edf0479ddf0e3ba44be16, type: 3}
 --- !u!65 &65348087205647666
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -361,6 +361,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 65348087205647666}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Respawn:
@@ -376,6 +387,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Respawn
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 65348087205647666}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null

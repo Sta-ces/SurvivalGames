@@ -10,11 +10,14 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
     [Range(0,1)]
     public float MotorDuration = 1f;
 
-    [Header("Check each frame")]
-    public UnityEvent OnCheck;
+    [Header("Joystick for Android")]
+    [Tooltip("The Move controler for Android or IOS")]
+    public Joystick joystickMovement;
+    [Tooltip("The Target controler for Android or IOS")]
+    public Joystick joystickTarget;
 
 
-	private Player m_playerInput;
+    private Player m_playerInput;
 	public Player PlayerInput{
 		get{
             return (m_playerInput == null) ? ReInput.players.GetPlayer(0) : m_playerInput;
@@ -55,16 +58,18 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
             PlayerInput.SetVibration(0, MotorSpeed, MotorDuration);
     }
 
+    private void Update()
+    {
+        if (GameManager.IsAndroid || GameManager.IsIOS)
+            SetControlsMobile();
+        else
+        {
+            SetControls();
+            OtherInput();
+        }
+    }
+
     
-
-	private void Update(){
-        SetControls();
-
-		if( Controls.Mute )
-        	MuteAllSounds.Instance.MuteSounds();
-
-        OnCheck.Invoke();
-	}
     
 	public void SetControls()
     {
@@ -120,6 +125,34 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
         }
     }
 
+    private void OtherInput()
+    {
+        if (GameManager.OnPlay && !CharacterControler.Instance.DeathPlayer)
+            if (Controls.Pause && !DeleteSave.Instance.IsOpen)
+                Display.Instance.SetDisplayPause();
+
+        if (Controls.CoolDown)
+            CoolDown.Instance.CheckSkill();
+
+        if (Controls.Shockwave)
+            Shockwave.Instance.CheckSkill();
+
+        if (Controls.SuperTiki)
+            Endofthegame.Instance.CheckSuperTiki();
+    }
+
+    private void SetControlsMobile()
+    {
+        if (joystickMovement != null && joystickTarget != null)
+        {
+            Controls.MoveX = JoystickControls(joystickMovement.Horizontal);
+            Controls.MoveZ = JoystickControls(joystickMovement.Vertical);
+            
+            Controls.LookX = joystickTarget.Horizontal;
+            Controls.LookZ = joystickTarget.Vertical;
+        }
+    }
+
     private string CheckJoystick(string _nameControl)
     {
         string returnValue = "";
@@ -130,5 +163,15 @@ public class GamePadInputs : SimpleSingleton<GamePadInputs> {
                 returnValue = actionElements[0].elementIdentifierName;
         }
         return returnValue;
+    }
+
+    private float JoystickControls(float _value)
+    {
+        float result = 0;
+
+        if (_value > 0) result = 1;
+        else if (_value < 0) result = -1;
+
+        return result;
     }
 }
