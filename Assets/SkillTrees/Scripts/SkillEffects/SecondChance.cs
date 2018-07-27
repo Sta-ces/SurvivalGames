@@ -8,6 +8,12 @@ public class SecondChance : SimpleSingleton<SecondChance> {
     [Header("Activate")]
     public UnityEvent OnActivate;
 
+    [Header("Advertising")]
+    [SerializeField]
+    private bool Ads = false;
+    [SerializeField]
+    private UnityEvent OnAdsDialog;
+
     public bool CheckSkill()
     {
         bool active = false;
@@ -19,7 +25,8 @@ public class SecondChance : SimpleSingleton<SecondChance> {
                 if(extraLife)
                 {
                     active = true;
-                    ActiveSkill();
+                    if (Ads) ShowDialogAds();
+                    else ActiveSkill();
                 }
             }
         }
@@ -27,7 +34,7 @@ public class SecondChance : SimpleSingleton<SecondChance> {
         return active;
     }
 
-    private void ActiveSkill()
+    public void ActiveSkill()
     {
         print("Second Chance!");
         OnActivate.Invoke();
@@ -53,5 +60,10 @@ public class SecondChance : SimpleSingleton<SecondChance> {
                 enemy.Killed();
             }
         }
+    }
+
+    private void ShowDialogAds()
+    {
+        OnAdsDialog.Invoke();
     }
 }

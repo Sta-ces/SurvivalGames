@@ -36,6 +36,12 @@ public class CharacterControler : SimpleSingleton<CharacterControler> {
 	}
 
 
+    public void KillPlayer()
+    {
+        Death.Invoke();
+    }
+
+
     private void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Enemy" || col.gameObject.GetComponent<Boss>())
